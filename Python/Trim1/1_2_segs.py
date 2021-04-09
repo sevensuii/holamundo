@@ -1,0 +1,10 @@
+dias = int( input("Dime los dias: "))
+segsTot = int( dias*24*3600 )
+horas = int( input("Dime las horas: "))
+segsTot = int( segsTot+horas*3600 )
+mins = int( input("Dime los minutos "))
+segsTot = int( segsTot+mins*60 )
+segs = int( input("Dime los segundos: "))
+segsTot = int( segsTot+segs )
+
+print("Los segundos totales son: ", segsTot)
