@@ -1,0 +1,44 @@
+* {
+    background-color: grey;
+    margin: 0;
+    padding: 0;
+}
+
+.nivel1 li {
+    background-color: lightcoral;
+    display: inline-block;
+    margin-left: 3px;
+    margin-top: 3px;
+    border: 1px solid red;
+    position: relative;
+    height: 20px;
+    width: 60px;
+}
+
+.nivel2 {
+    background-color: lightcoral;
+    display: none;
+    margin: 5px;
+    border: 1px solid red;
+    width: 100%;
+}
+
+.nivel3 {
+    background-color: lightcoral;
+    display: none;
+    margin: 5px;
+    border: 1px solid red;
+}
+
+.nivel4 {
+    background-color: lightcoral;
+    display: none;
+    margin: 5px;
+    border: 1px solid red;
+}
+
+.nivel1 li:hover .nivel2 {
+    display: block;
+    position: absolute;
+    left: -6px;
+}

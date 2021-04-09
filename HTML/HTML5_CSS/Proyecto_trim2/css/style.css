@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body {
+    background-image: url('../img/fondo2.jpg');
+}
+
+#container {
+    width: 70%;
+    background-color: whitesmoke;
+    margin: auto;   
+    margin-top: 0px;
+    position: relative;
+}
+
+#portada h1 {
+    font-family: 'Bree Serif', serif;
+    font-size: 80px;
+    margin: auto;
+    margin-top: 0%;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+#portada img {
+    width: 100%;
+}
+
+#menu {
+    padding-left: 26%;
+    background-color: grey;
+    border: 2px solid black;
+}
+
+#menu a {
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+}
+
+#menu ul li ul {
+    display: none;
+}
+
+#menu ul li ul li {
+    display: block;
+    background-color: grey;
+    border: 2px solid black;
+    padding-left: 5px;
+}
+
+#menu ul li {
+    display: inline-block;
+    font-size: 20px;
+}
+
+#menu ul li:hover ul {
+    display: block;
+    position: absolute;
+    left: 25.5%;
+}
+
+#container .apartados {
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 10px;
+    padding: 0px 10px 0px 10px;
+}
+
+#container div p {
+    font-size: 18px;
+    font-family: 'Cairo', sans-serif;
+    padding: 0px 10px 0px 10px;
+}
+
+#container .fin {
+    color: whitesmoke;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#container div iframe {
+    width: 80%;
+    height: 300px;
+    padding-left: 10%;
+    border: none;
+}
+
+#container #formulario {
+    border: 2px solid black;
+    margin: 5px 10px 0 10px;
+    padding: 15px 10px 10px 10px;
+}
+
+#container h3 {
+    font-family: 'Cairo', sans-serif;
+}
+
+#container input[type=text], select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#container textarea {
+    width: 80%;
+    height: 100px;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+#container input[type=submit] {
+    width: 52%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#container input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#container input[type=reset] {
+    width: 20%;
+    background-color: lightcoral;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#container input[type=reset]:hover {
+    background-color: rgb(235, 85, 85);
+}
+
+#container #imagenes {
+    width: 35%;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid black;
+}
+
+#container #imagenes .grandes {
+    display: none;
+    width: 32%;
+    transition: width .5s;
+}
+
+#container #imagenes img {
+    width: 31.5%;
+    transition: width .5s;
+    border: 1px solid whitesmoke;
+}
+
+#container #imagenes img:hover {
+    border: 1px solid black;
+}
+
+#container #imagenes img:hover + img {
+    position: absolute;
+    display: inline-block;
+    width: 58%;
+    left: 40%;
+    top: 56%;
+    transition: width 2s;
+    border: 1px solid black;
+}
