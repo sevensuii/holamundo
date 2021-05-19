@@ -1,25 +1,25 @@
-#def esPrimo(num):
-#    cont = 0
-#    for i in range(1, num+1):
-#        if num % i == 0:
-#            cont += 1
-#
-#    if cont == 2:
-#        return True
-#    else:
-#        return False
-#
-#def esPalindromo(num):
-#    cad = str(num)
-#    cad1 = list(cad)
-#    cad2 = list(reversed(cad1))
-#
-#    if cad1 == cad2:
-#        return True
-#    else:
-#        return False
-#
-#
+def esPrimo(num):
+    cont = 0
+    for i in range(1, num+1):
+        if num % i == 0:
+            cont += 1
+
+    if cont == 2:
+        return True
+    else:
+        return False
+
+def esPalindromo(num):
+    cad = str(num)
+    cad1 = list(cad)
+    cad2 = list(reversed(cad1))
+
+    if cad1 == cad2:
+        return True
+    else:
+        return False
+
+
 #num = int( input("Introduzca su numero: "))
 #bucle = True
 #cont = int(num)
@@ -63,25 +63,25 @@
 #    print(numero[i], end="")
 
 
-def multiplica(lta):
-    if len(lta) == 0:
-        return 1
-    else:
-        num = lta[0]
-        lta.pop(0)
-
-        return num * multiplica(lta)
-
-positivi = False
-lista = [2, 4, 3, 1]
-cop_lista = lista[:]
-for i in lista:
-    if i > 0:
-        positivi = True
-
-    else:
-        print("Tiene un numero negativo o igual a 0, no se hara la multplicacion")
-
-if positivi:
-    resultado = multiplica(cop_lista)
-    print(resultado)
+#def multiplica(lta):
+#    if len(lta) == 0:
+#        return 1
+#    else:
+#        num = lta[0]
+#        lta.pop(0)
+#
+#        return num * multiplica(lta)
+#
+#positivi = False
+#lista = [2, 4, 3, 1]
+#cop_lista = lista[:]
+#for i in lista:
+#    if i > 0:
+#        positivi = True
+#
+#    else:
+#        print("Tiene un numero negativo o igual a 0, no se hara la multplicacion")
+#
+#if positivi:
+#    resultado = multiplica(cop_lista)
+#    print(resultado)
