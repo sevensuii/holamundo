@@ -7,10 +7,18 @@ try:
 
     try:
         with conexion.cursor() as cursor:
-            consulta = 'INSERT INTO tb_aficion(id_aficion, tipo, obs) VALUES(%s, %s, %s);'
+            #consulta = 'INSERT INTO tb_aficion(id_aficion, tipo, obs) VALUES(%s, %s, %s);'
             #Se puede llamar muchas veces a consulta con distintos datos
-            cursor.execute(consulta, (1, 'Motocross', ''))
-            cursor.execute(consulta, (2, 'Surf', ''))
+            #cursor.execute(consulta, (1, 'Motocross', ''))
+            #cursor.execute(consulta, (2, 'Surf', ''))
+
+            #Consulta de datos
+            cursor.execute('SELECT * FROM tb_aficiones;')
+            aficiones = cursor.fetchall()   #Traemos todo a la lista
+            for i in aficiones:
+                print(i)
+
+            
         conexion.commit()
     finally:
         conexion.close()
