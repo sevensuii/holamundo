@@ -1,3 +1,6 @@
+import sys
+sys.path.append('..')
+
 import pymysql
 
 # Conexion a la base de datos
