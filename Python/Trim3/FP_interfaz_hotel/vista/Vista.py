@@ -51,9 +51,9 @@ def ventana_inicio():
     espacio3 = Label(frame_formulario, text=' ', bg='white') #espacio entre el cuadro contraseña y los botones
     espacio3.grid(column=0, row=8, pady=7)
 
-    boton_inicio = Button(frame_formulario, text='Iniciar sesión', command = partial(iniciaSesion, usuario0, contrasena0), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    boton_inicio = Button(frame_formulario, text='Iniciar sesión', command = partial(iniciaSesion, usuario0, contrasena0, principal), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
     boton_inicio.grid(column=0, row=9, sticky='e', padx=3)
-    boton_registro = Button(frame_formulario, text='Regístrate', command = partial(registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    boton_registro = Button(frame_formulario, text='Regístrate', command = partial(ventana_registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
     boton_registro.grid(column=1, row=9, sticky='w', padx=3)
 
     espacio4 = Label(frame_formulario, text=' ', bg='white') #espacio entre el cuadro contraseña y los botones
@@ -68,12 +68,35 @@ def ventana_inicio():
 
     inicio.mainloop()
 
-def registro():
+def ventana_registro():
+    registro = Toplevel()
+    registro.resizable(False, False)
+    frame_cabecera = Frame(registro, bg='white')
+    frame_cabecera.pack(fill='x')
+    texto1 = Label(frame_cabecera, text='Creación de un nuevo usuario', font= ('Noto Serif', 20), bg='#2083E1')
+    texto1.grid(column=0, row=0)
+    resto = Frame(registro, width=500, height=320)
+    resto.pack()
+    zona1 = Frame(resto, width=50)
+    zona1.pack(side=LEFT)
+    zona2 = Frame(resto, width=200)
+    zona2.pack(side=RIGHT)
+    imagen1 = PhotoImage(file='vista/img/diablillo.png')
+    Label(zona1, image=imagen1, bg='red').grid(column=0, row=0)
+    text1 = Label(zona2, text='sda')
+
+
+
+
+
+
+def registrarse():
     print('hola')
 
-def iniciaSesion(u, c):
+def iniciaSesion(u, c, pant):
     print(u.get())
     print(c.get())
+    pant.close()
 
 
 ventana_inicio()

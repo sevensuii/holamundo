@@ -4,5 +4,3 @@ parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 
 from modelo.Modelo import *
-
-print(sys.path)
