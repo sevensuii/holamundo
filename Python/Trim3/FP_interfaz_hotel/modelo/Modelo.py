@@ -21,10 +21,13 @@ def compruebaUsuario(usuario, contrasena):
                 return False
 
     finally:
-        basedatos.close()
+        #basedatos.close()
+        None
 
+def cierraBaseDAtos():
+    basedatos.close()
 
-compruebaUsuario('Linda', '1111')
+#compruebaUsuario('Linda', '1111')
 
 
 
