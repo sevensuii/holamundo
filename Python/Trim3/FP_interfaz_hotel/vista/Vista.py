@@ -4,6 +4,7 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 from tkinter import *
+from tkinter import messagebox
 from functools import partial
 import controlador.Controlador as co
 import tkinter.ttk as ttk
@@ -76,6 +77,7 @@ def ventana_inicio():
 
     espacio4 = Label(frame_formulario, text=' ', bg='white') #espacio entre el cuadro contraseña y los botones
     espacio4.grid(column=0, row=11, pady=5)
+
     #boton_registro
 
     #espacio2 = Label(frame_formulario, text=' ', bg='white')
@@ -153,7 +155,6 @@ def ventana_registro():
     espacio5.grid(column=0, row=11, pady=1)
     
 
-
 ################
 # FIN VENTANAS #
 ################
@@ -166,7 +167,19 @@ def cancelar(pant):
     pant.destroy()
 
 def registrarse(u, d, e, c1, c2, pant):
-    pass
+    if str(c1.get()) != str(c2.get()):
+        messagebox.showwarning('Error', 'Las contraseñas con coinciden')
+    exito, info = co.registraUsuarioC(u.get(), d.get(), e.get() ,c1.get())
+    if exito == 1:
+        messagebox.showinfo('Usuario creado', info)
+        pant.destroy()
+    elif exito == 2:
+        valor = messagebox.askretrycancel('Error', info)
+        if valor:
+            None
+        else:
+            pant.destroy()
+
 
 def iniciaSesionV(u, c, pant):
     #print(u.get())
