@@ -51,6 +51,18 @@ def consultaDNI(dni1):
     finally:
         None
 
+def devuelveDNIusuario(usuario):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta = 'SELECT dni FROM usuarios WHERE nik LIKE %s'
+            cursor.execute(consulta, (usuario))
+            dni2 = str(cursor.fetchall())
+            dni2 = dni2.strip("(),'")
+
+            return str(dni2)
+    finally:
+        None
+
 def creaUsuario(usr, dni, email, contra):
     try:
         with basedatos.cursor() as cursor:
