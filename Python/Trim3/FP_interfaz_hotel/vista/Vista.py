@@ -12,7 +12,7 @@ import time
 
 inicio=Tk()
 inicio.resizable(False, False)
-#inicio.geometry('640x320')
+inicio.geometry('560x350')
 
 #############################################
 # CARGA DE IMAGENES COMO VARIABLES GLOBALES #
@@ -21,20 +21,32 @@ inicio.resizable(False, False)
 img_diablillo  = PhotoImage(file='vista/img/diablillo.png')
 img_usuario = PhotoImage(file='vista/img/usuario4.png')
 #img_cargando = [PhotoImage(file='vista/img/loading.gif', format='gif -index %i' %(i)) for i in range(9)]
-img_admin = PhotoImage(file='vista/img/admin.png')
+img_admin = PhotoImage(file='vista/img/admin3.png')
 
 #######
 # FIN #
 #######
+
+######################
+# VARIABLES GLOBALES #
+######################
+
+#nombre_usuario_dentro = ''
+#dni_usuario_dentro = ''
+
+##########################
+# FIN VARIABLES GLOBALES #
+##########################
 
 ############
 # VENTANAS #
 ############
 
 def ventana_inicio():
-
+    inicio.geometry('560x350')
+    
     principal = Frame(inicio, width=640, height=320, bg='white')
-    principal.pack()
+    principal.pack(expand=YES, fill=BOTH)
 
     frame_imagen1 = Frame(principal, width=300, height=320, bg='white')
     frame_imagen1.pack(side=LEFT)
@@ -101,7 +113,6 @@ def ventana_registro():
     zona1.pack(side=LEFT, padx=10)
     zona2 = Frame(resto, width=200, bg='white')
     zona2.pack(side=RIGHT, padx=10)
-    #imagen1 = PhotoImage(file='vista/img/diablillo.png')
     Label(zona1, image=img_usuario, bg='white').grid(column=0, row=0)
     espacio1 = Label(zona2, text=' ', bg='white')
     espacio1.grid(column=0, row=0, pady=5)
@@ -155,6 +166,56 @@ def ventana_registro():
     espacio5.grid(column=0, row=11, pady=1)
     
 
+def menu_admin():
+    principal = Frame(inicio, width=1280, height=720)
+    principal.pack(expand=YES, fill=BOTH)
+    frame_menu_admin = Frame(principal, width=400, height=720)
+    frame_menu_admin.pack(side=LEFT)
+    Label(frame_menu_admin, image=img_admin).grid(column=0, row=0)
+    usuario1 = Label(frame_menu_admin, text=nombre_usuario_dentro, font= ('Noto Serif', 15),  relief='solid', bd=2, padx=10, pady=10)
+    usuario1.grid(column=0, row=1)
+
+    espacio1 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio1.grid(column=0, row=2)
+
+    boton1 = Button(frame_menu_admin, text='Clientes', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton1.grid(column=0, row=3)
+
+    boton2 = Button(frame_menu_admin, text='Habitaciones', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton2.grid(column=0, row=4)
+
+    boton3 = Button(frame_menu_admin, text='Cierra sesión', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton3.grid(column=0, row=5)
+
+    espacio2 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio2.grid(column=0, row=6, pady=20)
+
+
+def menu_usuario():
+    inicio.geometry('700x420')
+    principal = Frame(inicio, width=1280, height=720)
+    principal.pack(expand=YES, fill=BOTH)
+    frame_menu_admin = Frame(principal, width=400, height=720)
+    frame_menu_admin.pack(side=LEFT)
+    Label(frame_menu_admin, image=img_usuario).grid(column=0, row=0)
+    usuario1 = Label(frame_menu_admin, text=nombre_usuario_dentro, font= ('Noto Serif', 15),  relief='solid', bd=2, padx=10, pady=10)
+    usuario1.grid(column=0, row=1)
+
+    espacio1 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio1.grid(column=0, row=2)
+
+    boton1 = Button(frame_menu_admin, text='Mi ficha', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton1.grid(column=0, row=3)
+
+    boton2 = Button(frame_menu_admin, text='Mis reservas', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton2.grid(column=0, row=4)
+
+    boton3 = Button(frame_menu_admin, text='Cierra sesión', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(cierraSesion, principal))
+    boton3.grid(column=0, row=5)
+
+    espacio2 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio2.grid(column=0, row=6, pady=20)
+
 ################
 # FIN VENTANAS #
 ################
@@ -169,30 +230,41 @@ def cancelar(pant):
 def registrarse(u, d, e, c1, c2, pant):
     if str(c1.get()) != str(c2.get()):
         messagebox.showwarning('Error', 'Las contraseñas con coinciden')
-    exito, info = co.registraUsuarioC(u.get(), d.get(), e.get() ,c1.get())
-    if exito == 1:
-        messagebox.showinfo('Usuario creado', info)
-        pant.destroy()
-    elif exito == 2:
-        valor = messagebox.askretrycancel('Error', info)
-        if valor:
-            None
-        else:
+    
+    else:
+        exito = co.registraUsuarioC(u.get(), d.get(), e.get() ,c1.get())
+        if exito == 1:
+            messagebox.showinfo('Usuario creado', 'Su usuario se ha creado exitosamente!')
             pant.destroy()
+        elif exito == 2:
+            valor = messagebox.askretrycancel('Error', 'El DNI que ha introducido ya se encuentra registrado.')
+            if valor:
+                d.set('')
+            else:
+                pant.destroy()
+        elif exito == 3:
+            valor = messagebox.askretrycancel('Error', 'El usuario que ha introducido ya se encuentra registrado.')
+            if valor:
+                u.set('')
+            else:
+                pant.destroy()
 
 
 def iniciaSesionV(u, c, pant):
     #print(u.get())
     #print(c.get())
     #pant.destroy()
-    #comprobacion = co.iniciaSesionC(u, c)
+    global nombre_usuario_dentro
+    global dni_usuario_dentro
+    comprobacion, dni_usuario_dentro = co.iniciaSesionC(u.get(), c.get())
+    #nombre_usuario_dentro = u.get()
+    nombre_usuario_dentro = 'severyn'
     comprobacion = True
     if comprobacion:
         # Inicio de sesion correcto
         vent = Toplevel()
         miframe = Frame(vent, width=200, height=400)
         miframe.pack()
-        #imagen3 = PhotoImage(file='vista/img/loading.gif')
         barra_carga = ttk.Progressbar(miframe, orient='horizontal', mode='determinate', maximum=100, value=0, length=400)
         barra_carga.grid(column=0, row=0)
         miframe.update()
@@ -205,7 +277,15 @@ def iniciaSesionV(u, c, pant):
             time.sleep(0.01)
         
         vent.destroy()
-        #pant.destroy()
+        pant.destroy()
+        #menu_admin()
+        menu_usuario()
+
+def cierraSesion(pant):
+    pant.destroy()
+    nombre_usuario_dentro = ''
+    dni_usuario_dentro = ''
+    ventana_inicio()
 
 
 #################
