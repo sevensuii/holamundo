@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>A01_Actividades_JS</title>
+    <style>
+        body {
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+<body>
+    <h2>EJERCICIO 1</h2>
+    <script>
+        const pi = 3.1416;
+        var radio = prompt('Introduzca el radio de la circunferencia:');
+        var longitud = 2 * pi * radio;
+        var area = pi * radio^2;
+        document.write('La longitud es: ' + longitud + '<br>');
+        document.write('Y su área es: ' + area + '<br><br>');
+    </script>
+    <h2>EJERCICIO 2</h2>
+    <script>
+        var nombre = prompt('Introduzca su nombre: ');
+        var apellid = prompt('Introduzca su primer apellido: ');
+        var poblacion = prompt('Introduzca la ciudad en la que vives: ');
+        document.write('=========================<br>');
+        document.write('Hola ' + nombre + ' ' + apellid + '<br>');
+        document.write('Adiós habitante de ' + poblacion + '<br>')
+        document.write('=========================');
+    </script>
+    <h2>EJERCICIO 3</h2>
+    <script>
+        var numero = prompt('Introduzca un numero entero: ');
+        num_hex = Number(numero).toString(16); //Convierte el numero a hexadecimal
+        document.write('Su numero en hexadecimal es: ' + num_hex + '<br>');
+        num_bin = Number(numero).toString(2); //Convierte el numero a binario
+        document.write('Su nunero en binario es: ' + num_bin);
+    </script>
+    <h2>EJERCICIO 4</h2>
+    <script>
+        var numero = prompt('Introduzca un numero en base octal: ');
+        var numero_cad = numero.toString()
+        var num_dec = parseInt(numero_cad, 8); //Convierte un numero de la base deseada a entero
+        document.write(num_dec);
+    </script>
+    <h2>EJERCICIO 6</h2>
+    <script>
+        letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        var numero = prompt('Introduzca su DNI, sin letra: ');
+        if((numero >= 0)  && (numero <= 99999999)){
+            var resto = numero % 23;
+            alert('Su DNI completo es: ' + numero + letras[resto]);
+        }
+        else{
+            alert('El numero no se encuentra dentro del intervalo correcto!');
+        }
+    </script>
+    <h2>EJERCICIO 7</h2>
+    <script>
+        var cadena = prompt('Introduzca una frase: ');
+        lista = cadena.split(' ');
+        document.write('Su cadena tiene ' + lista.length + ' palabras');
+        document.write('<br>La primera palabra es ' + lista[0] + ' y la ultima ' + lista[lista.length-1]);
+        document.write('<br>Las palabras ordenadas de A a Z son: ' + lista.sort());
+        document.write('<br>Las palabras ordenadas de Z a A son: ' + lista.sort().reverse());
+    </script>
+</body>
+</html>
