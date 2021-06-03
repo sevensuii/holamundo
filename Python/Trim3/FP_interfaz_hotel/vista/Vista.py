@@ -44,7 +44,7 @@ img_admin = PhotoImage(file='vista/img/admin3.png')
 
 def ventana_inicio():
     inicio.geometry('560x350')
-    
+
     principal = Frame(inicio, width=640, height=320, bg='white')
     principal.pack(expand=YES, fill=BOTH)
 
@@ -167,6 +167,7 @@ def ventana_registro():
     
 
 def menu_admin():
+    inicio.geometry('700x420')
     principal = Frame(inicio, width=1280, height=720)
     principal.pack(expand=YES, fill=BOTH)
     frame_menu_admin = Frame(principal, width=400, height=720)
@@ -184,7 +185,7 @@ def menu_admin():
     boton2 = Button(frame_menu_admin, text='Habitaciones', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
     boton2.grid(column=0, row=4)
 
-    boton3 = Button(frame_menu_admin, text='Cierra sesión', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton3 = Button(frame_menu_admin, text='Cierra sesión', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(cierraSesion, principal))
     boton3.grid(column=0, row=5)
 
     espacio2 = Label(frame_menu_admin, text=' ', bg='white')
@@ -278,8 +279,8 @@ def iniciaSesionV(u, c, pant):
         
         vent.destroy()
         pant.destroy()
-        #menu_admin()
-        menu_usuario()
+        menu_admin()
+        #menu_usuario()
 
 def cierraSesion(pant):
     pant.destroy()
