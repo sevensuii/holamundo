@@ -6,8 +6,9 @@ sys.path.append(parentdir)
 import modelo.Modelo as mo
 
 def iniciaSesionC(u, c):
-    valor = mo.compruebaUsuario(u, c)
-    return valor
+    valor1 = mo.compruebaUsuario(u, c)
+    valor2 = mo.devuelveDNIusuario(u)
+    return valor1, valor2
 
 def registraUsuarioC(u, d, e, c):
     usr1 = str(u)
@@ -16,16 +17,14 @@ def registraUsuarioC(u, d, e, c):
     contra1 = str(c)
     usr2 = str(mo.consultaUsuario(u)).lower()
     dni2 = str(mo.consultaDNI(d)).lower()
-    msg_info = ''
+    #msg_info = ''
     if usr1.lower() == usr2.lower():
-        msg_info = 'El usuario ya existe, pruebe con otro.'
-        return 1, msg_info
+        #El usuario ya existe, pruebe con otro.
+        return 3
     elif dni1.upper() == dni2.upper():
-        msg_info = 'El dni que ha introducido ya se encuentra registrado.'
-        return 2, msg_info
+        #El dni que ha introducido ya se encuentra registrado.
+        return 2
     else:
         mo.creaUsuario(usr1, dni1, email1, contra1)
-        msg_info = 'El usuario se ha creado correctamente!'
-        return 2, msg_info
-
-registraUsuarioC('Saraa', '23456789P', 'dasdad', '123')
+        #El usuario se ha creado correctamente!
+        return 1
