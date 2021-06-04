@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <style>
+        body{
+            background-color: white;
+        }
+        table {
+            border: 2px solid;
+            border-spacing: 0;
+        }
+        table tr, td{
+            border: 2px solid;
+            margin: 0;
+            padding: 4px;
+            }
+    </style>
+</head>
+<body>
+    <h2>EJERCICIO 1</h2>
+    <script>
+        function pintaImpares(n, m){
+            var cad = 'IMPARES';
+            var letraX = 'x';
+            var signo = '=';
+            document.write(cad.fontcolor('blue'));
+            document.write('<table>');
+            for(i = m; i > 0; i--){
+                if(i % 2 == 1){
+                    document.write('<tr><td>' + i + '</td><td>' + letraX.fontcolor('blue') + '</td><td>' + n + '</td><td>' + signo.fontcolor('blue') + '</td><td bgcolor="blue">' + (i * n) + '</td></tr>');
+                }
+            }
+            document.write('</table>');
+
+        }
+        function pintaPares(n, m){
+            var cad = 'PARES';
+            var letraX = 'x';
+            var signo = '=';
+            document.write(cad.fontcolor('red'));
+            document.write('<table>');
+            for(i = m; i > 0; i--){
+                if(i % 2 == 0){
+                    document.write('<tr><td>' + i + '</td><td>' + letraX.fontcolor('red') + '</td><td>' + n + '</td><td>' + signo.fontcolor('red') + '</td><td bgcolor="red">' + (i * n) + '</td></tr>');
+                }
+            }
+            document.write('</table>');
+        }
+
+        var num = prompt('Introduzca el numero a multiplicar: ');
+        var limite = prompt('Introduzca hasta que numero desea multiplicar: ');
+        pintaImpares(num, limite);
+        document.write('<br><br>')
+        pintaPares(num, limite);
+    </script>
+</body>
+</html>
