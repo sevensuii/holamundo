@@ -12,33 +12,33 @@
 <body>
     <h2>EJERCICIO 1</h2>
     <script>
-        //function contarOcurrencias(cadena, caracter){
-        //    var lista = cadena.split('');
-        //    var ocurrencias = 0;
-        //    for (i = 0; i < lista.length; i++){
-        //        if (lista[i] == caracter){
-        //            ocurrencias ++;
-        //        }
-        //    }
-        //    alert('El caracter se repite: ' + ocurrencias + ' veces.');
-        //}
-        //var cad = prompt('Introduzca su cadena: ');
-        //var car = prompt('Introduzca el caracter a contar: ');
-        //contarOcurrencias(cad, car);
+        function contarOcurrencias(cadena, caracter){
+            var lista = cadena.split('');
+            var ocurrencias = 0;
+            for (i = 0; i < lista.length; i++){
+                if (lista[i] == caracter){
+                    ocurrencias ++;
+                }
+            }
+            alert('El caracter se repite: ' + ocurrencias + ' veces.');
+        }
+        var cad = prompt('Introduzca su cadena: ');
+        var car = prompt('Introduzca el caracter a contar: ');
+        contarOcurrencias(cad, car);
     </script>
     <h2>EJERCICIO 2</h2>
     <script>
-        //function agregarIndice(cadena){
-        //    var lista = cadena.split('');
-        //    var cad = '';
-        //    for(i = 0; i < lista.length; i++){
-        //        cad += lista[i] + i;
-        //    }
-        //    return cad;
-        //}
-        //var cadena1 = prompt('Introduzca su cadena: ');
-        //var valor = agregarIndice(cadena1);
-        //alert(valor);
+        function agregarIndice(cadena){
+            var lista = cadena.split('');
+            var cad = '';
+            for(i = 0; i < lista.length; i++){
+                cad += lista[i] + i;
+            }
+            return cad;
+        }
+        var cadena1 = prompt('Introduzca su cadena: ');
+        var valor = agregarIndice(cadena1);
+        alert(valor);
     </script>
     <h2>EJERCICIO 3</h2>
     <script>
