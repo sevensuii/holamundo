@@ -28,3 +28,11 @@ def registraUsuarioC(u, d, e, c):
         mo.creaUsuario(usr1, dni1, email1, contra1)
         #El usuario se ha creado correctamente!
         return 1
+
+def recibeDatosC(opcion):
+    if opcion == 1:
+        resultado = mo.recibeClientes()
+        return resultado
+    elif opcion == 2:
+        resultado = mo.recibeHabitaciones()
+        return resultado
