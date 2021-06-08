@@ -27,6 +27,37 @@ def compruebaUsuario(usuario, contrasena):
 def cierraBaseDAtos():
     basedatos.close()
 
+
+def recibeClientes():
+    try:
+        with basedatos.cursor() as cursor:
+            consulta = 'SELECT id_cliente, DNI, nombre, apellidos, fecha_nac, num_tlf, correo_e, direccion FROM tb_cliente'
+            cursor.execute(consulta)
+            resultados = cursor.fetchall()
+            #resultados = resultados.strip("(),'")
+            print(resultados)
+            return resultados
+
+    finally:
+        #basedatos.close()
+        None
+
+def recibeHabitaciones():
+    try:
+        with basedatos.cursor() as cursor:
+            consulta = 'SELECT id_habitacion, m2, piso, nombre, precio FROM tb_habitacion, tb_categoria WHERE tb_habitacion.id_categoria = tb_categoria.id_categoria'
+            cursor.execute(consulta)
+            resultados = cursor.fetchall()
+            #resultados = resultados.strip("(),'")
+            print(resultados)
+            return resultados
+
+    finally:
+        #basedatos.close()
+        None
+
+
+
 def consultaUsuario(usuario):
     try:
         with basedatos.cursor() as cursor:
