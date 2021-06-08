@@ -167,11 +167,16 @@ def ventana_registro():
     
 
 def menu_admin():
-    inicio.geometry('700x420')
+    inicio.geometry('1340x500')
     principal = Frame(inicio, width=1280, height=720)
     principal.pack(expand=YES, fill=BOTH)
-    frame_menu_admin = Frame(principal, width=400, height=720)
-    frame_menu_admin.pack(side=LEFT)
+    frame_menu_admin = LabelFrame(principal,text='', width=400, height=720, padx=10)
+    frame_menu_admin.pack(side=LEFT, padx=10)
+
+    frame_datos = Frame(principal, width=560, bg='white')
+    frame_datos.pack(side=RIGHT, padx=150)
+    Label(frame_datos, text='Welcome!!', font=('Courgette', 70), bg='white').grid(column=0, row=0, padx=150)
+
     Label(frame_menu_admin, image=img_admin).grid(column=0, row=0)
     usuario1 = Label(frame_menu_admin, text=nombre_usuario_dentro, font= ('Noto Serif', 15),  relief='solid', bd=2, padx=10, pady=10)
     usuario1.grid(column=0, row=1)
@@ -179,7 +184,7 @@ def menu_admin():
     espacio1 = Label(frame_menu_admin, text=' ', bg='white')
     espacio1.grid(column=0, row=2)
 
-    boton1 = Button(frame_menu_admin, text='Clientes', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton1 = Button(frame_menu_admin, text='Clientes', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(muestraClientes, principal, frame_datos))
     boton1.grid(column=0, row=3)
 
     boton2 = Button(frame_menu_admin, text='Habitaciones', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
@@ -191,6 +196,42 @@ def menu_admin():
     espacio2 = Label(frame_menu_admin, text=' ', bg='white')
     espacio2.grid(column=0, row=6, pady=20)
 
+    
+
+def muestraClientes(principal, pant):
+    pant.destroy()
+    frame_datos = Frame(principal, width=560, bg='white')
+    frame_datos.pack(side=RIGHT, padx=15)
+
+    Label(frame_datos, text='Clientes', font=('Courgette', 40), bg='white').grid(column=0, row=0)
+
+    muestra = ttk.Treeview(frame_datos, height=15, columns=('id_cliente', 'DNI', 'nombre', 'apellidos', 'fecha_nac', 'num_tlf', 'correo_e', 'direccion'))
+
+    muestra.heading('id_cliente', text='ID')
+    muestra.heading('DNI', text='DNI')
+    muestra.heading('nombre', text='Nombre')
+    muestra.heading('apellidos', text='Apellidos')
+    muestra.heading('fecha_nac', text='F. Nacimiento')
+    muestra.heading('num_tlf', text='Teléfono')
+    muestra.heading('correo_e', text='Correo')
+    muestra.heading('direccion', text='Dirección')
+
+    muestra['show'] = 'headings'
+
+    muestra.column('id_cliente', width=35)
+    muestra.column('DNI', width=100)
+    muestra.column('nombre', width=150)
+    muestra.column('apellidos', width=250)
+    muestra.column('fecha_nac', width=100)
+    muestra.column('num_tlf', width=100)
+    muestra.column('correo_e', width=170)
+    muestra.column('direccion', width=200)
+
+    muestra.grid(column=0, row=1, columnspan=5)
+
+    datos = recibeDatos()
+    for i in datos:
+        muestra.insert('', END, values=i)
 
 def menu_usuario():
     inicio.geometry('700x420')
@@ -250,6 +291,15 @@ def registrarse(u, d, e, c1, c2, pant):
             else:
                 pant.destroy()
 
+def insertaArbol(arbol, datos):
+    for i in datos:
+        arbol.insert('', 'end', values=i)
+
+
+def recibeDatos():
+    datos = co.recibeDatosC()
+    return datos
+
 
 def iniciaSesionV(u, c, pant):
     #print(u.get())
@@ -294,5 +344,3 @@ def cierraSesion(pant):
 #################
 
 ventana_inicio()
-
-#r4r int
