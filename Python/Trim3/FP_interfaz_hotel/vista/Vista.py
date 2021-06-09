@@ -22,6 +22,7 @@ img_diablillo  = PhotoImage(file='vista/img/diablillo.png')
 img_usuario = PhotoImage(file='vista/img/usuario4.png')
 #img_cargando = [PhotoImage(file='vista/img/loading.gif', format='gif -index %i' %(i)) for i in range(9)]
 img_admin = PhotoImage(file='vista/img/admin3.png')
+img_hab = PhotoImage(file='vista/img/hab2.png')
 
 #######
 # FIN #
@@ -166,40 +167,49 @@ def ventana_registro():
     espacio5.grid(column=0, row=11, pady=1)
     
 
-def menu_admin():
-    inicio.geometry('1340x500')
-    principal = Frame(inicio, width=1280, height=720)
+def menu_admin(mensaje):
+    inicio.geometry('1390x500')
+    principal = Frame(inicio, width=1280, height=720, bg='white')
     principal.pack(expand=YES, fill=BOTH)
     frame_menu_admin = LabelFrame(principal,text='', width=400, height=720, padx=10)
     frame_menu_admin.pack(side=LEFT, padx=10)
 
-    frame_datos = Frame(principal, width=560, bg='white')
-    frame_datos.pack(side=RIGHT, padx=150)
-    Label(frame_datos, text='Welcome!!', font=('Courgette', 70), bg='white').grid(column=0, row=0, padx=150)
+    if mensaje == 1:
+        frame_datos = Frame(principal, width=560, bg='white')
+        frame_datos.pack(side=RIGHT, padx=150)
+        Label(frame_datos, text='Welcome!!', font=('Courgette', 70), bg='white').grid(column=0, row=0, padx=150)
+    else:
+        frame_datos = Frame(principal, width=560, bg='white')
+        frame_datos.pack(side=RIGHT, padx=150)
+        Label(frame_datos, text='', font=('Courgette', 70), bg='white').grid(column=0, row=0, padx=150)
+        frame_datos.destroy()
 
     Label(frame_menu_admin, image=img_admin).grid(column=0, row=0)
     usuario1 = Label(frame_menu_admin, text=nombre_usuario_dentro, font= ('Noto Serif', 15),  relief='solid', bd=2, padx=10, pady=10)
     usuario1.grid(column=0, row=1)
 
-    espacio1 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio1 = Label(frame_menu_admin, text=' ')
     espacio1.grid(column=0, row=2)
 
-    boton1 = Button(frame_menu_admin, text='Clientes', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(muestraClientes, principal, frame_datos))
+    boton1 = Button(frame_menu_admin, text='Clientes', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(muestraClientes, principal))
     boton1.grid(column=0, row=3)
 
-    boton2 = Button(frame_menu_admin, text='Habitaciones', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
+    boton2 = Button(frame_menu_admin, text='Habitaciones', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(muestraHabitacion, principal))
     boton2.grid(column=0, row=4)
 
     boton3 = Button(frame_menu_admin, text='Cierra sesión', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(cierraSesion, principal))
     boton3.grid(column=0, row=5)
 
-    espacio2 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio2 = Label(frame_menu_admin, text=' ')
     espacio2.grid(column=0, row=6, pady=20)
+
+    return principal
 
     
 
-def muestraClientes(principal, pant):
-    pant.destroy()
+def muestraClientes(principal):
+    principal.destroy()
+    principal = menu_admin(0)
     frame_datos = Frame(principal, width=560, bg='white')
     frame_datos.pack(side=RIGHT, padx=15)
 
@@ -227,15 +237,86 @@ def muestraClientes(principal, pant):
     muestra.column('correo_e', width=170)
     muestra.column('direccion', width=200)
 
-    muestra.grid(column=0, row=1, columnspan=5)
+    muestra.grid(column=0, row=1, columnspan=10)
 
-    datos = recibeDatos()
+    boton1 = Button(frame_datos, text='Añadir', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(registraCliente))
+    boton1.grid(column=1, row=2)
+    
+    boton4 = Button(frame_datos, text='Actualizar', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(muestraClientes, principal))
+    boton4.grid(column=2, row=2)
+
+    boton2 = Button(frame_datos, text='Editar', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(editaCliente, muestra))
+    boton2.grid(column=3, row=2)
+
+    boton3 = Button(frame_datos, text='Eliminar', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(eliminaDato, 0, muestra))
+    boton3.grid(column=4, row=2)
+
+    #espacio1 = Label(frame_datos, text='', bg='blue')
+    #espacio1.grid(column=4, row=2, padx=90)
+
+    espacio2 = Label(frame_datos, text=' ', bg='white')
+    espacio2.grid(column=0, row=3, pady=20)
+
+    datos = co.recibeDatosC(1)
     for i in datos:
         muestra.insert('', END, values=i)
 
+    return frame_datos
+
+
+def muestraHabitacion(principal):
+    principal.destroy()
+    principal = menu_admin(0)
+    frame_datos = Frame(principal, width=560, bg='white')
+    frame_datos.pack(side=RIGHT, padx=15, anchor='w')
+
+    Label(frame_datos, text='Habitaciones', font=('Courgette', 40), bg='white').grid(column=0, row=0, columnspan=3)
+
+    muestra = ttk.Treeview(frame_datos, style='mystyle.Treeview',height=15, columns=('id_habitacion', 'm2', 'piso', 'nombre', 'precio'))
+
+    muestra.heading('id_habitacion', text='ID')
+    muestra.heading('m2', text='m2')
+    muestra.heading('piso', text='Piso')
+    muestra.heading('nombre', text='Tipo')
+    muestra.heading('precio', text='Precio')
+
+    muestra['show'] = 'headings'
+
+    muestra.column('id_habitacion', width=35)
+    muestra.column('m2', width=100)
+    muestra.column('piso', width=100)
+    muestra.column('nombre', width=200)
+    muestra.column('precio', width=100)
+
+    muestra.grid(column=0, row=1, columnspan=10, padx=10, sticky='w')
+
+    boton1 = Button(frame_datos, text='Añadir', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(registraHabitacion))
+    boton1.grid(column=0, row=2, padx=5)
+
+    boton4 = Button(frame_datos, text='Actualizar', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(muestraHabitacion, principal))
+    boton4.grid(column=1, row=2, sticky='e', padx=5)
+
+    boton2 = Button(frame_datos, text='Editar', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(editaHabitacion, muestra))
+    boton2.grid(column=2, row=2, padx=5)
+
+    boton3 = Button(frame_datos, text='Eliminar', font= ('Noto Serif', 11), width=11, relief='groove', bd=3, command=partial(eliminaDato, 1, muestra))
+    boton3.grid(column=3, row=2, padx=5)
+
+    espacio1 = Label(frame_datos, text='', bg='white')
+    espacio1.grid(column=5, row=2, padx=300)
+
+    espacio2 = Label(frame_datos, text=' ', bg='white')
+    espacio2.grid(column=0, row=3, pady=20)
+
+    datos = co.recibeDatosC(2)
+    for i in datos:
+        muestra.insert('', END, values=i)
+
+    return frame_datos
+
 def menu_usuario():
     inicio.geometry('700x420')
-    principal = Frame(inicio, width=1280, height=720)
+    principal = Frame(inicio, width=1280, height=720, bg='white')
     principal.pack(expand=YES, fill=BOTH)
     frame_menu_admin = Frame(principal, width=400, height=720)
     frame_menu_admin.pack(side=LEFT)
@@ -243,7 +324,7 @@ def menu_usuario():
     usuario1 = Label(frame_menu_admin, text=nombre_usuario_dentro, font= ('Noto Serif', 15),  relief='solid', bd=2, padx=10, pady=10)
     usuario1.grid(column=0, row=1)
 
-    espacio1 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio1 = Label(frame_menu_admin, text=' ')
     espacio1.grid(column=0, row=2)
 
     boton1 = Button(frame_menu_admin, text='Mi ficha', font= ('Noto Serif', 15), width=15, relief='groove', bd=3)
@@ -255,9 +336,309 @@ def menu_usuario():
     boton3 = Button(frame_menu_admin, text='Cierra sesión', font= ('Noto Serif', 15), width=15, relief='groove', bd=3, command=partial(cierraSesion, principal))
     boton3.grid(column=0, row=5)
 
-    espacio2 = Label(frame_menu_admin, text=' ', bg='white')
+    espacio2 = Label(frame_menu_admin, text=' ')
     espacio2.grid(column=0, row=6, pady=20)
 
+def registraCliente():
+    registro = Toplevel()
+    registro.resizable(False, False)
+    frame_cabecera = Frame(registro, width=500, bg='#2083E1')
+    frame_cabecera.pack(fill='x', expand=True)
+    texto1 = Label(frame_cabecera, text='Creación de un nuevo cliente', font= ('Noto Serif', 20), bg='#2083E1')
+    texto1.grid(column=0, row=0)
+    resto = Frame(registro, width=500, bg='white')
+    resto.pack()
+    zona1 = Frame(resto, width=50)
+    zona1.pack(side=LEFT, padx=10)
+    zona2 = Frame(resto, width=200, bg='white')
+    zona2.pack(side=RIGHT, padx=10)
+    Label(zona1, image=img_usuario, bg='white').grid(column=0, row=0)
+    espacio1 = Label(zona2, text=' ', bg='white')
+    espacio1.grid(column=0, row=0, pady=5)
+
+    nombre_us0 = StringVar()
+    nombre_us1 = Label(zona2, text='Nombre', font = ('Source Serif Pro', 15), bg='white')
+    nombre_us1.grid(column=0, row=1, sticky='w', padx=6)
+    nombre_us2 = Entry(zona2, textvariable=nombre_us0, font = ('Source Serif Pro', 15))
+    nombre_us2.grid(column=0, row=2, sticky='w', padx=6)
+    
+    apellidos_us0 = StringVar()
+    apellidos_us1 = Label(zona2, text='Apellidos', font = ('Source Serif Pro', 15), bg='white')
+    apellidos_us1.grid(column=1, row=1, sticky='w', padx=6)
+    apellidos_us2 = Entry(zona2, textvariable=apellidos_us0, font = ('Source Serif Pro', 15))
+    apellidos_us2.grid(column=1, row=2, sticky='w', padx=6)
+    
+    Label(zona2, text=' ', bg='white').grid(column=0, row=3, pady=1)
+
+    dni0 = StringVar()
+    dni1= Label(zona2, text='DNI', font = ('Source Serif Pro', 15), bg='white')
+    dni1.grid(column=0, row=4, sticky='w', padx=6)
+    dni2 = Entry(zona2, textvariable=dni0, font = ('Source Serif Pro', 15))
+    dni2.grid(column=0, row=5, sticky='w', padx=6)
+    
+    tlf0 = StringVar()
+    tlf1= Label(zona2, text='Teléfono', font = ('Source Serif Pro', 15), bg='white')
+    tlf1.grid(column=1, row=4, sticky='w', padx=6)
+    tlf2 = Entry(zona2, textvariable=tlf0, font = ('Source Serif Pro', 15))
+    tlf2.grid(column=1, row=5, sticky='w', padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=6, pady=1)
+
+    email0 = StringVar()
+    email1 = Label(zona2, text='E-mail', font = ('Source Serif Pro', 15), bg='white')
+    email1.grid(column=0, row=7, sticky='w', padx=6)
+    email2 = Entry(zona2, textvariable=email0, font = ('Source Serif Pro', 15), width=42)
+    email2.grid(column=0, row=8, sticky='w', columnspan=2, padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=9, pady=1)
+
+    fechaN0 = StringVar()
+    fechaN1= Label(zona2, text='F. Nac(aaaa-mm-dd)', font = ('Source Serif Pro', 15), bg='white')
+    fechaN1.grid(column=0, row=10, sticky='w', padx=6)
+    fechaN2 = Entry(zona2, textvariable=fechaN0, font = ('Source Serif Pro', 15))
+    fechaN2.grid(column=0, row=11, sticky='w', padx=6)
+    
+    pais0 = StringVar()
+    pais1= Label(zona2, text='País', font = ('Source Serif Pro', 15), bg='white')
+    pais1.grid(column=1, row=10, sticky='w', padx=6)
+    pais2 = Entry(zona2, textvariable=pais0, font = ('Source Serif Pro', 15))
+    pais2.grid(column=1, row=11, sticky='w', padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=12, pady=1)
+
+    dir0 = StringVar()
+    dir1 = Label(zona2, text='Dirección', font = ('Source Serif Pro', 15), bg='white')
+    dir1.grid(column=0, row=13, sticky='w', padx=6)
+    dir2 = Entry(zona2, textvariable=dir0, font = ('Source Serif Pro', 15), width=42)
+    dir2.grid(column=0, row=14, sticky='w', columnspan=2, padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=15, pady=1)
+    #espacio3 = Label(zona2, text=' ', bg='white')
+    #espacio3.grid(column=0, row=6, pady=1)
+
+
+    #bot_registro = Button(zona2, text='Registrarme', command = partial(registrarse, nombre_us0, dni0, email0, contrasena0, contrasena3, registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_registro = Button(zona2, text='Crear cliente', cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black', command=partial(creaCliente, nombre_us0, apellidos_us0, dni0, tlf0, email0, fechaN0, pais0, dir0, registro))
+    bot_registro.grid(column=0, row=16, sticky='e', padx=5)
+    bot_cancela = Button(zona2, text='Cancelar', command = partial(cancelar, registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_cancela.grid(column=1, row=16, sticky='w',padx=5)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=17, pady=1)
+
+
+def editaCliente(arbol):
+    registro = Toplevel()
+    registro.resizable(False, False)
+    frame_cabecera = Frame(registro, width=500, bg='#2083E1')
+    frame_cabecera.pack(fill='x', expand=True)
+    texto1 = Label(frame_cabecera, text='Creación de un nuevo cliente', font= ('Noto Serif', 20), bg='#2083E1')
+    texto1.grid(column=0, row=0)
+    resto = Frame(registro, width=500, bg='white')
+    resto.pack()
+    zona1 = Frame(resto, width=50)
+    zona1.pack(side=LEFT, padx=10)
+    zona2 = Frame(resto, width=200, bg='white')
+    zona2.pack(side=RIGHT, padx=10)
+    Label(zona1, image=img_usuario, bg='white').grid(column=0, row=0)
+    espacio1 = Label(zona2, text=' ', bg='white')
+    espacio1.grid(column=0, row=0, pady=5)
+
+    datos1 = sacaDatos(0, arbol)
+ 
+    nombre_us0 = StringVar()
+    nombre_us0.set(datos1[0])
+    nombre_us1 = Label(zona2, text='Nombre', font = ('Source Serif Pro', 15), bg='white')
+    nombre_us1.grid(column=0, row=1, sticky='w', padx=6)
+    nombre_us2 = Entry(zona2, textvariable=nombre_us0, font = ('Source Serif Pro', 15))
+    nombre_us2.grid(column=0, row=2, sticky='w', padx=6)
+    
+    apellidos_us0 = StringVar()
+    apellidos_us0.set(datos1[2])
+    apellidos_us1 = Label(zona2, text='Apellidos', font = ('Source Serif Pro', 15), bg='white')
+    apellidos_us1.grid(column=1, row=1, sticky='w', padx=6)
+    apellidos_us2 = Entry(zona2, textvariable=apellidos_us0, font = ('Source Serif Pro', 15))
+    apellidos_us2.grid(column=1, row=2, sticky='w', padx=6)
+    
+    Label(zona2, text=' ', bg='white').grid(column=0, row=3, pady=1)
+
+    dni0 = StringVar()
+    dni0.set(datos1[3])
+    dni1= Label(zona2, text='DNI', font = ('Source Serif Pro', 15), bg='white')
+    dni1.grid(column=0, row=4, sticky='w', padx=6)
+    dni2 = Entry(zona2, textvariable=dni0, font = ('Source Serif Pro', 15))
+    dni2.grid(column=0, row=5, sticky='w', padx=6)
+    
+    tlf0 = StringVar()
+    tlf0.set(datos1[4])
+    tlf1= Label(zona2, text='Teléfono', font = ('Source Serif Pro', 15), bg='white')
+    tlf1.grid(column=1, row=4, sticky='w', padx=6)
+    tlf2 = Entry(zona2, textvariable=tlf0, font = ('Source Serif Pro', 15))
+    tlf2.grid(column=1, row=5, sticky='w', padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=6, pady=1)
+
+    email0 = StringVar()
+    email0.set(datos1[5])
+    email1 = Label(zona2, text='E-mail', font = ('Source Serif Pro', 15), bg='white')
+    email1.grid(column=0, row=7, sticky='w', padx=6)
+    email2 = Entry(zona2, textvariable=email0, font = ('Source Serif Pro', 15), width=42)
+    email2.grid(column=0, row=8, sticky='w', columnspan=2, padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=9, pady=1)
+
+    fechaN0 = StringVar()
+    fechaN0.set(datos1[6])
+    fechaN1= Label(zona2, text='F. Nac(aaaa-mm-dd)', font = ('Source Serif Pro', 15), bg='white')
+    fechaN1.grid(column=0, row=10, sticky='w', padx=6)
+    fechaN2 = Entry(zona2, textvariable=fechaN0, font = ('Source Serif Pro', 15))
+    fechaN2.grid(column=0, row=11, sticky='w', padx=6)
+    
+    pais0 = StringVar()
+    pais0.set(datos1[7])
+    pais1= Label(zona2, text='País', font = ('Source Serif Pro', 15), bg='white')
+    pais1.grid(column=1, row=10, sticky='w', padx=6)
+    pais2 = Entry(zona2, textvariable=pais0, font = ('Source Serif Pro', 15))
+    pais2.grid(column=1, row=11, sticky='w', padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=12, pady=1)
+
+    dir0 = StringVar()
+    dir0.set(datos1[8])
+    dir1 = Label(zona2, text='Dirección', font = ('Source Serif Pro', 15), bg='white')
+    dir1.grid(column=0, row=13, sticky='w', padx=6)
+    dir2 = Entry(zona2, textvariable=dir0, font = ('Source Serif Pro', 15), width=42)
+    dir2.grid(column=0, row=14, sticky='w', columnspan=2, padx=6)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=15, pady=1)
+    #espacio3 = Label(zona2, text=' ', bg='white')
+    #espacio3.grid(column=0, row=6, pady=1)
+
+
+    #bot_registro = Button(zona2, text='Crear cliente', cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black', command=partial(creaCliente, nombre_us0, apellidos_us0, dni0, tlf0, email0, fechaN0, pais0, dir0, registro))
+    bot_registro = Button(zona2, text='Crear cliente', cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_registro.grid(column=0, row=16, sticky='e', padx=5)
+    bot_cancela = Button(zona2, text='Cancelar', command = partial(cancelar, registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_cancela.grid(column=1, row=16, sticky='w',padx=5)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=17, pady=1)
+
+
+def registraHabitacion():
+    registro = Toplevel()
+    registro.resizable(False, False)
+    frame_cabecera = Frame(registro, width=500, bg='#2083E1')
+    frame_cabecera.pack(fill='x', expand=True)
+    texto1 = Label(frame_cabecera, text='Añada una nueva habitación', font= ('Noto Serif', 20), bg='#2083E1')
+    texto1.grid(column=0, row=0)
+    resto = Frame(registro, width=500, bg='white')
+    resto.pack()
+    zona1 = Frame(resto, width=50)
+    zona1.pack(side=LEFT, padx=10)
+    zona2 = Frame(resto, width=200, bg='white')
+    zona2.pack(side=RIGHT, padx=10)
+    Label(zona1, image=img_hab, bg='white').grid(column=0, row=0)
+    espacio1 = Label(zona2, text=' ', bg='white')
+    espacio1.grid(column=0, row=0, pady=5)
+
+    m20 = StringVar()
+    m21 = Label(zona2, text='m2', font = ('Source Serif Pro', 15), bg='white')
+    m21.grid(column=0, row=1, sticky='w', padx=6)
+    m22 = Entry(zona2, textvariable=m20, font = ('Source Serif Pro', 15))
+    m22.grid(column=0, row=2, sticky='w', padx=6)
+    
+    Label(zona2, text=' ', bg='white').grid(column=0, row=3, pady=1)
+    
+    tipo0 = StringVar()
+    tipo1 = Label(zona2, text='Tipo', font = ('Source Serif Pro', 15), bg='white')
+    tipo1.grid(column=0, row=4, sticky='w', padx=6)
+    tipo2 = ttk.Combobox(zona2, font = ('Source Serif Pro', 15), state='readonly', textvariable=tipo0)
+    tipo2['values'] = ('', 'Individual', 'Individual -vista al mar', 'Doble', 'Doble -vista al mar', 'Familiar', 'Familiar -vista al mar', 'Suite', 'Suite -vista al mar')
+    tipo2.grid(column=0, row=5, sticky='w',)
+    
+    #tipo2 = Entry(zona2, textvariable=tipo0, font = ('Source Serif Pro', 15))
+    #tipo2.grid(column=0, row=5, sticky='w', padx=6)
+    
+    Label(zona2, text=' ', bg='white').grid(column=0, row=6, pady=1)
+
+    piso0 = StringVar()
+    piso1= Label(zona2, text='Piso', font = ('Source Serif Pro', 15), bg='white')
+    piso1.grid(column=0, row=7, sticky='w', padx=6)
+    piso2 = Entry(zona2, textvariable=piso0, font = ('Source Serif Pro', 15))
+    piso2.grid(column=0, row=8, sticky='w', padx=6)
+    
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=9, pady=1)
+
+    
+    #bot_registro = Button(zona2, text='Registrarme', command = partial(registrarse, nombre_us0, dni0, email0, contrasena0, contrasena3, registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_registro = Button(zona2, text='Añadir habitación', cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black', command=partial(creaHab, m20, piso0, tipo0, registro))
+    bot_registro.grid(column=0, row=10, sticky='e', padx=5)
+    bot_cancela = Button(zona2, text='Cancelar', command = partial(cancelar, registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_cancela.grid(column=1, row=10, sticky='w',padx=5)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=11, pady=1)
+
+
+def editaHabitacion(arbol):
+    registro = Toplevel()
+    registro.resizable(False, False)
+    frame_cabecera = Frame(registro, width=500, bg='#2083E1')
+    frame_cabecera.pack(fill='x', expand=True)
+    texto1 = Label(frame_cabecera, text='Editar una habitación', font= ('Noto Serif', 20), bg='#2083E1')
+    texto1.grid(column=0, row=0)
+    resto = Frame(registro, width=500, bg='white')
+    resto.pack()
+    zona1 = Frame(resto, width=50)
+    zona1.pack(side=LEFT, padx=10)
+    zona2 = Frame(resto, width=200, bg='white')
+    zona2.pack(side=RIGHT, padx=10)
+    Label(zona1, image=img_hab, bg='white').grid(column=0, row=0)
+    espacio1 = Label(zona2, text=' ', bg='white')
+    espacio1.grid(column=0, row=0, pady=5)
+
+    datos1 = sacaDatos(1, arbol)
+
+    m20 = StringVar()
+    m20.set(datos1[0])
+    m21 = Label(zona2, text='m2', font = ('Source Serif Pro', 15), bg='white')
+    m21.grid(column=0, row=1, sticky='w', padx=6)
+    m22 = Entry(zona2, textvariable=m20, font = ('Source Serif Pro', 15))
+    m22.grid(column=0, row=2, sticky='w', padx=6)
+    
+    Label(zona2, text=' ', bg='white').grid(column=0, row=3, pady=1)
+    
+    tipo0 = StringVar()
+    tipo0.set(datos1[1])
+    tipo1 = Label(zona2, text='Tipo', font = ('Source Serif Pro', 15), bg='white')
+    tipo1.grid(column=0, row=4, sticky='w', padx=6)
+    tipo2 = ttk.Combobox(zona2, font = ('Source Serif Pro', 15), state='readonly', textvariable=tipo0)
+    tipo2['values'] = ('', 'Individual', 'Individual -vista al mar', 'Doble', 'Doble -vista al mar', 'Familiar', 'Familiar -vista al mar', 'Suite', 'Suite -vista al mar')
+    tipo2.grid(column=0, row=5, sticky='w',)
+    
+    #tipo2 = Entry(zona2, textvariable=tipo0, font = ('Source Serif Pro', 15))
+    #tipo2.grid(column=0, row=5, sticky='w', padx=6)
+    
+    Label(zona2, text=' ', bg='white').grid(column=0, row=6, pady=1)
+
+    piso0 = StringVar()
+    piso0.set(datos1[2])
+    piso1= Label(zona2, text='Piso', font = ('Source Serif Pro', 15), bg='white')
+    piso1.grid(column=0, row=7, sticky='w', padx=6)
+    piso2 = Entry(zona2, textvariable=piso0, font = ('Source Serif Pro', 15))
+    piso2.grid(column=0, row=8, sticky='w', padx=6)
+    
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=9, pady=1)
+
+    
+    #bot_registro = Button(zona2, text='Registrarme', command = partial(registrarse, nombre_us0, dni0, email0, contrasena0, contrasena3, registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_registro = Button(zona2, text='Actualizar', cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black', command=partial(editaHab, 1, m20, tipo0, piso0, datos1[3], registro))
+    bot_registro.grid(column=0, row=10, sticky='e', padx=5)
+    bot_cancela = Button(zona2, text='Cancelar', command = partial(cancelar, registro), cursor = 'hand1', font = ('Source Serif Pro', 10), fg='black')
+    bot_cancela.grid(column=1, row=10, sticky='w',padx=5)
+
+    Label(zona2, text=' ', bg='white').grid(column=0, row=11, pady=1)
+    
 ################
 # FIN VENTANAS #
 ################
@@ -265,6 +646,23 @@ def menu_usuario():
 ########################################
 # FUNCIONES PARA LLAMAR AL CONTROLADOR #
 ########################################
+
+def sacaDatos(indice, arbol):
+    item_seleccionado = arbol.selection()[0]
+    valores = tuple(arbol.item(item_seleccionado)['values'])
+    print(valores)
+    if indice == 0:
+        datos = co.devuelveDatos(0, valores)
+    elif indice == 1:
+        datos = co.devuelveDatos(1, valores)
+
+    return datos
+
+def editaHab(ind, m2, cat, piso, ide, pant):
+    co.editaDatosHabC(m2, cat, piso, ide)
+    messagebox.showinfo('Actualizado', 'Datos actualizados correctamente')
+    pant.destroy()
+    
 
 def cancelar(pant):
     pant.destroy()
@@ -291,26 +689,38 @@ def registrarse(u, d, e, c1, c2, pant):
             else:
                 pant.destroy()
 
-def insertaArbol(arbol, datos):
-    for i in datos:
-        arbol.insert('', 'end', values=i)
+def creaHab(metros, piso, cat, pant):
+    co.aniadeHabitacionC(metros, piso, cat)
+    messagebox.showinfo('Habitacion creada', 'Su habitación se ha creado satisfactoriamente')
+    pant.destroy()
 
+def creaCliente(nombre, apellidos, dni, tlf, email, fechaN, pais, direc, pant):
+    co.creaClienteC(nombre, apellidos, dni, tlf, email, fechaN, pais, direc)
+    messagebox.showinfo('Crear Cliente', 'Cliente creado exitosamente')
+    pant.destroy()
 
-def recibeDatos():
-    datos = co.recibeDatosC()
-    return datos
-
+def eliminaDato(indice, arbol):
+    item_seleccionado = arbol.selection()[0]
+    valores = tuple(arbol.item(item_seleccionado)['values'])
+    print(valores)
+    co.eliminaDatosC(indice, valores)
+    if indice == 0:
+        messagebox.showinfo('Delete', 'Cliente borrado exitosamente')
+    elif indice == 1:
+        messagebox.showinfo('Delete', 'Habitacion eliminada exitosamente')
 
 def iniciaSesionV(u, c, pant):
-    #print(u.get())
-    #print(c.get())
+    print(u.get())
+    print(c.get())
     #pant.destroy()
+    global rol_usuario_dentro
     global nombre_usuario_dentro
     global dni_usuario_dentro
     comprobacion, dni_usuario_dentro = co.iniciaSesionC(u.get(), c.get())
-    #nombre_usuario_dentro = u.get()
-    nombre_usuario_dentro = 'severyn'
-    comprobacion = True
+    nombre_usuario_dentro = u.get()
+    rol_usuario_dentro = 'admin'
+    #nombre_usuario_dentro = 'severyn'
+    #comprobacion = True
     if comprobacion:
         # Inicio de sesion correcto
         vent = Toplevel()
@@ -329,11 +739,14 @@ def iniciaSesionV(u, c, pant):
         
         vent.destroy()
         pant.destroy()
-        menu_admin()
+        menu_admin(1)
         #menu_usuario()
+    else:
+        messagebox.showerror('Error', 'Usuario o contraseña incorrecta')
 
 def cierraSesion(pant):
     pant.destroy()
+    rol_usuario_dentro = ''
     nombre_usuario_dentro = ''
     dni_usuario_dentro = ''
     ventana_inicio()
