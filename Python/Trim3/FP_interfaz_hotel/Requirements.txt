@@ -1,0 +1,1 @@
+Antes de ejecutar el programa, hay que tener las fuentes de la carpeta fonts instaladas en el ordenador
