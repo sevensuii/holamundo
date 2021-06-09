@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>EJERCICCIO 2</h2>
+    <script>
+        var cadena = prompt('Introduzca su cadena: ');
+        function pintaCaracteres(cad1, cad2){
+            var colores = ['black', 'black', 'black' ,'black', 'black']; //pinta cada letra en funcion del color que haya en el array
+            for(i = 0; i < cad1.length; i++){
+                if(cad1[i] == 1){
+                    colores[i] = 'blue';
+                }
+                else if(cad1[i] >= 2){
+                    colores[i] = 'red';
+                }
+            }
+            var cad3 = cad2;
+            console.log(cad3);
+            cad3 = cad3.split('');
+            cad3.reverse()
+            console.log(cad3);
+            var letra = 'z';
+            for(i = 0; i < cad3.length; i++){
+                if(cad3[i] == 'a'){
+                    letra = 'a';
+                    document.write(letra.fontcolor(colores[0]));
+                }
+                if(cad3[i] == 'e'){
+                    letra = 'e';
+                    document.write(letra.fontcolor(colores[1]));
+                }
+                if(cad3[i] == 'i'){
+                    letra = 'i';
+                    document.write(letra.fontcolor(colores[2]));
+                }
+                if(cad3[i] == 'o'){
+                    letra = 'o';
+                    document.write(letra.fontcolor(colores[3]));
+                }
+                if(cad3[i] == 'u'){
+                    letra = 'u';
+                    document.write(letra.fontcolor(colores[4]));
+                }
+                else{
+                    letra = cad3[i];
+                    document.write(letra)};
+            }
+        }
+
+        function cuentaCaracteres(cad1){
+            var cad2 = cad1.split('');
+            var vocales = 0;
+            var caracteres = 0;
+            var espacios = 0;                   //La lista cuenta las veces que se repite cada vocal
+            var apariciones = [ 0, 0, 0, 0, 0]  // [a, e, i. o. u]
+            for(i = 0; i < cad2.length; i++){
+                if ( cad2[i] == 'a'){
+                    vocales++;
+                    apariciones[0]++;
+                }
+                else if ( cad2[i] == 'e'){
+                    vocales++;
+                    apariciones[1]++;
+                }
+                else if ( cad2[i] == 'i'){
+                    vocales++;
+                    apariciones[2]++;
+                }
+                else if ( cad2[i] == 'o'){
+                    vocales++;
+                    apariciones[3]++;
+                }
+                else if ( cad2[i] == 'u'){
+                    vocales++;
+                    apariciones[4]++;
+                }
+                else if ( cad2[i] == ' '){
+                    espacios++;
+                }
+                else{
+                    caracteres++;
+                }
+                
+            }
+            pintaCaracteres(apariciones, cad1);
+            document.write('<br>Cantidad de caracteres: ' + (vocales + caracteres + espacios));
+            document.write('<br>Vocales: ' + vocales);
+            document.write('<br>Espacios: ' + espacios);
+            document.write('<br>Otros caracteres: ' + caracteres);
+
+            return apariciones;
+        }
+        cuentaCaracteres(cadena);
+    </script>
+</body>
+</html>
