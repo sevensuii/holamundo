@@ -34,7 +34,6 @@ def recibeClientes():
             consulta = 'SELECT id_cliente, DNI, nombre, apellidos, fecha_nac, num_tlf, correo_e, direccion FROM tb_cliente'
             cursor.execute(consulta)
             resultados = cursor.fetchall()
-            #resultados = resultados.strip("(),'")
             print(resultados)
             return resultados
 
@@ -45,10 +44,9 @@ def recibeClientes():
 def recibeHabitaciones():
     try:
         with basedatos.cursor() as cursor:
-            consulta = 'SELECT id_habitacion, m2, piso, nombre, precio FROM tb_habitacion, tb_categoria WHERE tb_habitacion.id_categoria = tb_categoria.id_categoria'
+            consulta = 'SELECT id_habitacion, m2, piso, nombre, precio FROM tb_habitacion, tb_categoria WHERE tb_habitacion.id_categoria = tb_categoria.id_categoria ORDER BY id_habitacion'
             cursor.execute(consulta)
             resultados = cursor.fetchall()
-            #resultados = resultados.strip("(),'")
             print(resultados)
             return resultados
 
@@ -104,6 +102,110 @@ def creaUsuario(usr, dni, email, contra):
             ultimo_id = ultimo_id + 1
             consulta2 = 'INSERT INTO usuarios(id_usuario, dni, nik, clave, email, rol) VALUES(%s, %s, %s, %s, %s, %s)'
             cursor.execute(consulta2, (ultimo_id, dni, usr, contra, email, 'usr'))
+        basedatos.commit()
+
+            #return str(dni2)
+    finally:
+        None
+
+def eliminaHabitacion(id):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta1 = 'DELETE FROM tb_habitacion WHERE id_habitacion = %s'
+            cursor.execute(consulta1, (id))
+        basedatos.commit()
+    finally:
+        None
+
+def eliminaCliente(id):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta1 = 'DELETE FROM tb_cliente WHERE id_cliente = %s'
+            cursor.execute(consulta1, (id))
+        basedatos.commit()
+    finally:
+        None
+
+def creaClienteM(nombre, apellidos, dni, tlf, email, fecha, pais, dire):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta1 = 'SELECT id_cliente FROM tb_cliente ORDER BY id_cliente DESC LIMIT 1'
+            cursor.execute(consulta1)
+            ultimo_id = str(cursor.fetchall())
+            ultimo_id = int(ultimo_id.strip("(),'"))
+            ultimo_id = ultimo_id + 1
+            consulta2 = 'INSERT INTO tb_cliente(id_cliente, DNI, nombre, apellidos, fecha_nac, correo_e, direccion, num_tlf, pais) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)'
+            cursor.execute(consulta2, (ultimo_id, dni, nombre, apellidos, fecha, email, dire, tlf, pais))
+        basedatos.commit()
+
+            #return str(dni2)
+    finally:
+        None
+
+def devuelveDatosClienteM(ide):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta = 'SELECT nombre, apellidos, DNI, num_tlf, correo_e, fecha_nac, pais, direccion, id_cliente FROM tb_cliente WHERE id_cliente = %s LIMIT 1'
+            cursor.execute(consulta, (ide))
+            datos = str(cursor.fetchall())
+            datos = datos[2:].replace('),', '')
+            datos = datos.replace(')', '')
+            datos = datos.replace("'", '')
+            datos = datos.split(', ')
+            print(datos)
+
+            return datos
+
+    finally:
+        None
+
+def devuelveDatosHab(ide):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta = 'SELECT m2, nombre, piso, id_habitacion FROM tb_habitacion, tb_categoria WHERE tb_habitacion.id_categoria = tb_categoria.id_categoria AND id_habitacion = %s LIMIT 1'
+            cursor.execute(consulta, (ide))
+            datos = str(cursor.fetchall())
+            datos = datos[2:].replace('),', '')
+            datos = datos.replace(')', '')
+            datos = datos.replace("'", '')
+            datos = datos.split(', ')
+            #print(datos)
+
+            return datos
+
+    finally:
+        None
+
+def actualizaHab(ide, m2, nombre, piso):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta3 = 'SELECT id_categoria FROM tb_categoria WHERE tb_categoria.nombre LIKE %s ORDER BY id_categoria DESC LIMIT 1'
+            cursor.execute(consulta3, (nombre))
+            categor = str(cursor.fetchall())
+            print(categor)
+            categor = int(categor.strip("(),'"))
+            consulta1 = 'UPDATE tb_habitacion SET m2 = %s, piso = %s, id_categoria = %s WHERE id_habitacion = %s'
+            cursor.execute(consulta1, (m2, piso, categor, ide))
+        basedatos.commit()
+
+            #return str(dni2)
+    finally:
+        None
+
+def aniadeHabitacionM(m2, piso, cat):
+    try:
+        with basedatos.cursor() as cursor:
+            consulta1 = 'SELECT id_habitacion FROM tb_habitacion ORDER BY id_habitacion DESC LIMIT 1'
+            cursor.execute(consulta1)
+            ultimo_id = str(cursor.fetchall())
+            ultimo_id = int(ultimo_id.strip("(),'"))
+            ultimo_id = ultimo_id + 1
+            consulta3 = 'SELECT id_categoria FROM tb_categoria WHERE tb_categoria.nombre LIKE %s ORDER BY id_categoria DESC LIMIT 1'
+            cursor.execute(consulta3, (cat))
+            categor = str(cursor.fetchall())
+            categor = int(categor.strip("(),'"))
+            consulta2 = 'INSERT INTO tb_habitacion(id_habitacion, m2, piso, id_categoria) VALUES(%s, %s, %s, %s)'
+            cursor.execute(consulta2, (ultimo_id, m2, piso, categor))
         basedatos.commit()
 
             #return str(dni2)
