@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Modelo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Modelo</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/modelo/Modelo.py">/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/modelo/Modelo.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pymysql.html">pymysql</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-actualizaHab"><strong>actualizaHab</strong></a>(ide, m2, nombre, piso)</dt><dd><tt>Actualiza&nbsp;los&nbsp;datos&nbsp;de&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Actualiza&nbsp;los&nbsp;datos&nbsp;de&nbsp;la&nbsp;habitación&nbsp;del&nbsp;id&nbsp;proporcionado.<br>
+&nbsp;<br>
+Parámetros:<br>
+ide&nbsp;-----&gt;&nbsp;id&nbsp;de&nbsp;la&nbsp;habitación<br>
+m2&nbsp;------&gt;&nbsp;metros&nbsp;cuadrados&nbsp;de&nbsp;la&nbsp;habitación<br>
+nombre&nbsp;--&gt;&nbsp;categoría&nbsp;de&nbsp;la&nbsp;habitación<br>
+piso&nbsp;----&gt;&nbsp;piso&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;la&nbsp;habitación</tt></dd></dl>
+ <dl><dt><a name="-aniadeHabitacionM"><strong>aniadeHabitacionM</strong></a>(m2, piso, cat)</dt><dd><tt>Crea&nbsp;una&nbsp;nueva&nbsp;habitación.<br>
+&nbsp;<br>
+Crea&nbsp;una&nbsp;nueva&nbsp;habitación&nbsp;con&nbsp;los&nbsp;parámetros&nbsp;proporcionados.<br>
+&nbsp;<br>
+Parámetros:<br>
+m2&nbsp;----&gt;&nbsp;metros&nbsp;cuadrados&nbsp;de&nbsp;la&nbsp;habitación<br>
+piso&nbsp;--&gt;&nbsp;piso&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;la&nbsp;habitación<br>
+cat&nbsp;---&gt;&nbsp;categoría&nbsp;de&nbsp;la&nbsp;habitación</tt></dd></dl>
+ <dl><dt><a name="-cierraBaseDAtos"><strong>cierraBaseDAtos</strong></a>()</dt><dd><tt>Cierra&nbsp;la&nbsp;conexión&nbsp;con&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-compruebaUsuario"><strong>compruebaUsuario</strong></a>(usuario, contrasena)</dt><dd><tt>Comprueba&nbsp;si&nbsp;un&nbsp;usuario&nbsp;existe&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;usuario,&nbsp;lo&nbsp;busca&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos,&nbsp;si&nbsp;este&nbsp;existe,&nbsp;saca&nbsp;su&nbsp;contraseña&nbsp;con&nbsp;la&nbsp;recibida&nbsp;como&nbsp;parámetro,&nbsp;<br>
+y&nbsp;si&nbsp;coinciden,&nbsp;devuelve&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-consultaDNI"><strong>consultaDNI</strong></a>(dni1)</dt><dd><tt>Consulta&nbsp;si&nbsp;el&nbsp;dni&nbsp;existe&nbsp;dentro&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;dni&nbsp;como&nbsp;cadena&nbsp;de&nbsp;caracteres,&nbsp;busca&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;si&nbsp;existe,&nbsp;<br>
+devuelve&nbsp;el&nbsp;dni,&nbsp;si&nbsp;no&nbsp;existe,&nbsp;devuelve&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía.</tt></dd></dl>
+ <dl><dt><a name="-consultaUsuario"><strong>consultaUsuario</strong></a>(usuario)</dt><dd><tt>Consulta&nbsp;si&nbsp;un&nbsp;usuario&nbsp;existe&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;<br>
+Recibe&nbsp;el&nbsp;nombre&nbsp;del&nbsp;usuario&nbsp;como&nbsp;cadena&nbsp;de&nbsp;caracteres,&nbsp;busca&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;si&nbsp;existe,<br>
+devuelve&nbsp;el&nbsp;nombre&nbsp;del&nbsp;usuario,&nbsp;si&nbsp;no&nbsp;existe,&nbsp;devuelve&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía.</tt></dd></dl>
+ <dl><dt><a name="-creaClienteM"><strong>creaClienteM</strong></a>(nombre, apellidos, dni, tlf, email, fecha, pais, dire)</dt><dd><tt>Crea&nbsp;un&nbsp;cliente&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;<br>
+Crea&nbsp;un&nbsp;cliente&nbsp;dentro&nbsp;de&nbsp;tb_cliente.<br>
+&nbsp;<br>
+Parámetros:<br>
+nombre&nbsp;-----&gt;&nbsp;nombre&nbsp;del&nbsp;cliente&nbsp;(no&nbsp;puede&nbsp;ser&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía)<br>
+apelldiso&nbsp;--&gt;&nbsp;apellidos&nbsp;del&nbsp;cliente&nbsp;(no&nbsp;puede&nbsp;ser&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía)<br>
+dni&nbsp;--------&gt;&nbsp;dni&nbsp;del&nbsp;cliente&nbsp;(no&nbsp;puede&nbsp;ser&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía)<br>
+tlf&nbsp;--------&gt;&nbsp;número&nbsp;de&nbsp;teléfono&nbsp;del&nbsp;cliente&nbsp;(no&nbsp;debería&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía,&nbsp;pero&nbsp;no&nbsp;lanzaría&nbsp;error&nbsp;si&nbsp;lo&nbsp;fuera)<br>
+email&nbsp;------&gt;&nbsp;correo&nbsp;electrónico&nbsp;del&nbsp;cliente&nbsp;(no&nbsp;debería&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía,&nbsp;pero&nbsp;no&nbsp;lanzaría&nbsp;error&nbsp;si&nbsp;lo&nbsp;fuera)<br>
+fecha&nbsp;------&gt;&nbsp;fecha&nbsp;de&nbsp;nacimiento&nbsp;del&nbsp;cliente&nbsp;(debe&nbsp;tener&nbsp;el&nbsp;siguiente&nbsp;formato:&nbsp;aaaa-mm-dd)<br>
+pais&nbsp;-------&gt;&nbsp;país&nbsp;de&nbsp;residencia&nbsp;del&nbsp;cliente&nbsp;(no&nbsp;debería&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía,&nbsp;pero&nbsp;no&nbsp;lanzaría&nbsp;error&nbsp;si&nbsp;lo&nbsp;fuera)<br>
+dire&nbsp;-------&gt;&nbsp;dirección&nbsp;del&nbsp;domicilio&nbsp;del&nbsp;cliente&nbsp;(no&nbsp;debería&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía,&nbsp;pero&nbsp;no&nbsp;lanzaría&nbsp;error&nbsp;si&nbsp;lo&nbsp;fuera)</tt></dd></dl>
+ <dl><dt><a name="-creaUsuario"><strong>creaUsuario</strong></a>(usr, dni, email, contra)</dt><dd><tt>Crea&nbsp;el&nbsp;usuario&nbsp;dentro&nbsp;de&nbsp;la&nbsp;tabla&nbsp;usuarios.<br>
+&nbsp;<br>
+Crea&nbsp;un&nbsp;nuevo&nbsp;usuario&nbsp;con&nbsp;los&nbsp;parámetros&nbsp;que&nbsp;se&nbsp;le&nbsp;pasan.<br>
+&nbsp;<br>
+Parámetros:<br>
+usr&nbsp;-----&gt;&nbsp;nombre&nbsp;del&nbsp;usuario&nbsp;(no&nbsp;puede&nbsp;ser&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía)<br>
+dni&nbsp;-----&gt;&nbsp;dni&nbsp;del&nbsp;usuario&nbsp;(no&nbsp;puede&nbsp;ser&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía)<br>
+email&nbsp;---&gt;&nbsp;email&nbsp;del&nbsp;usuario&nbsp;(no&nbsp;debería&nbsp;de&nbsp;ser&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía&nbsp;pero&nbsp;se&nbsp;aceptaría)<br>
+contra&nbsp;--&gt;&nbsp;contraseña&nbsp;del&nbsp;usuario&nbsp;(no&nbsp;puede&nbsp;ser&nbsp;una&nbsp;cadena&nbsp;de&nbsp;caracteres&nbsp;vacía)</tt></dd></dl>
+ <dl><dt><a name="-devuelveDNIusuario"><strong>devuelveDNIusuario</strong></a>(usuario)</dt><dd><tt>Devuelve&nbsp;el&nbsp;dni&nbsp;de&nbsp;un&nbsp;usuario.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;usuario&nbsp;como&nbsp;cadena&nbsp;de&nbsp;caraceteres,&nbsp;busca&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;si&nbsp;existe<br>
+dni&nbsp;para&nbsp;ese&nbsp;usuario,&nbsp;si&nbsp;existe&nbsp;devuelve&nbsp;el&nbsp;dni&nbsp;del&nbsp;usuario,&nbsp;si&nbsp;no&nbsp;existe,&nbsp;devuelve&nbsp;una<br>
+cadena&nbsp;de&nbsp;caracteres&nbsp;vacía.</tt></dd></dl>
+ <dl><dt><a name="-devuelveDatosClienteM"><strong>devuelveDatosClienteM</strong></a>(ide)</dt><dd><tt>Devuelve&nbsp;los&nbsp;datos&nbsp;del&nbsp;cliente&nbsp;deseado.<br>
+&nbsp;<br>
+Devuelve&nbsp;todos&nbsp;los&nbsp;datos&nbsp;del&nbsp;cliente,&nbsp;después&nbsp;de&nbsp;haberlos&nbsp;filtrado&nbsp;para&nbsp;devolver&nbsp;cada&nbsp;campo&nbsp;en&nbsp;una&nbsp;lista.<br>
+&nbsp;<br>
+Parámetros:<br>
+ide&nbsp;--&gt;&nbsp;id&nbsp;del&nbsp;cliente&nbsp;que&nbsp;desea&nbsp;sacar&nbsp;los&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-devuelveDatosHab"><strong>devuelveDatosHab</strong></a>(ide)</dt><dd><tt>Devuelve&nbsp;los&nbsp;datos&nbsp;de&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Devuelve&nbsp;los&nbsp;datos&nbsp;de&nbsp;la&nbsp;habitación,&nbsp;después&nbsp;de&nbsp;haberlos&nbsp;filtrado&nbsp;para&nbsp;devolver&nbsp;cada&nbsp;campo&nbsp;en&nbsp;una&nbsp;lista.<br>
+&nbsp;<br>
+Parámetros:<br>
+ide&nbsp;--&gt;&nbsp;id&nbsp;de&nbsp;la&nbsp;habitacion&nbsp;que&nbsp;desea&nbsp;sacar&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-eliminaCliente"><strong>eliminaCliente</strong></a>(id)</dt><dd><tt>Elimina&nbsp;un&nbsp;cliente.<br>
+&nbsp;<br>
+Elimina&nbsp;el&nbsp;cliente&nbsp;deseado&nbsp;de&nbsp;la&nbsp;tb_cliente.<br>
+&nbsp;<br>
+Parámetros:<br>
+id&nbsp;--&gt;&nbsp;id&nbsp;del&nbsp;cliente&nbsp;que&nbsp;se&nbsp;desea&nbsp;borrar</tt></dd></dl>
+ <dl><dt><a name="-eliminaHabitacion"><strong>eliminaHabitacion</strong></a>(id)</dt><dd><tt>Elimina&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Elimina&nbsp;la&nbsp;habitación&nbsp;deseada&nbsp;de&nbsp;la&nbsp;tb_habitacion.<br>
+&nbsp;<br>
+Parametros:<br>
+id&nbsp;--&gt;&nbsp;id&nbsp;de&nbsp;la&nbsp;habitación&nbsp;que&nbsp;se&nbsp;desea&nbsp;borrar</tt></dd></dl>
+ <dl><dt><a name="-recibeClientes"><strong>recibeClientes</strong></a>()</dt><dd><tt>Devuelve&nbsp;todos&nbsp;los&nbsp;clientes&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;<br>
+Recibe&nbsp;todos&nbsp;los&nbsp;clientes&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos,&nbsp;listos&nbsp;para&nbsp;ser&nbsp;mostrados&nbsp;en&nbsp;una&nbsp;TreeView</tt></dd></dl>
+ <dl><dt><a name="-recibeHabitaciones"><strong>recibeHabitaciones</strong></a>()</dt><dd><tt>Devuelve&nbsp;todas&nbsp;las&nbsp;habitaciones&nbsp;que&nbsp;hay&nbsp;en&nbsp;tb_habitacion.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>basedatos</strong> = &lt;pymysql.connections.Connection object&gt;</td></tr></table>
+</body></html>

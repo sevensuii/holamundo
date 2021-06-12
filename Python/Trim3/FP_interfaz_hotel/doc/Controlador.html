@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Controlador</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Controlador</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/controlador/Controlador.py">/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/controlador/Controlador.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="modelo.Modelo.html">modelo.Modelo</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-aniadeHabitacionC"><strong>aniadeHabitacionC</strong></a>(m2, piso, cat)</dt><dd><tt>Crea&nbsp;una&nbsp;nueva&nbsp;habitación.<br>
+&nbsp;<br>
+Se&nbsp;comunica&nbsp;con&nbsp;aniadeHabitacionM&nbsp;del&nbsp;modelo&nbsp;para&nbsp;crear&nbsp;una&nbsp;nueva&nbsp;habitacion&nbsp;con&nbsp;los&nbsp;parámetros&nbsp;proporcionados.<br>
+&nbsp;<br>
+Parámetros:<br>
+m2&nbsp;----&gt;&nbsp;metros&nbsp;cuadrados&nbsp;de&nbsp;la&nbsp;habitacón<br>
+piso&nbsp;--&gt;&nbsp;piso&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;la&nbsp;habitación<br>
+cat&nbsp;---&gt;&nbsp;categoría&nbsp;de&nbsp;la&nbsp;habitación</tt></dd></dl>
+ <dl><dt><a name="-creaClienteC"><strong>creaClienteC</strong></a>(nombre, apellidos, dni, tlf, email, fecha, pais, dire)</dt><dd><tt>Crea&nbsp;un&nbsp;nuevo&nbsp;cliente.<br>
+&nbsp;<br>
+Con&nbsp;los&nbsp;parámetros&nbsp;recibidos,&nbsp;transforma&nbsp;los&nbsp;objetos&nbsp;en&nbsp;cadenas&nbsp;de&nbsp;caracteres&nbsp;y&nbsp;se&nbsp;comunica<br>
+con&nbsp;el&nbsp;modelo&nbsp;para&nbsp;crear&nbsp;un&nbsp;nuevo&nbsp;cliente.<br>
+&nbsp;<br>
+Parámetros:<br>
+nombre&nbsp;-----&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;el&nbsp;nombre&nbsp;del&nbsp;cliente<br>
+apellidos&nbsp;--&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;el&nbsp;apellidos&nbsp;del&nbsp;cliente<br>
+dni&nbsp;--------&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;el&nbsp;dni&nbsp;del&nbsp;cliente<br>
+tlf&nbsp;--------&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;el&nbsp;número&nbsp;de&nbsp;teléfono&nbsp;del&nbsp;cliente<br>
+email&nbsp;------&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;el&nbsp;correo&nbsp;electrónico&nbsp;del&nbsp;cliente<br>
+fecha&nbsp;------&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;la&nbsp;fecha&nbsp;de&nbsp;nacimiento&nbsp;del&nbsp;cliente<br>
+pais&nbsp;-------&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;el&nbsp;pais&nbsp;de&nbsp;residencia&nbsp;del&nbsp;cliente<br>
+direccion&nbsp;--&gt;&nbsp;objeto&nbsp;que&nbsp;contiene&nbsp;la&nbsp;dirección&nbsp;del&nbsp;cliente</tt></dd></dl>
+ <dl><dt><a name="-devuelveDatos"><strong>devuelveDatos</strong></a>(ind, id)</dt><dd><tt>Devuelve&nbsp;datos&nbsp;del&nbsp;cliente&nbsp;o&nbsp;habitación&nbsp;en&nbsp;función&nbsp;del&nbsp;índice.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;índice&nbsp;y&nbsp;en&nbsp;función&nbsp;de&nbsp;éste&nbsp;recibe&nbsp;los&nbsp;datos&nbsp;de&nbsp;un&nbsp;cliente&nbsp;o&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Parámetros:<br>
+ind&nbsp;--&gt;&nbsp;índice&nbsp;pare&nbsp;recibir&nbsp;datos<br>
+id&nbsp;---&gt;&nbsp;id&nbsp;del&nbsp;objeto&nbsp;que&nbsp;se&nbsp;desea&nbsp;recibir&nbsp;los&nbsp;datos<br>
+&nbsp;<br>
+ind&nbsp;==&nbsp;0&nbsp;--&gt;&nbsp;devuelve&nbsp;los&nbsp;datos&nbsp;del&nbsp;cliente<br>
+ind&nbsp;==&nbsp;1&nbsp;--&gt;&nbsp;devuelve&nbsp;los&nbsp;datos&nbsp;de&nbsp;la&nbsp;habitación</tt></dd></dl>
+ <dl><dt><a name="-editaDatosHabC"><strong>editaDatosHabC</strong></a>(m2, cat, piso, ide)</dt><dd><tt>Edita&nbsp;los&nbsp;datos&nbsp;de&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Recibe&nbsp;unos&nbsp;objetos,&nbsp;extrae&nbsp;información&nbsp;de&nbsp;ellos&nbsp;como&nbsp;cadena&nbsp;de&nbsp;caracteres,&nbsp;y&nbsp;se&nbsp;comunica&nbsp;<br>
+con&nbsp;el&nbsp;modelo&nbsp;para&nbsp;editar&nbsp;los&nbsp;datos&nbsp;de&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Parámetros:<br>
+m2&nbsp;----&gt;&nbsp;metros&nbsp;cuadrados&nbsp;de&nbsp;la&nbsp;habitación<br>
+cat&nbsp;---&gt;&nbsp;categoría&nbsp;de&nbsp;la&nbsp;habitación<br>
+piso&nbsp;--&gt;&nbsp;piso&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;la&nbsp;habitación<br>
+ide&nbsp;---&gt;&nbsp;id&nbsp;de&nbsp;la&nbsp;habitación&nbsp;que&nbsp;se&nbsp;desea&nbsp;editar</tt></dd></dl>
+ <dl><dt><a name="-eliminaDatosC"><strong>eliminaDatosC</strong></a>(ind, id)</dt><dd><tt>Elimina&nbsp;un&nbsp;cliente&nbsp;o&nbsp;habitación.<br>
+&nbsp;<br>
+Dependiendo&nbsp;del&nbsp;índice&nbsp;que&nbsp;se&nbsp;le&nbsp;proporcione,&nbsp;se&nbsp;comunicará&nbsp;con&nbsp;el&nbsp;modelo&nbsp;para&nbsp;eliminar&nbsp;o&nbsp;un&nbsp;cliente&nbsp;o&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Parámetros:<br>
+ind&nbsp;--&gt;&nbsp;índice&nbsp;para&nbsp;borrar&nbsp;un&nbsp;dato&nbsp;u&nbsp;otro<br>
+id&nbsp;---&gt;&nbsp;id&nbsp;del&nbsp;dato&nbsp;a&nbsp;borrar<br>
+&nbsp;<br>
+ind&nbsp;==&nbsp;0&nbsp;--&gt;&nbsp;se&nbsp;borrará&nbsp;un&nbsp;cliente<br>
+ind&nbsp;==&nbsp;1&nbsp;--&gt;&nbsp;se&nbsp;borrará&nbsp;una&nbsp;habitación</tt></dd></dl>
+ <dl><dt><a name="-iniciaSesionC"><strong>iniciaSesionC</strong></a>(u, c)</dt><dd><tt>Devuelve&nbsp;los&nbsp;datos&nbsp;necesarios&nbsp;para&nbsp;iniciar&nbsp;sesión.<br>
+&nbsp;<br>
+Comprueba&nbsp;el&nbsp;usuario&nbsp;y&nbsp;la&nbsp;contraseña&nbsp;dentro&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;y&nbsp;los&nbsp;devuelve.<br>
+&nbsp;<br>
+Parámetros:<br>
+u&nbsp;--&gt;&nbsp;usuario&nbsp;a&nbsp;comprobar<br>
+c&nbsp;--&gt;&nbsp;contraseña&nbsp;del&nbsp;usuario&nbsp;a&nbsp;comprobar</tt></dd></dl>
+ <dl><dt><a name="-recibeDatosC"><strong>recibeDatosC</strong></a>(opcion)</dt><dd><tt>Recibe&nbsp;datos&nbsp;en&nbsp;función&nbsp;del&nbsp;índice.<br>
+&nbsp;<br>
+Si&nbsp;se&nbsp;proporciona&nbsp;un&nbsp;1,&nbsp;recibirá&nbsp;los&nbsp;datos&nbsp;de&nbsp;todos&nbsp;los&nbsp;clientes.<br>
+Si&nbsp;se&nbsp;proporciona&nbsp;un&nbsp;2,&nbsp;recibirá&nbsp;los&nbsp;datos&nbsp;de&nbsp;todas&nbsp;las&nbsp;habitaciones.<br>
+&nbsp;<br>
+Parámetros:<br>
+opcion&nbsp;--&gt;&nbsp;índice&nbsp;para&nbsp;recibir&nbsp;diferentes&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-registraUsuarioC"><strong>registraUsuarioC</strong></a>(u, d, e, c)</dt><dd><tt>Registra&nbsp;un&nbsp;nuevo&nbsp;usuario.<br>
+&nbsp;<br>
+Llama&nbsp;a&nbsp;la&nbsp;funcion&nbsp;creaUsuario&nbsp;del&nbsp;modelo&nbsp;para&nbsp;crear&nbsp;un&nbsp;nuevo&nbsp;usuario&nbsp;no&nbsp;administrador<br>
+con&nbsp;los&nbsp;parámetros&nbsp;proporcionados.<br>
+&nbsp;<br>
+Parámetros:<br>
+u&nbsp;--&gt;&nbsp;usuario&nbsp;del&nbsp;nuevo&nbsp;usuario<br>
+d&nbsp;--&gt;&nbsp;dni&nbsp;del&nbsp;nuevo&nbsp;usuario<br>
+e&nbsp;--&gt;&nbsp;correo&nbsp;electrónico&nbsp;del&nbsp;nuevo&nbsp;usuario<br>
+c&nbsp;--&gt;&nbsp;contraseña&nbsp;del&nbsp;nuevo&nbsp;usuario</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>currentdir</strong> = '/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/controlador'<br>
+<strong>parentdir</strong> = '/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel'</td></tr></table>
+</body></html>

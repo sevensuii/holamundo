@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Vista</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Vista</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/vista/Vista.py">/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/vista/Vista.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="controlador.Controlador.html">controlador.Controlador</a><br>
+<a href="inspect.html">inspect</a><br>
+</td><td width="25%" valign=top><a href="tkinter.messagebox.html">tkinter.messagebox</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top><a href="tkinter.ttk.html">tkinter.ttk</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-cancelar"><strong>cancelar</strong></a>(pant)</dt><dd><tt>Destruye&nbsp;una&nbsp;pantalla.</tt></dd></dl>
+ <dl><dt><a name="-cierraSesion"><strong>cierraSesion</strong></a>(pant)</dt><dd><tt>Cierra&nbsp;sesión&nbsp;para&nbsp;un&nbsp;usuario.<br>
+&nbsp;<br>
+Cierra&nbsp;sesión&nbsp;y&nbsp;restablece&nbsp;el&nbsp;valor&nbsp;de&nbsp;las&nbsp;variables&nbsp;globales&nbsp;a&nbsp;una&nbsp;cadena<br>
+de&nbsp;caracteres&nbsp;vacía.<br>
+&nbsp;<br>
+Parámetros:<br>
+pant&nbsp;--&gt;&nbsp;pantalla&nbsp;en&nbsp;la&nbsp;que&nbsp;se&nbsp;pintan&nbsp;los&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-creaCliente"><strong>creaCliente</strong></a>(nombre, apellidos, dni, tlf, email, fechaN, pais, direc, pant)</dt><dd><tt>Permite&nbsp;al&nbsp;admin&nbsp;crear&nbsp;nuevos&nbsp;clientes.<br>
+&nbsp;<br>
+Parámetros:<br>
+nombre&nbsp;--&gt;&nbsp;nombre&nbsp;del&nbsp;cliente<br>
+apellidos&nbsp;--&gt;&nbsp;apellidos&nbsp;del&nbsp;cliente<br>
+dni&nbsp;--&gt;&nbsp;dni&nbsp;del&nbsp;cliente<br>
+tlf&nbsp;--&gt;&nbsp;número&nbsp;de&nbsp;teléfono&nbsp;del&nbsp;cliente<br>
+email&nbsp;--&gt;&nbsp;correo&nbsp;electrónico&nbsp;del&nbsp;cliente<br>
+fechaN&nbsp;--&gt;&nbsp;fecha&nbsp;de&nbsp;nacimiento&nbsp;del&nbsp;cliente<br>
+pais&nbsp;--&gt;&nbsp;pais&nbsp;de&nbsp;residencia&nbsp;del&nbsp;cliente<br>
+direc&nbsp;--&gt;&nbsp;dirección&nbsp;del&nbsp;cliente<br>
+pant&nbsp;--&gt;&nbsp;pantalla&nbsp;sobre&nbsp;la&nbsp;que&nbsp;se&nbsp;muestran&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-creaHab"><strong>creaHab</strong></a>(metros, piso, cat, pant)</dt><dd><tt>Permite&nbsp;al&nbsp;admin&nbsp;crear&nbsp;habitaciones.<br>
+&nbsp;<br>
+Parámetros:<br>
+metros&nbsp;--&gt;&nbsp;metros&nbsp;cuadrados&nbsp;de&nbsp;la&nbsp;habitación<br>
+piso&nbsp;----&gt;&nbsp;piso&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;la&nbsp;habitacion<br>
+cat&nbsp;-----&gt;&nbsp;categoria&nbsp;de&nbsp;la&nbsp;habitación<br>
+pant&nbsp;----&gt;&nbsp;pantalla&nbsp;sobre&nbsp;la&nbsp;que&nbsp;se&nbsp;muestran&nbsp;los&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-editaCliente"><strong>editaCliente</strong></a>(arbol)</dt><dd><tt>Genera&nbsp;una&nbsp;ventana&nbsp;en&nbsp;la&nbsp;que&nbsp;el&nbsp;admin&nbsp;pueda&nbsp;editar&nbsp;los&nbsp;datos&nbsp;de&nbsp;un&nbsp;cliente.</tt></dd></dl>
+ <dl><dt><a name="-editaHab"><strong>editaHab</strong></a>(ind, m2, cat, piso, ide, pant)</dt><dd><tt>Edita&nbsp;los&nbsp;datos&nbsp;de&nbsp;una&nbsp;habitación.<br>
+&nbsp;<br>
+Parámetros:<br>
+m2&nbsp;----&gt;&nbsp;metros&nbsp;cuadrados&nbsp;de&nbsp;la&nbsp;habitación<br>
+cat&nbsp;---&gt;&nbsp;categoría&nbsp;de&nbsp;la&nbsp;habitación<br>
+piso&nbsp;--&gt;&nbsp;piso&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;la&nbsp;habitación<br>
+ide&nbsp;---&gt;&nbsp;id&nbsp;de&nbsp;la&nbsp;habitación&nbsp;a&nbsp;modificar<br>
+pant&nbsp;--&gt;&nbsp;frame&nbsp;sobre&nbsp;el&nbsp;que&nbsp;se&nbsp;pinta</tt></dd></dl>
+ <dl><dt><a name="-editaHabitacion"><strong>editaHabitacion</strong></a>(arbol)</dt><dd><tt>Genera&nbsp;una&nbsp;ventana&nbsp;en&nbsp;la&nbsp;que&nbsp;el&nbsp;admin&nbsp;puede&nbsp;editar&nbsp;una&nbsp;habitación.</tt></dd></dl>
+ <dl><dt><a name="-eliminaDato"><strong>eliminaDato</strong></a>(indice, arbol)</dt><dd><tt>Elimina&nbsp;un&nbsp;objeto&nbsp;de&nbsp;una&nbsp;TreeView.<br>
+&nbsp;<br>
+Elimina&nbsp;un&nbsp;objeto&nbsp;de&nbsp;una&nbsp;TreeView&nbsp;en&nbsp;funcion&nbsp;del&nbsp;indice&nbsp;que&nbsp;se&nbsp;le&nbsp;pasa.<br>
+&nbsp;<br>
+Parámetros:<br>
+indice&nbsp;--&gt;&nbsp;elige&nbsp;el&nbsp;tipo&nbsp;de&nbsp;objeto&nbsp;que&nbsp;se&nbsp;eliminará<br>
+arbol&nbsp;---&gt;&nbsp;TreeView&nbsp;en&nbsp;la&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;objeto&nbsp;a&nbsp;eliminar<br>
+&nbsp;<br>
+indice&nbsp;==&nbsp;0&nbsp;--&gt;&nbsp;cliente<br>
+indice&nbsp;==&nbsp;1&nbsp;--&gt;&nbsp;habitación</tt></dd></dl>
+ <dl><dt><a name="-iniciaSesionV"><strong>iniciaSesionV</strong></a>(u, c, pant)</dt><dd><tt>Permite&nbsp;al&nbsp;usuario&nbsp;logearse&nbsp;en&nbsp;la&nbsp;aplicación.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;usuario&nbsp;y&nbsp;contraseña,&nbsp;si&nbsp;los&nbsp;datos&nbsp;son&nbsp;correctos&nbsp;y&nbsp;coinciden&nbsp;dentro&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos,&nbsp;entrará&nbsp;a&nbsp;<br>
+la&nbsp;aplicación,&nbsp;si&nbsp;los&nbsp;datos&nbsp;no&nbsp;son&nbsp;correctos,&nbsp;muestra&nbsp;un&nbsp;mensaje&nbsp;de&nbsp;que&nbsp;los&nbsp;datos&nbsp;son&nbsp;incorrectos.<br>
+&nbsp;<br>
+Parámetros:<br>
+u&nbsp;-----&gt;&nbsp;usuario&nbsp;para&nbsp;logearse<br>
+c&nbsp;-----&gt;&nbsp;contraseña&nbsp;del&nbsp;usuario<br>
+pant&nbsp;--&gt;&nbsp;pantalla&nbsp;en&nbsp;la&nbsp;que&nbsp;muestran&nbsp;los&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-menu_admin"><strong>menu_admin</strong></a>(mensaje)</dt><dd><tt>Muestra&nbsp;el&nbsp;menú&nbsp;del&nbsp;administrador.</tt></dd></dl>
+ <dl><dt><a name="-menu_usuario"><strong>menu_usuario</strong></a>()</dt><dd><tt>Muestra&nbsp;el&nbsp;menú&nbsp;para&nbsp;los&nbsp;usarios&nbsp;sin&nbsp;permiso&nbsp;de&nbsp;administración.</tt></dd></dl>
+ <dl><dt><a name="-muestraClientes"><strong>muestraClientes</strong></a>(principal)</dt><dd><tt>Muestra&nbsp;los&nbsp;clientes&nbsp;del&nbsp;hotel.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;frame&nbsp;principal,&nbsp;en&nbsp;el&nbsp;que&nbsp;pinta&nbsp;el&nbsp;menú&nbsp;en&nbsp;un&nbsp;lado&nbsp;y&nbsp;una&nbsp;TreeView&nbsp;con&nbsp;los&nbsp;clientes&nbsp;en&nbsp;la&nbsp;otra&nbsp;mitad.<br>
+&nbsp;<br>
+Parámetros:<br>
+principal&nbsp;--&gt;&nbsp;frame&nbsp;principal&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;muestran&nbsp;los&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-muestraHabitacion"><strong>muestraHabitacion</strong></a>(principal)</dt><dd><tt>Muestra&nbsp;los&nbsp;datos&nbsp;de&nbsp;las&nbsp;habitaciones&nbsp;del&nbsp;hotel.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;frame&nbsp;principal,&nbsp;en&nbsp;el&nbsp;que&nbsp;pinta&nbsp;el&nbsp;menú&nbsp;en&nbsp;un&nbsp;lado&nbsp;y&nbsp;una&nbsp;TreeView&nbsp;con&nbsp;las&nbsp;habitaciones&nbsp;en&nbsp;la&nbsp;otra&nbsp;mitad.<br>
+&nbsp;<br>
+Parámetros:<br>
+principal&nbsp;--&gt;&nbsp;frame&nbsp;principal&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;muestran&nbsp;los&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-registraCliente"><strong>registraCliente</strong></a>()</dt><dd><tt>Genera&nbsp;una&nbsp;ventana&nbsp;que&nbsp;permite&nbsp;que&nbsp;un&nbsp;admin&nbsp;pueda&nbsp;registrar&nbsp;nuevos&nbsp;clientes.</tt></dd></dl>
+ <dl><dt><a name="-registraHabitacion"><strong>registraHabitacion</strong></a>()</dt><dd><tt>Genera&nbsp;una&nbsp;ventana&nbsp;en&nbsp;la&nbsp;que&nbsp;el&nbsp;admin&nbsp;puede&nbsp;añadir&nbsp;una&nbsp;nueva&nbsp;habitación.</tt></dd></dl>
+ <dl><dt><a name="-registrarse"><strong>registrarse</strong></a>(u, d, e, c1, c2, pant)</dt><dd><tt>Permite&nbsp;al&nbsp;usuario&nbsp;crear&nbsp;una&nbsp;cuenta.<br>
+&nbsp;<br>
+Pueden&nbsp;darse&nbsp;varios&nbsp;casos:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-Datos&nbsp;introducidos&nbsp;correctamente:&nbsp;muestra&nbsp;un&nbsp;mensaje&nbsp;de&nbsp;exito<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-El&nbsp;usuario&nbsp;ya&nbsp;existe:&nbsp;muesta&nbsp;un&nbsp;mensaje&nbsp;olbigando&nbsp;que&nbsp;el&nbsp;cliente&nbsp;cambie&nbsp;el&nbsp;usuario&nbsp;para&nbsp;poder&nbsp;registrarse<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-DNI&nbsp;ya&nbsp;existe:&nbsp;olbiga&nbsp;al&nbsp;usuario&nbsp;a&nbsp;introducir&nbsp;otro&nbsp;DNI<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-Las&nbsp;dos&nbsp;contraseñas&nbsp;no&nbsp;coinciden:&nbsp;obliga&nbsp;al&nbsp;usuario&nbsp;a&nbsp;poner&nbsp;la&nbsp;segunda&nbsp;contraseña&nbsp;correctamente<br>
+&nbsp;<br>
+Parámetros:<br>
+u&nbsp;-----&gt;&nbsp;nombre&nbsp;de&nbsp;usuario&nbsp;con&nbsp;el&nbsp;que&nbsp;iniciará&nbsp;sesión<br>
+d&nbsp;-----&gt;&nbsp;dni&nbsp;del&nbsp;usuario<br>
+e&nbsp;-----&gt;&nbsp;correo&nbsp;electrónico&nbsp;del&nbsp;usuario<br>
+c1&nbsp;----&gt;&nbsp;contraseña&nbsp;del&nbsp;usuario<br>
+c2&nbsp;----&gt;&nbsp;contraseña&nbsp;de&nbsp;verificación&nbsp;con&nbsp;la&nbsp;primera&nbsp;contraseña<br>
+pant&nbsp;--&gt;&nbsp;pantalla&nbsp;sobre&nbsp;la&nbsp;que&nbsp;se&nbsp;muestran&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-sacaDatos"><strong>sacaDatos</strong></a>(indice, arbol)</dt><dd><tt>Recibe&nbsp;de&nbsp;los&nbsp;datos&nbsp;del&nbsp;objeto&nbsp;seleccionado.<br>
+&nbsp;<br>
+Recibe&nbsp;un&nbsp;indice&nbsp;para&nbsp;saber&nbsp;que&nbsp;tipo&nbsp;de&nbsp;objeto&nbsp;es&nbsp;y&nbsp;una&nbsp;TreeView&nbsp;que&nbsp;contiene&nbsp;el&nbsp;objeto&nbsp;seleccionado&nbsp;para&nbsp;<br>
+la&nbsp;extracción&nbsp;de&nbsp;datos<br>
+&nbsp;<br>
+Parámetros:<br>
+indice&nbsp;--&gt;&nbsp;indica&nbsp;el&nbsp;objeto&nbsp;al&nbsp;que&nbsp;se&nbsp;refiere<br>
+arbol&nbsp;---&gt;&nbsp;TreeView&nbsp;con&nbsp;el&nbsp;objeto&nbsp;seleccionado<br>
+&nbsp;<br>
+indice&nbsp;==&nbsp;0&nbsp;--&gt;&nbsp;cliente<br>
+indice&nbsp;==&nbsp;1&nbsp;--&gt;&nbsp;habitación</tt></dd></dl>
+ <dl><dt><a name="-ventana_inicio"><strong>ventana_inicio</strong></a>()</dt><dd><tt>Genera&nbsp;la&nbsp;ventana&nbsp;para&nbsp;iniciar&nbsp;sesión.</tt></dd></dl>
+ <dl><dt><a name="-ventana_registro"><strong>ventana_registro</strong></a>()</dt><dd><tt>Genera&nbsp;una&nbsp;ventana&nbsp;que&nbsp;permite&nbsp;registrarse&nbsp;a&nbsp;los&nbsp;usuarios.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ACTIVE</strong> = 'active'<br>
+<strong>ALL</strong> = 'all'<br>
+<strong>ANCHOR</strong> = 'anchor'<br>
+<strong>ARC</strong> = 'arc'<br>
+<strong>BASELINE</strong> = 'baseline'<br>
+<strong>BEVEL</strong> = 'bevel'<br>
+<strong>BOTH</strong> = 'both'<br>
+<strong>BOTTOM</strong> = 'bottom'<br>
+<strong>BROWSE</strong> = 'browse'<br>
+<strong>BUTT</strong> = 'butt'<br>
+<strong>CASCADE</strong> = 'cascade'<br>
+<strong>CENTER</strong> = 'center'<br>
+<strong>CHAR</strong> = 'char'<br>
+<strong>CHECKBUTTON</strong> = 'checkbutton'<br>
+<strong>CHORD</strong> = 'chord'<br>
+<strong>COMMAND</strong> = 'command'<br>
+<strong>CURRENT</strong> = 'current'<br>
+<strong>DISABLED</strong> = 'disabled'<br>
+<strong>DOTBOX</strong> = 'dotbox'<br>
+<strong>E</strong> = 'e'<br>
+<strong>END</strong> = 'end'<br>
+<strong>EW</strong> = 'ew'<br>
+<strong>EXCEPTION</strong> = 8<br>
+<strong>EXTENDED</strong> = 'extended'<br>
+<strong>FALSE</strong> = 0<br>
+<strong>FIRST</strong> = 'first'<br>
+<strong>FLAT</strong> = 'flat'<br>
+<strong>GROOVE</strong> = 'groove'<br>
+<strong>HIDDEN</strong> = 'hidden'<br>
+<strong>HORIZONTAL</strong> = 'horizontal'<br>
+<strong>INSERT</strong> = 'insert'<br>
+<strong>INSIDE</strong> = 'inside'<br>
+<strong>LAST</strong> = 'last'<br>
+<strong>LEFT</strong> = 'left'<br>
+<strong>MITER</strong> = 'miter'<br>
+<strong>MOVETO</strong> = 'moveto'<br>
+<strong>MULTIPLE</strong> = 'multiple'<br>
+<strong>N</strong> = 'n'<br>
+<strong>NE</strong> = 'ne'<br>
+<strong>NO</strong> = 0<br>
+<strong>NONE</strong> = 'none'<br>
+<strong>NORMAL</strong> = 'normal'<br>
+<strong>NS</strong> = 'ns'<br>
+<strong>NSEW</strong> = 'nsew'<br>
+<strong>NUMERIC</strong> = 'numeric'<br>
+<strong>NW</strong> = 'nw'<br>
+<strong>OFF</strong> = 0<br>
+<strong>ON</strong> = 1<br>
+<strong>OUTSIDE</strong> = 'outside'<br>
+<strong>PAGES</strong> = 'pages'<br>
+<strong>PIESLICE</strong> = 'pieslice'<br>
+<strong>PROJECTING</strong> = 'projecting'<br>
+<strong>RADIOBUTTON</strong> = 'radiobutton'<br>
+<strong>RAISED</strong> = 'raised'<br>
+<strong>READABLE</strong> = 2<br>
+<strong>RIDGE</strong> = 'ridge'<br>
+<strong>RIGHT</strong> = 'right'<br>
+<strong>ROUND</strong> = 'round'<br>
+<strong>S</strong> = 's'<br>
+<strong>SCROLL</strong> = 'scroll'<br>
+<strong>SE</strong> = 'se'<br>
+<strong>SEL</strong> = 'sel'<br>
+<strong>SEL_FIRST</strong> = 'sel.first'<br>
+<strong>SEL_LAST</strong> = 'sel.last'<br>
+<strong>SEPARATOR</strong> = 'separator'<br>
+<strong>SINGLE</strong> = 'single'<br>
+<strong>SOLID</strong> = 'solid'<br>
+<strong>SUNKEN</strong> = 'sunken'<br>
+<strong>SW</strong> = 'sw'<br>
+<strong>TOP</strong> = 'top'<br>
+<strong>TRUE</strong> = 1<br>
+<strong>TclVersion</strong> = 8.6<br>
+<strong>TkVersion</strong> = 8.6<br>
+<strong>UNDERLINE</strong> = 'underline'<br>
+<strong>UNITS</strong> = 'units'<br>
+<strong>VERTICAL</strong> = 'vertical'<br>
+<strong>W</strong> = 'w'<br>
+<strong>WORD</strong> = 'word'<br>
+<strong>WRITABLE</strong> = 4<br>
+<strong>X</strong> = 'x'<br>
+<strong>Y</strong> = 'y'<br>
+<strong>YES</strong> = 1<br>
+<strong>current_dir</strong> = '/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel/vista'<br>
+<strong>img_admin</strong> = &lt;tkinter.PhotoImage object&gt;<br>
+<strong>img_diablillo</strong> = &lt;tkinter.PhotoImage object&gt;<br>
+<strong>img_hab</strong> = &lt;tkinter.PhotoImage object&gt;<br>
+<strong>img_usuario</strong> = &lt;tkinter.PhotoImage object&gt;<br>
+<strong>inicio</strong> = &lt;tkinter.Tk object .&gt;<br>
+<strong>parent_dir</strong> = '/home/sevensuii/Documents/holamundo/Python/Trim3/FP_interfaz_hotel'</td></tr></table>
+</body></html>
