@@ -894,4 +894,4 @@ def cierraSesion(pant):
 # FIN FUNCIONES #
 #################
 
-ventana_inicio()
+#ventana_inicio()
