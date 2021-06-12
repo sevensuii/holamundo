@@ -44,6 +44,9 @@ img_hab = PhotoImage(file='vista/img/hab2.png')
 ############
 
 def ventana_inicio():
+    '''Genera la ventana para iniciar sesión.
+    
+    '''
     inicio.geometry('560x350')
 
     principal = Frame(inicio, width=640, height=320, bg='white')
@@ -102,6 +105,9 @@ def ventana_inicio():
     inicio.mainloop()
 
 def ventana_registro():
+    '''Genera una ventana que permite registrarse a los usuarios.
+    
+    '''
     registro = Toplevel()
     registro.resizable(False, False)
     frame_cabecera = Frame(registro, width=500, bg='#2083E1')
@@ -168,6 +174,9 @@ def ventana_registro():
     
 
 def menu_admin(mensaje):
+    '''Muestra el menú del administrador.
+    
+    '''
     inicio.geometry('1390x500')
     principal = Frame(inicio, width=1280, height=720, bg='white')
     principal.pack(expand=YES, fill=BOTH)
@@ -208,6 +217,14 @@ def menu_admin(mensaje):
     
 
 def muestraClientes(principal):
+    '''Muestra los clientes del hotel.
+
+    Recibe un frame principal, en el que pinta el menú en un lado y una TreeView con los clientes en la otra mitad.
+
+    Parámetros:
+    principal --> frame principal en el que se muestran los datos
+    
+    '''
     principal.destroy()
     principal = menu_admin(0)
     frame_datos = Frame(principal, width=560, bg='white')
@@ -265,6 +282,14 @@ def muestraClientes(principal):
 
 
 def muestraHabitacion(principal):
+    '''Muestra los datos de las habitaciones del hotel.
+
+    Recibe un frame principal, en el que pinta el menú en un lado y una TreeView con las habitaciones en la otra mitad.
+
+    Parámetros:
+    principal --> frame principal en el que se muestran los datos
+    
+    '''
     principal.destroy()
     principal = menu_admin(0)
     frame_datos = Frame(principal, width=560, bg='white')
@@ -315,6 +340,9 @@ def muestraHabitacion(principal):
     return frame_datos
 
 def menu_usuario():
+    '''Muestra el menú para los usarios sin permiso de administración.
+    
+    '''
     inicio.geometry('700x420')
     principal = Frame(inicio, width=1280, height=720, bg='white')
     principal.pack(expand=YES, fill=BOTH)
@@ -340,6 +368,9 @@ def menu_usuario():
     espacio2.grid(column=0, row=6, pady=20)
 
 def registraCliente():
+    '''Genera una ventana que permite que un admin pueda registrar nuevos clientes.
+    
+    '''
     registro = Toplevel()
     registro.resizable(False, False)
     frame_cabecera = Frame(registro, width=500, bg='#2083E1')
@@ -427,6 +458,9 @@ def registraCliente():
 
 
 def editaCliente(arbol):
+    '''Genera una ventana en la que el admin pueda editar los datos de un cliente.
+    
+    '''
     registro = Toplevel()
     registro.resizable(False, False)
     frame_cabecera = Frame(registro, width=500, bg='#2083E1')
@@ -524,6 +558,9 @@ def editaCliente(arbol):
 
 
 def registraHabitacion():
+    '''Genera una ventana en la que el admin puede añadir una nueva habitación.
+    
+    '''
     registro = Toplevel()
     registro.resizable(False, False)
     frame_cabecera = Frame(registro, width=500, bg='#2083E1')
@@ -580,6 +617,9 @@ def registraHabitacion():
 
 
 def editaHabitacion(arbol):
+    '''Genera una ventana en la que el admin puede editar una habitación.
+    
+    '''
     registro = Toplevel()
     registro.resizable(False, False)
     frame_cabecera = Frame(registro, width=500, bg='#2083E1')
@@ -648,6 +688,19 @@ def editaHabitacion(arbol):
 ########################################
 
 def sacaDatos(indice, arbol):
+    '''Recibe de los datos del objeto seleccionado.
+
+    Recibe un indice para saber que tipo de objeto es y una TreeView que contiene el objeto seleccionado para 
+    la extracción de datos
+
+    Parámetros:
+    indice --> indica el objeto al que se refiere
+    arbol ---> TreeView con el objeto seleccionado
+
+    indice == 0 --> cliente
+    indice == 1 --> habitación
+    
+    '''
     item_seleccionado = arbol.selection()[0]
     valores = tuple(arbol.item(item_seleccionado)['values'])
     print(valores)
@@ -659,15 +712,45 @@ def sacaDatos(indice, arbol):
     return datos
 
 def editaHab(ind, m2, cat, piso, ide, pant):
+    '''Edita los datos de una habitación.
+
+    Parámetros:
+    m2 ----> metros cuadrados de la habitación
+    cat ---> categoría de la habitación
+    piso --> piso en el que se encuentra la habitación
+    ide ---> id de la habitación a modificar
+    pant --> frame sobre el que se pinta
+    
+    '''
     co.editaDatosHabC(m2, cat, piso, ide)
     messagebox.showinfo('Actualizado', 'Datos actualizados correctamente')
     pant.destroy()
     
 
 def cancelar(pant):
+    '''Destruye una pantalla.
+    
+    '''
     pant.destroy()
 
 def registrarse(u, d, e, c1, c2, pant):
+    '''Permite al usuario crear una cuenta.
+
+    Pueden darse varios casos:
+        -Datos introducidos correctamente: muestra un mensaje de exito
+        -El usuario ya existe: muesta un mensaje olbigando que el cliente cambie el usuario para poder registrarse
+        -DNI ya existe: olbiga al usuario a introducir otro DNI
+        -Las dos contraseñas no coinciden: obliga al usuario a poner la segunda contraseña correctamente
+
+    Parámetros:
+    u -----> nombre de usuario con el que iniciará sesión
+    d -----> dni del usuario
+    e -----> correo electrónico del usuario
+    c1 ----> contraseña del usuario
+    c2 ----> contraseña de verificación con la primera contraseña
+    pant --> pantalla sobre la que se muestran datos
+    
+    '''
     if str(c1.get()) != str(c2.get()):
         messagebox.showwarning('Error', 'Las contraseñas con coinciden')
     
@@ -690,16 +773,51 @@ def registrarse(u, d, e, c1, c2, pant):
                 pant.destroy()
 
 def creaHab(metros, piso, cat, pant):
+    '''Permite al admin crear habitaciones.
+
+    Parámetros:
+    metros --> metros cuadrados de la habitación
+    piso ----> piso en el que se encuentra la habitacion
+    cat -----> categoria de la habitación
+    pant ----> pantalla sobre la que se muestran los datos
+    
+    '''
     co.aniadeHabitacionC(metros, piso, cat)
     messagebox.showinfo('Habitacion creada', 'Su habitación se ha creado satisfactoriamente')
     pant.destroy()
 
 def creaCliente(nombre, apellidos, dni, tlf, email, fechaN, pais, direc, pant):
+    '''Permite al admin crear nuevos clientes.
+
+    Parámetros:
+    nombre --> nombre del cliente
+    apellidos --> apellidos del cliente
+    dni --> dni del cliente
+    tlf --> número de teléfono del cliente
+    email --> correo electrónico del cliente
+    fechaN --> fecha de nacimiento del cliente
+    pais --> pais de residencia del cliente
+    direc --> dirección del cliente
+    pant --> pantalla sobre la que se muestran datos
+    
+    '''
     co.creaClienteC(nombre, apellidos, dni, tlf, email, fechaN, pais, direc)
     messagebox.showinfo('Crear Cliente', 'Cliente creado exitosamente')
     pant.destroy()
 
 def eliminaDato(indice, arbol):
+    '''Elimina un objeto de una TreeView.
+
+    Elimina un objeto de una TreeView en funcion del indice que se le pasa.
+
+    Parámetros:
+    indice --> elige el tipo de objeto que se eliminará
+    arbol ---> TreeView en la que se encuentra el objeto a eliminar
+
+    indice == 0 --> cliente
+    indice == 1 --> habitación
+    
+    '''
     item_seleccionado = arbol.selection()[0]
     valores = tuple(arbol.item(item_seleccionado)['values'])
     print(valores)
@@ -710,6 +828,17 @@ def eliminaDato(indice, arbol):
         messagebox.showinfo('Delete', 'Habitacion eliminada exitosamente')
 
 def iniciaSesionV(u, c, pant):
+    '''Permite al usuario logearse en la aplicación.
+
+    Recibe un usuario y contraseña, si los datos son correctos y coinciden dentro de la base de datos, entrará a 
+    la aplicación, si los datos no son correctos, muestra un mensaje de que los datos son incorrectos.
+
+    Parámetros:
+    u -----> usuario para logearse
+    c -----> contraseña del usuario
+    pant --> pantalla en la que muestran los datos
+    
+    '''
     print(u.get())
     print(c.get())
     #pant.destroy()
@@ -745,6 +874,15 @@ def iniciaSesionV(u, c, pant):
         messagebox.showerror('Error', 'Usuario o contraseña incorrecta')
 
 def cierraSesion(pant):
+    '''Cierra sesión para un usuario.
+
+    Cierra sesión y restablece el valor de las variables globales a una cadena
+    de caracteres vacía.
+
+    Parámetros:
+    pant --> pantalla en la que se pintan los datos
+    
+    '''
     pant.destroy()
     rol_usuario_dentro = ''
     nombre_usuario_dentro = ''
