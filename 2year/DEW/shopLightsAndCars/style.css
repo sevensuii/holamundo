@@ -1,0 +1,29 @@
+body {
+    background-color: darkgray;
+}
+
+.shop {
+    display: inline-block;
+}
+
+.charts {
+    display: inline-block;
+    margin-right: 3em;
+    border: 0.5em solid black;
+    padding: 1em;
+}
+
+.number {
+    display: inline-block;
+    margin: 0 auto;
+    border: 0.5em solid black;
+    padding: 1em;
+}
+
+.window {
+    background-color: blue;
+    border: 0.5em solid black;
+    display: inline-block;
+    color: blue;
+    width: 100%;
+}
