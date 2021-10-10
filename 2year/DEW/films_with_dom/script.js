@@ -73,27 +73,6 @@ var mySeats = [];   // Array of the client is buying
 //    oldValues = newValues;
 //}
 
-function saveValues(cad1) {
-    console.log(cad1);
-    switch(cad1) {
-        case "blackwidow":
-            blackwidowFilm = myFilm;
-            break;
-        case "starwars":
-            starWarsFilm = myFilm;
-            break;
-        case "interestelar":
-            interestelarFilm = myFilm;
-            break;
-        case "fast7":
-            ff7Film = myFilm;
-            break;
-        default:
-            alert("Unknown movie");
-            break;
-    }
-}
-
 function resetValues() {
     tds = document.getElementsByTagName("td");
     for (let i = 0; i < mySeats.length; i++) {
@@ -106,35 +85,72 @@ function resetValues() {
     mySeats = [];
     document.getElementById("result1").innerHTML = myPrice + "€";
     document.getElementById("result2").innerHTML = "";
+    
+}
 
+function saveValues(cad1) { //The seat array is saved depending on which movie page we are
+    console.log(cad1);
+    switch(cad1) {
+        case "blackwidow":
+            blackwidowFilm = myFilm;
+            sessionStorage.blackwidowSeatArray = JSON.stringify(blackwidowFilm.seats);
+            break;
+        case "starwars":
+            starWarsFilm = myFilm;
+            sessionStorage.starwarsSeatArray = JSON.stringify(starWarsFilm.seats);
+            break;
+        case "interestelar":
+            interestelarFilm = myFilm;
+            sessionStorage.interestelarSeatArray = JSON.stringify(interestelarFilm.seats);
+            break;
+        case "fast7":
+            ff7Film = myFilm;
+            sessionStorage.fast7SeatArray = JSON.stringify(ff7Film.seats);
+            break;
+        default:
+            alert("Unknown movie");
+            break;
+    }
 }
 
 function aMovie(cad){
     let cad1 = cad;
     switch(cad) {
         case "blackwidow":
-            if (blackwidowFilm.seats.length == 0){
+            if (sessionStorage.blackwidowSeatArray != undefined) {
+                blackwidowFilm.seats = JSON.parse(sessionStorage.blackwidowSeatArray);
+            }
+            else if (blackwidowFilm.seats.length == 0){
                 blackwidowFilm.fillRandomSeats();
             }
             myFilm = blackwidowFilm;
             break;
 
         case "starwars":
-            if (starWarsFilm.seats.length == 0) {
+            if (sessionStorage.starwarsSeatArray != undefined) {
+                starWarsFilm.seats = JSON.parse(sessionStorage.starwarsSeatArray);
+            }
+            else if (starWarsFilm.seats.length == 0) {
                 starWarsFilm.fillRandomSeats();
             }
             myFilm = starWarsFilm;
             break;
 
         case "interestelar":
-            if (interestelarFilm.seats.length == 0) {
+            if (sessionStorage.interestelarSeatArray != undefined) {
+                interestelarFilm.seats = JSON.parse(sessionStorage.interestelarSeatArray);
+            }
+            else if (interestelarFilm.seats.length == 0) {
                 interestelarFilm.fillRandomSeats();
             }
             myFilm = interestelarFilm;
             break;
         
         case "fast7":
-            if (ff7Film.seats.length == 0) {
+            if (sessionStorage.fast7SeatArray != undefined) {
+                ff7Film.seats = JSON.parse(sessionStorage.fast7SeatArray);
+            }
+            else if (ff7Film.seats.length == 0) {
                 ff7Film.fillRandomSeats();
             }
             myFilm = ff7Film;
@@ -149,7 +165,7 @@ function aMovie(cad){
     document.write("<div id='result1'>0€</div>");
     document.write("<div id='yourSeats'>Your seats are: </div>");
     document.write("<div id='result2'></div>");
-    document.write("<button id='buy' onclick='saveValues(myFilm," + cad + ")'>Buy</button>");
+    document.write("<button id='buy' onclick='saveValues(" + JSON.stringify(cad) + ")'>Buy</button>");
     document.write("<button id='reset' onclick='resetValues()'>Reset</button>")
 
     document.write( "<div class='cont'>");
