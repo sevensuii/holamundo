@@ -32,6 +32,7 @@ body {
 button {
     grid-column: 3;
     grid-row: 2;
+    margin-left: 1em;
     height: 4.3em;
     margin-left: 1em;
 }
