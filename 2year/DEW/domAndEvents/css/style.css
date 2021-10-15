@@ -32,8 +32,8 @@ body {
     grid-column: 3;
 }
 #results {
-    display: flex;
     flex-direction: row;
+    display: flex;
 }
 
 #playZone td {
