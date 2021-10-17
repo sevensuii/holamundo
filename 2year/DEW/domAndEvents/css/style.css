@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
     background-color: lightgrey;
@@ -22,31 +23,58 @@ body {
     grid-column: 1;
 }
 
+
+
 #timer {
-    grid-row: 2; 
-    grid-column: 2;
     font-family: 'Nunito', sans-serif;
     font-size: 3em;
-}
-
-button {
-    grid-column: 3;
-    grid-row: 2;
-    margin-left: 1em;
-    height: 4.3em;
-    margin-left: 1em;
+    width: 4.5em;
+    display: inline-block;
 }
 
 #username {
-    grid-row: 2; 
-    grid-column: 3;
+    display: inline-block;
+    padding: 0;
 }
-#results {
-    flex-direction: row;
-    display: flex;
+
+#username input {
+    font-size: 2.2em;
+    font-family: 'Nunito', sans-serif;
+    display: inline-block;
+    width: 7em;
+    text-align: center;
+    border-radius: .3em;
+}
+
+button {
+    height: 2em;
+    margin: 1em;
+    position: relative;
+    width: 13em;
+    font-size: 2em;
+    font-family: 'Bebas Neue', cursive;
+    background-color: lightgreen;
+    border-radius: .3em;
+}
+
+button:hover {
+    background-color: rgb(21, 214, 21);
+}
+
+#playZone {
+    border: .2em solid black;
+    border-radius: .4em;
+    border-collapse: separate;
+    border-spacing: .2em;
 }
 
 #playZone td {
     width: 13em;
     height: 13em;
+    padding: 0;
+}
+
+#playZone td img {
+    width: 100%;
+    height: 100%;
 }
