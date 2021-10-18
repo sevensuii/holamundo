@@ -4,7 +4,6 @@ console.log(timerTime)
 var ms = 0;
 var s = 0;
 var m = 0;
-//Change this piece for a time object
 
 
 function timer(){
@@ -27,7 +26,7 @@ function timer(){
 
 
 }
-
+var myTime
 function timerStart(){
     let userDiv = document.querySelector('#username');
     let usernameV = document.querySelector('#username input');
@@ -35,5 +34,30 @@ function timerStart(){
     let someButton = document.querySelector('#imButton');
     someButton.innerHTML = '<button>Start</button>';
     timer();
-    setInterval(timer, 20);
+    myTime = setInterval(timer, 20);
+}
+
+function finished(){
+    clearInterval(myTime);
+    let someButton = document.querySelector('#imButton');
+    someButton.innerHTML = '<button onclick="timerStart()">Start</button>';
+    timerTime.setMilliseconds(ms);
+    timerTime.setSeconds(s);
+    timerTime.setMinutes(m);
+}
+
+let pieces = document.querySelectorAll('#playZone td');
+let matrix = [];
+
+function loadEverything(){
+    pieces = document.querySelectorAll('#playZone td');
+    let cont = 0;
+    for (let i = 0; i < 3; i++){
+        let row = [];
+        for (let j = 0; j < 3; j++) {
+            row.push(pieces[cont]);
+            cont++;
+        }
+        matrix.push(row);
+    }
 }
