@@ -44,6 +44,9 @@ function finished(){
     timerTime.setMilliseconds(ms);
     timerTime.setSeconds(s);
     timerTime.setMinutes(m);
+    ms = 0;
+    s = 0;
+    m = 0;
 }
 
 let pieces = document.querySelectorAll('#playZone td');
