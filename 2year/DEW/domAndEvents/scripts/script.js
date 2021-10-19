@@ -41,12 +41,17 @@ function finished(){
     clearInterval(myTime);
     let someButton = document.querySelector('#imButton');
     someButton.innerHTML = '<button onclick="timerStart()">Start</button>';
+    let userDiv = document.querySelector('#username');
+    let usernameV = document.querySelector('#username input');
+    userDiv.innerHTML = '<input value=' + usernameV.value + '>';
     timerTime.setMilliseconds(ms);
     timerTime.setSeconds(s);
     timerTime.setMinutes(m);
     ms = 0;
     s = 0;
     m = 0;
+
+    //<div id='username'><input placeholder='Enter username'></div>
 }
 
 let pieces = document.querySelectorAll('#playZone td');
@@ -62,5 +67,49 @@ function loadEverything(){
             cont++;
         }
         matrix.push(row);
+    }
+}
+var moves = 0;  //counts the number of moves that have taken you to solve the puzzle
+// Move the pieces of the puzzle
+function move(row, colum){
+    console.log("[" + row + "][" + colum + "]");
+    if ((row - 1 >= 0) && (matrix[row - 1][colum].innerHTML.search("white") != -1)) {   //checks if white is above
+        let elem1 = matrix[row][colum];
+        let elem2 = matrix[row - 1][colum];
+        let aux = elem1.innerHTML;
+        elem1.innerHTML = elem2.innerHTML;
+        elem2.innerHTML = aux;
+        moves++;
+        console.log(moves);
+    }
+    else if ((colum + 1 < 3) && (matrix[row][colum + 1].innerHTML.search("white") != -1)) { //checks if white is right
+        let elem1 = matrix[row][colum];
+        let elem2 = matrix[row][colum + 1];
+        let aux = elem1.innerHTML;
+        elem1.innerHTML = elem2.innerHTML;
+        elem2.innerHTML = aux;
+        moves++;
+        console.log(moves);
+    }
+    else if ((row + 1 < 3) && (matrix[row + 1][colum].innerHTML.search("white") != -1)) {   //checks if white is below
+        let elem1 = matrix[row][colum];
+        let elem2 = matrix[row + 1][colum];
+        let aux = elem1.innerHTML;
+        elem1.innerHTML = elem2.innerHTML;
+        elem2.innerHTML = aux;
+        moves++;
+        console.log(moves);
+    }
+    else if ((colum - 1 >= 0) && (matrix[row][colum - 1].innerHTML.search("white") != -1)) {    //checks if white is left
+        let elem1 = matrix[row][colum];
+        let elem2 = matrix[row][colum - 1];
+        let aux = elem1.innerHTML;
+        elem1.innerHTML = elem2.innerHTML;
+        elem2.innerHTML = aux;
+        moves++;
+        console.log(moves);
+    }
+    else {
+        console.log("Cant't make this move!!");
     }
 }
