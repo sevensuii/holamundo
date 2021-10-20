@@ -9,18 +9,18 @@ var m = 0;
 function timer(){
     var msAux, sAux, mAux;
     ms += 2;
-    if (ms>=100){
+    if (ms >= 100){
         s++;
-        ms=0;
+        ms = 0;
     }
-    if (s>59){
+    if (s > 59){
         m++;
-        s=0;
+        s = 0;
     }
 
-    if (s<10){sAux="0"+s;}else{sAux=s;}
-    if (m<10){mAux="0"+m;}else{mAux=m;}
-    if (ms<10){msAux="0"+ms;}else{msAux=ms;}
+    if (s < 10){sAux = "0" + s;}else{sAux = s;}
+    if (m < 10){mAux = "0" + m;}else{mAux = m;}
+    if (ms < 10){msAux = "0" + ms;}else{msAux = ms;}
 
     document.getElementById("timer").innerHTML = mAux + ":" + sAux + ":" + msAux;
 
@@ -111,5 +111,21 @@ function move(row, colum){
     }
     else {
         console.log("Cant't make this move!!");
+    }
+    document.querySelector('#moves').innerHTML = "Moves: " + moves;
+    checkPositions();
+}
+
+function checkPositions() {
+    let pos = 1;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (matrix[i][j].innerHTML.search("pic" + pos) != -1)
+            pos++;
+        }
+    }
+    console.log("pos is " + pos);
+    if ((pos == 9) && (matrix[2][2].innerHTML.search("white") != -1)) {
+        finished();
     }
 }
