@@ -32,6 +32,10 @@ body {
     display: inline-block;
 }
 
+#moves {
+    font-family: 'Nunito', sans-serif;
+}
+
 #username {
     display: inline-block;
     padding: 0;
