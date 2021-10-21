@@ -33,6 +33,7 @@ function timerStart(){
     userDiv.innerHTML = '<input readonly value=' + usernameV.value + '>';
     let someButton = document.querySelector('#imButton');
     someButton.innerHTML = '<button>Start</button>';
+    randomPosition();
     timer();
     myTime = setInterval(timer, 20);
 }
@@ -118,14 +119,29 @@ function move(row, colum){
 
 function checkPositions() {
     let pos = 1;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {   //Checks if all images are in theirs original positions
         for (let j = 0; j < 3; j++) {
             if (matrix[i][j].innerHTML.search("pic" + pos) != -1)
             pos++;
         }
     }
-    console.log("pos is " + pos);
+    console.log("Elem in right pos: " + pos);
     if ((pos == 9) && (matrix[2][2].innerHTML.search("white") != -1)) {
         finished();
     }
+}
+
+function randomPosition(){
+    let takenPositions = []; //Stores the postitions that are already in random mode
+    let num;
+    for(i = 0; i < 3; i++){
+        for(j = 0; j < 3; j++){
+           do {
+               num = Math.floor(Math.random() * (8 - 1 + 1)) + 1;               
+           } while (takenPositions.indexOf(num) != -1);
+           takenPositions.push(num);
+           matrix[i][j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
+        }
+    }
+    matrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
 }
