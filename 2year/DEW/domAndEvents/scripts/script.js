@@ -27,12 +27,15 @@ function timer(){
 
 }
 var myTime
+var moves = 0;  //counts the number of moves that have taken you to solve the puzzle
+
 function timerStart(){
     let userDiv = document.querySelector('#username');
     let usernameV = document.querySelector('#username input');
     userDiv.innerHTML = '<input readonly value=' + usernameV.value + '>';
     let someButton = document.querySelector('#imButton');
     someButton.innerHTML = '<button>Start</button>';
+    moves = 0;
     randomPosition();
     timer();
     myTime = setInterval(timer, 20);
@@ -70,7 +73,6 @@ function loadEverything(){
         matrix.push(row);
     }
 }
-var moves = 0;  //counts the number of moves that have taken you to solve the puzzle
 // Move the pieces of the puzzle
 function move(row, colum){
     console.log("[" + row + "][" + colum + "]");
