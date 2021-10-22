@@ -136,11 +136,13 @@ function randomPosition(){
     let num;
     for(i = 0; i < 3; i++){
         for(j = 0; j < 3; j++){
-           do {
-               num = Math.floor(Math.random() * (8 - 1 + 1)) + 1;               
-           } while (takenPositions.indexOf(num) != -1);
-           takenPositions.push(num);
-           matrix[i][j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
+            let pooo = i + "," + j;
+            console.log("pooo: " + pooo);
+            do {
+                num = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+            } while ((takenPositions.indexOf(num) != -1) && (matrix[i][j].innerHTML.search("white") == -1));
+            takenPositions.push(num);
+            matrix[i][j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
         }
     }
     matrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
