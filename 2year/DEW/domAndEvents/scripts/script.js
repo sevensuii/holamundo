@@ -36,7 +36,8 @@ function timerStart(){
     let someButton = document.querySelector('#imButton');
     someButton.innerHTML = '<button>Start</button>';
     moves = 0;
-    randomPosition();
+    document.querySelector('#moves').innerHTML = "Moves: " + moves;
+    //randomPosition();
     timer();
     myTime = setInterval(timer, 20);
 }
@@ -51,15 +52,18 @@ function finished(){
     timerTime.setMilliseconds(ms);
     timerTime.setSeconds(s);
     timerTime.setMinutes(m);
+    document.querySelector('#yourResults').innerHTML = "You solved the puzzle in " + m + " minutes, " + s + " seconds, " + ms + " miliseconds and " + moves +" moves!";
+    document.querySelector('#notification').style.display = "block";
+    document.querySelector('#notification button').onclick = function(){ document.querySelector('#notification').style.display = "none";}
     ms = 0;
     s = 0;
     m = 0;
-
-    //<div id='username'><input placeholder='Enter username'></div>
+    checkAndSave();
 }
 
 let pieces = document.querySelectorAll('#playZone td');
 let matrix = [];
+
 
 function loadEverything(){
     pieces = document.querySelectorAll('#playZone td');
@@ -148,4 +152,29 @@ function randomPosition(){
         }
     }
     matrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
+}
+
+var top5Records = []; //    [username]
+//                          [minutes]
+//                          [seconds]
+//                          [miliseconds]
+//                          [moves]
+localStorage.records;
+
+if (localStorage.records != undefined){
+    top5Records = JSON.parse(localStorage.records);
+}
+
+
+function checkAndSave(){
+    let usernameV = document.querySelector('#username input');
+    let row = [usernameV.value, timerTime.getMinutes(), timerTime.getSeconds(), timerTime.getMilliseconds(), moves];
+    top5Records.push(row);
+
+    localStorage.records = JSON.stringify(top5Records);
+}
+
+function hideNotifications(){
+    let info2 = document.querySelector('#notification');
+    info2.style.display = "none";
 }
