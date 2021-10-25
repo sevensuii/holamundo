@@ -82,3 +82,23 @@ button:hover {
     width: 100%;
     height: 100%;
 }
+
+#notification {
+    display: none;
+    border: .125em solid rgb(17, 110, 233);
+    font-size: 2em;
+    font-family: 'Bebas Neue', cursive;
+    width: 20em;
+    padding: 2em;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    background-color: white;
+    border-radius: 1em;
+
+}
+
+#notification button {
+    width: 8em;
+    height: 1.3em;
+}
