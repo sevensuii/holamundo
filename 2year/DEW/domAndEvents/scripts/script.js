@@ -192,7 +192,7 @@ function checkAndSaveLeaderboard(userN){
 function printLeaderboard(){
     let trs = document.querySelectorAll('#leaderboard tr');
        for (let i = 1; i < top5Records.length; i++) {
-           trs[i].innerHTML = "<td>" + top5Records[i][0] + "</td><td>" + top5Records[i][1] + ":" +top5Records[i][2] + ":" + top5Records[i][3] + "</td><td>" + top5Records[i][4] + "</td>";
+           trs[i].innerHTML = "<td>" + i + "<td>" + top5Records[i][0] + "</td><td>" + top5Records[i][1] + ":" +top5Records[i][2] + ":" + top5Records[i][3] + "</td><td>" + top5Records[i][4] + "</td>";
            if (i == 5) {
                break; //Exits for after painting top 5 elements
            }
