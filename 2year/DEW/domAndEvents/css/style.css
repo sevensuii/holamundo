@@ -102,3 +102,19 @@ button:hover {
     width: 8em;
     height: 1.3em;
 }
+
+#gold td {
+    background-color: rgb(194, 166, 11);
+}
+
+#silver td {
+    background-color: silver;
+}
+
+#bronze td {
+    background-color: brown;
+}
+
+.didntWin td {
+    background-color: rgb(125, 186, 240);
+}
