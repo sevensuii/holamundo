@@ -103,6 +103,18 @@ button:hover {
     height: 1.3em;
 }
 
+#leaderboard {
+    border: .125em solid black;
+    border-radius: .3em;
+    margin: auto;
+}
+
+#leaderboard td {
+    text-align: center;
+    width: 5em;
+    border-radius: .3em;
+}
+
 #gold td {
     background-color: rgb(194, 166, 11);
 }
@@ -112,7 +124,7 @@ button:hover {
 }
 
 #bronze td {
-    background-color: brown;
+    background-color: rgb(165, 62, 62);
 }
 
 .didntWin td {
