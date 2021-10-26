@@ -58,7 +58,7 @@ function finished(){
     ms = 0;
     s = 0;
     m = 0;
-    checkAndSave();
+    checkAndSaveLeaderboard(usernameV.value);
 }
 
 let pieces = document.querySelectorAll('#playZone td');
@@ -76,6 +76,7 @@ function loadEverything(){
         }
         matrix.push(row);
     }
+    printLeaderboard();
 }
 // Move the pieces of the puzzle
 function move(row, colum){
@@ -154,7 +155,7 @@ function randomPosition(){
     matrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
 }
 
-var top5Records = []; //    [username]
+var top5Records = []; // -> [username]
 //                          [minutes]
 //                          [seconds]
 //                          [miliseconds]
@@ -166,12 +167,36 @@ if (localStorage.records != undefined){
 }
 
 
-function checkAndSave(){
+function checkAndSaveLeaderboard(userN){
     let usernameV = document.querySelector('#username input');
-    let row = [usernameV.value, timerTime.getMinutes(), timerTime.getSeconds(), timerTime.getMilliseconds(), moves];
+    let row = [userN, timerTime.getMinutes(), timerTime.getSeconds(), timerTime.getMilliseconds(), moves];
     top5Records.push(row);
 
+    let auxTime1, auxTime2, auxVal;
+
+    for (let i = 0; i < top5Records.length; i++) {
+        auxTime1 = (top5Records[i][1] * 60 * 100) + (top5Records[i][2] * 100) + top5Records[i][3];
+        for (let j = 0; j < top5Records.length; j++) {
+            auxTime2 = (top5Records[j][1] * 60 * 100) + (top5Records[j][2] * 100) + top5Records[j][3];
+            if (auxTime1 < auxTime2) {
+                auxVal = top5Records[i];
+                top5Records[i] = top5Records[j];
+                top5Records[j] = auxVal;
+            }
+        }
+    }
     localStorage.records = JSON.stringify(top5Records);
+    printLeaderboard();
+}
+
+function printLeaderboard(){
+    let trs = document.querySelectorAll('#leaderboard tr');
+       for (let i = 1; i < top5Records.length; i++) {
+           trs[i].innerHTML = "<td>" + top5Records[i][0] + "</td><td>" + top5Records[i][1] + ":" +top5Records[i][2] + ":" + top5Records[i][3] + "</td><td>" + top5Records[i][4] + "</td>";
+           if (i == 5) {
+               break; //Exits for after painting top 5 elements
+           }
+       }
 }
 
 function hideNotifications(){
