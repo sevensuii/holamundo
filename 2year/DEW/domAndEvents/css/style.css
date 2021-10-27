@@ -52,13 +52,22 @@ body {
 
 button {
     height: 2em;
-    margin: 1em;
+    margin: 1em auto;
     position: relative;
     width: 13em;
     font-size: 2em;
     font-family: 'Bebas Neue', cursive;
     background-color: lightgreen;
     border-radius: .3em;
+}
+
+#imButton {
+    align-items: center;
+    text-align: center;
+}
+
+#results {
+    text-align: center;
 }
 
 button:hover {
@@ -95,6 +104,8 @@ button:hover {
     left: 25%;
     background-color: white;
     border-radius: 1em;
+    align-items: center;
+    text-align: center;
 
 }
 
