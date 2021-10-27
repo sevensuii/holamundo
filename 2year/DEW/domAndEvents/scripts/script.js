@@ -1,10 +1,29 @@
-var timerTime = new Date();
-console.log(timerTime)
+//Load globar variables of the program
+var timerTime = new Date(); //Date object
+console.log(timerTime); 
 
-var ms = 0;
-var s = 0;
-var m = 0;
+var ms = 0; // milliseconds
+var s = 0;  // seconds
+var m = 0;  // minutes
 
+var myTime
+var moves = 0;  //counts the number of moves that have taken you to solve the puzzle
+
+let pieces = document.querySelectorAll('#playZone td');
+let matrix = []; //Stores all tds in the puzzle
+
+var top5Records = []; // -> [username] || Used to store best 5 times
+//                          [minutes]
+//                          [seconds]
+//                          [miliseconds]
+//                          [moves]
+localStorage.records; //Stores best 5 times in local memory
+
+if (localStorage.records != undefined){
+    top5Records = JSON.parse(localStorage.records);
+}
+
+//All loaded
 
 function timer(){
     var msAux, sAux, mAux;
@@ -26,8 +45,6 @@ function timer(){
 
 
 }
-var myTime
-var moves = 0;  //counts the number of moves that have taken you to solve the puzzle
 
 function timerStart(){
     let userDiv = document.querySelector('#username');
@@ -53,7 +70,7 @@ function finished(){
     timerTime.setSeconds(s);
     timerTime.setMinutes(m);
     document.querySelector('#yourResults').innerHTML = "You solved the puzzle in " + m + " minutes, " + s + " seconds, " + ms + " miliseconds and " + moves +" moves!";
-    document.querySelector('#notification').style.display = "block";
+    //document.querySelector('#notification').style.display = "block";
     document.querySelector('#notification button').onclick = function(){ document.querySelector('#notification').style.display = "none";}
     ms = 0;
     s = 0;
@@ -61,8 +78,6 @@ function finished(){
     checkAndSaveLeaderboard(usernameV.value);
 }
 
-let pieces = document.querySelectorAll('#playZone td');
-let matrix = [];
 
 
 function loadEverything(){
@@ -155,20 +170,10 @@ function randomPosition(){
     matrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
 }
 
-var top5Records = []; // -> [username]
-//                          [minutes]
-//                          [seconds]
-//                          [miliseconds]
-//                          [moves]
-localStorage.records;
-
-if (localStorage.records != undefined){
-    top5Records = JSON.parse(localStorage.records);
-}
 
 
 function checkAndSaveLeaderboard(userN){
-    let usernameV = document.querySelector('#username input');
+    //let usernameV = document.querySelector('#username input');
     let row = [userN, timerTime.getMinutes(), timerTime.getSeconds(), timerTime.getMilliseconds(), moves];
     top5Records.push(row);
 
@@ -179,6 +184,7 @@ function checkAndSaveLeaderboard(userN){
         for (let j = 0; j < top5Records.length; j++) {
             auxTime2 = (top5Records[j][1] * 60 * 100) + (top5Records[j][2] * 100) + top5Records[j][3];
             if (auxTime1 < auxTime2) {
+                auxTime1 = auxTime2;
                 auxVal = top5Records[i];
                 top5Records[i] = top5Records[j];
                 top5Records[j] = auxVal;
