@@ -70,7 +70,7 @@ function finished(){
     timerTime.setSeconds(s);
     timerTime.setMinutes(m);
     document.querySelector('#yourResults').innerHTML = "You solved the puzzle in " + m + " minutes, " + s + " seconds, " + ms + " miliseconds and " + moves +" moves!";
-    //document.querySelector('#notification').style.display = "block";
+    document.querySelector('#notification').style.display = "block";
     document.querySelector('#notification button').onclick = function(){ document.querySelector('#notification').style.display = "none";}
     ms = 0;
     s = 0;
