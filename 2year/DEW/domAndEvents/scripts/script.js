@@ -1,4 +1,4 @@
-//Load globar variables of the program
+//Load global variables of the program
 var timerTime = new Date(); //Date object
 console.log(timerTime); 
 
@@ -10,7 +10,7 @@ var myTime
 var moves = 0;  //counts the number of moves that have taken you to solve the puzzle
 
 let pieces = document.querySelectorAll('#playZone td');
-let matrix = []; //Stores all tds in the puzzle
+let top5Recordsrix = []; //Stores all tds in the puzzle
 
 var top5Records = []; // -> [username] || Used to store best 5 times
 //                          [minutes]
@@ -25,7 +25,7 @@ if (localStorage.records != undefined){
 
 //All loaded
 
-function timer(){
+function timer(){   //This is the timer
     var msAux, sAux, mAux;
     ms += 2;
     if (ms >= 100){
@@ -46,7 +46,7 @@ function timer(){
 
 }
 
-function timerStart(){
+function timerStart(){ //When start is pressed, it calls this function
     let userDiv = document.querySelector('#username');
     let usernameV = document.querySelector('#username input');
     userDiv.innerHTML = '<input readonly value=' + usernameV.value + '>';
@@ -54,13 +54,13 @@ function timerStart(){
     someButton.innerHTML = '<button>Start</button>';
     moves = 0;
     document.querySelector('#moves').innerHTML = "Moves: " + moves;
-    randomPosition();
+    //randomPosition();
     timer();
     myTime = setInterval(timer, 20);
 }
 
-function finished(){
-    clearInterval(myTime);
+function finished(){ //When you finish the puzzle, the name can be edited again, time and moves are set to 0, and a notification with
+    clearInterval(myTime);                                                                                    //your results is shown
     let someButton = document.querySelector('#imButton');
     someButton.innerHTML = '<button onclick="timerStart()">Start</button>';
     let userDiv = document.querySelector('#username');
@@ -80,7 +80,7 @@ function finished(){
 
 
 
-function loadEverything(){
+function loadEverything(){ //Function is called after all HTML is loaded, so won't miss things that are not loaded
     pieces = document.querySelectorAll('#playZone td');
     let cont = 0;
     for (let i = 0; i < 3; i++){
@@ -89,43 +89,43 @@ function loadEverything(){
             row.push(pieces[cont]);
             cont++;
         }
-        matrix.push(row);
+        top5Recordsrix.push(row);
     }
     printLeaderboard();
 }
 // Move the pieces of the puzzle
-function move(row, colum){
+function move(row, colum){  //Checks all sides, and if the conditions are correct, ir moves the pieces
     console.log("[" + row + "][" + colum + "]");
-    if ((row - 1 >= 0) && (matrix[row - 1][colum].innerHTML.search("white") != -1)) {   //checks if white is above
-        let elem1 = matrix[row][colum];
-        let elem2 = matrix[row - 1][colum];
+    if ((row - 1 >= 0) && (top5Recordsrix[row - 1][colum].innerHTML.search("white") != -1)) {   //checks if white is above
+        let elem1 = top5Recordsrix[row][colum];
+        let elem2 = top5Recordsrix[row - 1][colum];
         let aux = elem1.innerHTML;
         elem1.innerHTML = elem2.innerHTML;
         elem2.innerHTML = aux;
         moves++;
         console.log(moves);
     }
-    else if ((colum + 1 < 3) && (matrix[row][colum + 1].innerHTML.search("white") != -1)) { //checks if white is right
-        let elem1 = matrix[row][colum];
-        let elem2 = matrix[row][colum + 1];
+    else if ((colum + 1 < 3) && (top5Recordsrix[row][colum + 1].innerHTML.search("white") != -1)) { //checks if white is right
+        let elem1 = top5Recordsrix[row][colum];
+        let elem2 = top5Recordsrix[row][colum + 1];
         let aux = elem1.innerHTML;
         elem1.innerHTML = elem2.innerHTML;
         elem2.innerHTML = aux;
         moves++;
         console.log(moves);
     }
-    else if ((row + 1 < 3) && (matrix[row + 1][colum].innerHTML.search("white") != -1)) {   //checks if white is below
-        let elem1 = matrix[row][colum];
-        let elem2 = matrix[row + 1][colum];
+    else if ((row + 1 < 3) && (top5Recordsrix[row + 1][colum].innerHTML.search("white") != -1)) {   //checks if white is below
+        let elem1 = top5Recordsrix[row][colum];
+        let elem2 = top5Recordsrix[row + 1][colum];
         let aux = elem1.innerHTML;
         elem1.innerHTML = elem2.innerHTML;
         elem2.innerHTML = aux;
         moves++;
         console.log(moves);
     }
-    else if ((colum - 1 >= 0) && (matrix[row][colum - 1].innerHTML.search("white") != -1)) {    //checks if white is left
-        let elem1 = matrix[row][colum];
-        let elem2 = matrix[row][colum - 1];
+    else if ((colum - 1 >= 0) && (top5Recordsrix[row][colum - 1].innerHTML.search("white") != -1)) {    //checks if white is left
+        let elem1 = top5Recordsrix[row][colum];
+        let elem2 = top5Recordsrix[row][colum - 1];
         let aux = elem1.innerHTML;
         elem1.innerHTML = elem2.innerHTML;
         elem2.innerHTML = aux;
@@ -139,22 +139,22 @@ function move(row, colum){
     checkPositions();
 }
 
-function checkPositions() {
+function checkPositions() { //Checks if all images are in theirs correct positions
     let pos = 1;
-    for (let i = 0; i < 3; i++) {   //Checks if all images are in theirs original positions
+    for (let i = 0; i < 3; i++) {   
         for (let j = 0; j < 3; j++) {
-            if (matrix[i][j].innerHTML.search("pic" + pos) != -1)
+            if (top5Recordsrix[i][j].innerHTML.search("pic" + pos) != -1)
             pos++;
         }
     }
     console.log("Elem in right pos: " + pos);
-    if ((pos == 9) && (matrix[2][2].innerHTML.search("white") != -1)) {
+    if ((pos == 9) && (top5Recordsrix[2][2].innerHTML.search("white") != -1)) {
         finished();
     }
 }
 
-function randomPosition(){
-    let takenPositions = []; //Stores the postitions that are already in random mode
+function randomPosition(){  //Random shuffle of the images
+    let takenPositions = []; //Stores the images that are already in random mode
     let num;
     for(i = 0; i < 3; i++){
         for(j = 0; j < 3; j++){
@@ -162,19 +162,18 @@ function randomPosition(){
             console.log("pooo: " + pooo);
             do {
                 num = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-            } while ((takenPositions.indexOf(num) != -1) && (matrix[i][j].innerHTML.search("white") == -1));
+            } while ((takenPositions.indexOf(num) != -1) && (top5Recordsrix[i][j].innerHTML.search("white") == -1));
             takenPositions.push(num);
-            matrix[i][j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
+            top5Recordsrix[i][j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
         }
     }
-    matrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
+    top5Recordsrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
 }
 
 
 
-function checkAndSaveLeaderboard(userN){
-    //let usernameV = document.querySelector('#username input');
-    let row = [userN, timerTime.getMinutes(), timerTime.getSeconds(), timerTime.getMilliseconds(), moves];
+function checkAndSaveLeaderboard(userN){    //Order the best 5 times from better to worse
+    let row = [userN, timerTime.getMinutes(), timerTime.getSeconds(), timerTime.getMilliseconds(), moves];  //Pushes the result from the last game to the array
     top5Records.push(row);
 
     let auxTime1, auxTime2, auxVal;
@@ -191,21 +190,18 @@ function checkAndSaveLeaderboard(userN){
             }
         }
     }
+    while (top5Records.length > 5) {
+        top5Records.pop();
+    }
     localStorage.records = JSON.stringify(top5Records);
     printLeaderboard();
 }
 
-function printLeaderboard(){
+function printLeaderboard(){    //Prints the leaderboard
     let trs = document.querySelectorAll('#leaderboard tr');
-       for (let i = 1; i < top5Records.length; i++) {
-           trs[i].innerHTML = "<td>" + i + "<td>" + top5Records[i][0] + "</td><td>" + top5Records[i][1] + ":" +top5Records[i][2] + ":" + top5Records[i][3] + "</td><td>" + top5Records[i][4] + "</td>";
-           if (i == 5) {
-               break; //Exits for after painting top 5 elements
-           }
+    cont = 1;
+       for (let i = 0; i < top5Records.length; i++) {
+           trs[cont].innerHTML = "<td>" + cont + "<td>" + top5Records[i][0] + "</td><td>" + top5Records[i][1] + ":" +top5Records[i][2] + ":" + top5Records[i][3] + "</td><td>" + top5Records[i][4] + "</td>";
+           cont++;
        }
-}
-
-function hideNotifications(){
-    let info2 = document.querySelector('#notification');
-    info2.style.display = "none";
 }
