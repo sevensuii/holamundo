@@ -54,7 +54,7 @@ function timerStart(){
     someButton.innerHTML = '<button>Start</button>';
     moves = 0;
     document.querySelector('#moves').innerHTML = "Moves: " + moves;
-    //randomPosition();
+    randomPosition();
     timer();
     myTime = setInterval(timer, 20);
 }

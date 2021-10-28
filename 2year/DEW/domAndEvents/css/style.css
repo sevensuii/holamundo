@@ -90,6 +90,8 @@ button:hover {
 #playZone td img {
     width: 100%;
     height: 100%;
+    transition: all 1s linear;
+    transition-timing-function: ease;
 }
 
 #notification {
