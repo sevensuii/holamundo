@@ -3,7 +3,50 @@ var isFile = '<i class="fas fa-file-alt"></i>';
 var closedFolder = '<i class="fas fa-folder"></i>';
 var openedFolder = '<i class="fas fa-folder-open"></i>';
 var addItem = '<i class="fas fa-plus-circle"></i>';
-var removeItem = '<i class="fas fa-minus-circle"></i>';
+var removeItem = '<i class="fas fa-trash"></i>';
+var image = '<i class="fas fa-image"></i>'
+
+var folderCheckbox = '<div class="folder"><label class="custom-checkbox"><input type="checkbox" /><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i><span class="text"></span></label><div class="fodler-content"><div class="folder"><label class="custom-checkbox"><input type="checkbox" /><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i><span class="text">Descargas</span></label></div></div>';
 //End ---------------------------
 
 //document.querySelector(".icon").innerHTML = openedFolder;
+
+function addingFolder() {
+    console.log("sad");
+}
+
+var lista = document.querySelectorAll(".removeItem");
+
+for (let i = 0; i < lista.length; i++) {
+    lista[i].addEventListener("click", function(e) {
+        console.log(e.target.parentElement.parentElement.style.display = "none");
+    })
+}
+
+//list.addEventListener('click', function(e) {
+  //  console.log(e);
+    //if(e.target.className == 'delete'){
+    //  const li = e.target.parentElement;
+    //  li.parentNode.removeChild(li); //removes the element
+     //li.setAttribute ('style', 'display: none');//Hides the element 
+    // li.style.display="none"; 
+      //https://www.w3schools.com/jsref/prop_style_display.asp
+  //  }
+  //}
+ // );
+
+
+
+
+var items = document.querySelectorAll(".addItem");
+for (let i = 0; i < items.length; i++) {
+    items[i].innerHTML = addItem;
+}
+items = document.querySelectorAll(".removeItem");
+for (let i = 0; i < items.length; i++) {
+    items[i].innerHTML = removeItem;
+}
+/*items = document.querySelectorAll(".icon");
+for (let i; i < items.length; i++) {
+    items[i].innerHTML = isFile;
+}*/
