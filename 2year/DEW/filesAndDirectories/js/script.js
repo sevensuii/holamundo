@@ -1,10 +1,11 @@
 //Declaration of global variables
-var isFile = '<i class="fas fa-file-alt"></i>';
+var fileIcon = '<i class="fas fa-file-alt"></i>';
 var closedFolder = '<i class="fas fa-folder"></i>';
 var openedFolder = '<i class="fas fa-folder-open"></i>';
 var addItem = '<i class="fas fa-plus-circle"></i>';
 var removeItem = '<i class="fas fa-trash"></i>';
-var image = '<i class="fas fa-image"></i>'
+var imageIcon = '<i class="fas fa-image"></i>';
+var pdfIcon = '<i class="fas fa-file-pdf"></i>';
 
 var folderCheckbox = '<div class="folder"><label class="custom-checkbox"><input type="checkbox" /><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i><span class="text"></span></label><div class="fodler-content"><div class="folder"><label class="custom-checkbox"><input type="checkbox" /><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i><span class="text">Descargas</span></label></div></div>';
 //End ---------------------------
@@ -19,7 +20,21 @@ var lista = document.querySelectorAll(".removeItem");
 
 for (let i = 0; i < lista.length; i++) {
     lista[i].addEventListener("click", function(e) {
-        console.log(e.target.parentElement.parentElement.style.display = "none");
+        //console.log(e.target.parentElement.parentElement.style.display = "none");
+        let parent = e.target.parentElement.parentElement.parentElement;
+        let thisChild = e.target.parentElement.parentElement;
+        console.log(thisChild.childNodes);
+        if (thisChild.className == "folder" && thisChild.childNodes[7].length == 0) {
+            console.log("This folder is empty");
+            parent.removeChild(thisChild);
+            
+        }
+        else if (thisChild.className == "file" || thisChild.className == "image" || thisChild.className == "pdf"){
+            console.log("This is a file")
+            parent.removeChild(thisChild);
+        }
+        //console.log(parent);
+        //console.log(parent.childNodes);
     })
 }
 
@@ -48,5 +63,5 @@ for (let i = 0; i < items.length; i++) {
 }
 /*items = document.querySelectorAll(".icon");
 for (let i; i < items.length; i++) {
-    items[i].innerHTML = isFile;
+    items[i].innerHTML = fileIcon;
 }*/
