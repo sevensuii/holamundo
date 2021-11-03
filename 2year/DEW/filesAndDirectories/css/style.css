@@ -23,6 +23,7 @@ body {
 .custom-checkbox, .file-name {
     width: 85%;
     display: inline-block;
+    margin-left: 1%;
 }
 
 .custom-checkbox input[type="checkbox"], .custom-checkbox .checked { /*Hides the checkbutton*/
