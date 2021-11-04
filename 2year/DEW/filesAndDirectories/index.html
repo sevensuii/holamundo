@@ -16,14 +16,14 @@
         <div class="folder">
             <label class="custom-checkbox">
                     <input type="checkbox" />
-                    <i class="fas fa-folder unchecked"></i>
-                    <i class="fas fa-folder-open checked"></i>
+                    <i class="fas fa-folder checked"></i>
+                    <i class="fas fa-folder-open unchecked"></i>
                     <span class="text">/</span>
             </label>
             <div class="addItem"></div>
             <br>
             <div class="folder-content">
-                <div class="file"><span class="icon"><i class="fas fa-file"></i></span><span class="file-name">holamundo.txt</span></div>
+                <div class="file"><span class="icon"><i class="fas fa-file"></i></span><span class="file-name">holamundo.txt</span><div class="removeItem"></div></div>
                 <div class="folder" id="Usuario">
                     <label class="custom-checkbox">
                             <input type="checkbox" />
@@ -33,52 +33,61 @@
                     </label>
                     <div class="addItem"></div>
                     <div class="removeItem"></div>
-                    <div class="fodler-content">
-                    <div class="folder" id="Descargas">
-                        <label class="custom-checkbox">
-                                <input type="checkbox" />
-                                <i class="fas fa-folder unchecked"></i>
-                                <i class="fas fa-folder-open checked"></i>
-                                <span class="text">Descargas</span>
-                        </label>
-                    <div class="addItem"></div>
-                    <div class="removeItem"></div>
                     <div class="folder-content">
-                            <div class="pdf" id="guia.pdf"><span class="icon"><i class="fas fa-file-pdf"></i></span><span class="file-name">guia.pdf</span><div class="removeItem"></div></div>
-                    </div>
-                    </div>
-                    <div class="folder" id="Escritorio">
-                        <label class="custom-checkbox">
-                                <input type="checkbox" />
-                                <i class="fas fa-folder unchecked"></i>
-                                <i class="fas fa-folder-open checked"></i>
-                                <span class="text">Escritorio</span>
-                        </label>
+                        <div class="folder" id="Descargas">
+                            <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <i class="fas fa-folder unchecked"></i>
+                                    <i class="fas fa-folder-open checked"></i>
+                                    <span class="text">Descargas</span>
+                            </label>
                         <div class="addItem"></div>
                         <div class="removeItem"></div>
                         <div class="folder-content">
-                            <div class="file" id="juego.py"><span class="icon"><i class="fas fa-file-alt"></i></span><span class="file-name">juego.py</span><div class="removeItem"></div></div>
-                            <div class="file" id="puzzle.js"><span class="icon"><i class="fas fa-file-alt"></i></span><span class="file-name">puzzle.js</span><div class="removeItem"></div></div>
+                                <div class="pdf" id="guia.pdf"><span class="icon"><i class="fas fa-file-pdf"></i></span><span class="file-name">guia.pdf</span><div class="removeItem"></div></div>
+                        </div>
+                        </div>
+                        <div class="folder" id="Escritorio">
+                            <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <i class="fas fa-folder unchecked"></i>
+                                    <i class="fas fa-folder-open checked"></i>
+                                    <span class="text">Escritorio</span>
+                            </label>
+                            <div class="addItem"></div>
+                            <div class="removeItem"></div>
+                            <div class="folder-content">
+                                <div class="file" id="juego.py"><span class="icon"><i class="fas fa-file-alt"></i></span><span class="file-name">juego.py</span><div class="removeItem"></div></div>
+                                <div class="file" id="puzzle.js"><span class="icon"><i class="fas fa-file-alt"></i></span><span class="file-name">puzzle.js</span><div class="removeItem"></div></div>
+                            </div>
+                        </div>
+                        <div class="folder" id="Imágenes">
+                            <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <i class="fas fa-folder unchecked"></i>
+                                    <i class="fas fa-folder-open checked"></i>
+                                    <span class="text">Imágenes</span>
+                            </label>
+                            <div class="addItem"></div>
+                            <div class="removeItem"></div>
+                            <div class="folder-content">
+                                <div class="image" id="foto1.png"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto1.png</span><div class="removeItem"></div></div>
+                                <div class="image" id="foto3.png"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto3.png</span><div class="removeItem"></div></div>
+                                <div class="image" id="carro.jpg"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">carro.jpg</span><div class="removeItem"></div></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="folder" id="Imágenes">
-                        <label class="custom-checkbox">
-                                <input type="checkbox" />
-                                <i class="fas fa-folder unchecked"></i>
-                                <i class="fas fa-folder-open checked"></i>
-                                <span class="text">Imágenes</span>
-                        </label>
-                        <div class="addItem"></div>
-                        <div class="removeItem"></div>
-                        <div class="folder-content">
-                            <div class="image" id="foto1.png"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto1.png</span><div class="removeItem"></div></div>
-                            <div class="image" id="foto3.png"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto3.png</span><div class="removeItem"></div></div>
-                            <div class="image" id="carro.jpg"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">carro.jpg</span><div class="removeItem"></div></div>
-                        </div>
-                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+    <div id="info">
+        <ul>Small guide
+            <li>All files that ends with <strong>.png</strong> or <strong>.jpg</strong> will be considered as images.</li>
+            <li>Folder will be the one with no dots in his name.</li>
+        </ul>
+    </div>
+    <div id="notification">Se ha eliminado la carpeta Escritorio</div>
     <script src="js/script.js"></script>
 </body>
 </html>
