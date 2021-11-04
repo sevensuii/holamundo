@@ -57,3 +57,25 @@ body {
     position: relative;
     left: 0;
 }
+
+#info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(155, 199, 115);
+    border: .2em solid rgb(0, 132, 255);
+    border-top-right-radius: 50%;
+    font-size: 1.4em;
+    padding: .5em .5em .5em 1.2em;
+}
+
+#notification {
+    background-color: lightgreen;
+    display: none;
+    font-size: 1.4em;
+    padding: .4em;
+    border-radius: 10%;
+    position: absolute;
+    left: 35%;
+    top: 0;
+}
