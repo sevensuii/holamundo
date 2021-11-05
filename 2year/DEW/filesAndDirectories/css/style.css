@@ -64,7 +64,7 @@ body {
     bottom: 0;
     background-color: rgb(155, 199, 115);
     border: .2em solid rgb(0, 132, 255);
-    border-top-right-radius: 50%;
+    border-top-right-radius: 20px;
     font-size: 1.4em;
     padding: .5em .5em .5em 1.2em;
 }
@@ -74,7 +74,7 @@ body {
     display: none;
     font-size: 1.4em;
     padding: .4em;
-    border-radius: 10%;
+    border-radius: 10px;
     position: absolute;
     left: 35%;
     top: 0;
