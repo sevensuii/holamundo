@@ -8,6 +8,8 @@ var imageIcon = '<i class="fas fa-image"></i>';
 var pdfIcon = '<i class="fas fa-file-pdf"></i>';
 
 var folderCheckbox = '<div class="folder"><label class="custom-checkbox"><input type="checkbox" /><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i><span class="text"></span></label><div class="fodler-content"><div class="folder"><label class="custom-checkbox"><input type="checkbox" /><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i><span class="text">Descargas</span></label></div></div>';
+
+var noti = document.querySelector("#notification");
 //End ---------------------------
 
 //document.querySelector(".icon").innerHTML = openedFolder;
@@ -16,102 +18,44 @@ function addingFolder() {
     console.log("sad");
 }
 
-//function removeItem(parent1, thisChild1) {
-//    //console.log(e.target.parentElement.parentElement.style.display = "none");
-//    //let parent = e.target.parentElement.parentElement.parentElement;
-//    //let thisChild = e.target.parentElement.parentElement;
-//    //let empty = false;
-//    let parent = parent1;
-//    let thisChild = thisChild1;
-//    console.log(thisChild.childNodes);
-//    if (thisChild.className == "folder") {
-//        for (let h = 0; h < thisChild.childNodes[7].childNodes.length; h++) {
-//            if (thisChild.childNodes[7].childNodes[h].nodeName == "#text") {
-//                empty = true;
-//            }
-//            else {
-//                empty = false;
-//            }
-//        }
-//        if (empty) {
-//            parent.removeChild(thisChild);
-//            
-//        }
-//        console.log("This folder is empty");
-//        
-//    }
-//    else if (thisChild.className == "file" || thisChild.className == "image" || thisChild.className == "pdf"){
-//        console.log("This is a file")
-//        parent.removeChild(thisChild);
-//    }
-//    //console.log(parent);
-//    //console.log(parent.childNodes);
-//}
-
 var lista = document.querySelectorAll(".removeItem");
 
-//for (let i = 0; i < lista.length; i++) {
-//    lista[i].addEventListener("click", function(e) {
-//        let parent = e.target.parentElement.parentElement.parentElement;
-//        let thisChild = e.target.parentElement.parentElement;
-//        removeItem(parent, thisChild);
-//    });
-//}
 for (let i = 0; i < lista.length; i++) {
     lista[i].addEventListener("click", function(e) {
-        //console.log(e.target.parentElement.parentElement.style.display = "none");
         let parent = e.target.parentElement.parentElement.parentElement;
         let thisChild = e.target.parentElement.parentElement;
-        let empty = false;
         console.log(thisChild.childNodes);
-        if (thisChild.className == "folder") {
-            for (let h = 0; h < thisChild.childNodes[7].childNodes.length - 1; h++) {
-                if (thisChild.childNodes[7].childNodes[h].nodeName == "#text") {
-                    empty = true;
-			let noti = document.querySelector("notification");
-			noti.innerHTML = "The folder has been deleted";
-			noti.style.display = "block";
-			setTimeout(function () {noti.style.display = "none";}, 1500)
-                }
-                else {
-                    empty = false;
-                    break;
-                }
-            }
-            console.log(empty);
-            if (empty) {
-                parent.removeChild(thisChild);
-                
-            }
-            else {
-                console.log("This folder is not empty");
-            }
-            
+        if (thisChild.className == "folder" && thisChild.childNodes[7].childElementCount == 0) {
+            parent.removeChild(thisChild);
+            sendNotification(thisChild.className, 1);
         }
         else if (thisChild.className == "file" || thisChild.className == "image" || thisChild.className == "pdf"){
-            console.log("This is a file")
+            console.log("This file has been removed")
             parent.removeChild(thisChild);
-            empty = false;
+            sendNotification(thisChild.className, 1);
+    }
+
+        else {
+            console.log("This folder is not empty");
+            sendNotification(thisChild.className, 0);
         }
-        //console.log(parent);
-        //console.log(parent.childNodes);
     })
 }
 
-//list.addEventListener('click', function(e) {
-  //  console.log(e);
-    //if(e.target.className == 'delete'){
-    //  const li = e.target.parentElement;
-    //  li.parentNode.removeChild(li); //removes the element
-     //li.setAttribute ('style', 'display: none');//Hides the element 
-    // li.style.display="none"; 
-      //https://www.w3schools.com/jsref/prop_style_display.asp
-  //  }
-  //}
- // );
-
-
-
+ function sendNotification(tipe, option) {
+     if (option) {
+	    noti.innerText = "This " + tipe + " has been deleted!";
+        noti.style.backgroundColor = "lightgreen";
+        noti.style.display="block";
+        setTimeout(function () {noti.style.display = "none";}, 1500)
+     }
+     else {
+        noti.innerText = "This " + tipe + " is not empty!";
+        noti.style.backgroundColor = "lightcoral";
+        noti.style.display = "block";
+        setTimeout(function () {noti.style.display = "none";}, 1500)
+     }
+ }
 
 var items = document.querySelectorAll(".addItem");
 for (let i = 0; i < items.length; i++) {
@@ -125,3 +69,20 @@ for (let i = 0; i < items.length; i++) {
 for (let i; i < items.length; i++) {
     items[i].innerHTML = fileIcon;
 }*/
+//const hideBox = document.querySelector('#hide');
+//hideBox.addEventListener('change', function(){
+//  if(hideBox.checked){
+//    list.style.display = "none";
+//  } else {
+//    list.style.display = "initial";
+//  }
+//});
+var myCheckBox = document.querySelectorAll(".custom-checkbox");
+console.log(myCheckBox);
+for (let i = 0; i < myCheckBox.length; i++) {
+    myCheckBox[i].addEventListener('checked', function(e) {
+        let myCheck = e.target.parentElement;
+        document.log(mycheck);
+    })
+}
+//myCheckBox[i].parentElement.childNodes[7].style.display = 'none';
