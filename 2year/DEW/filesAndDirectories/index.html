@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/2538c8c34c.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
     <title>Directories</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
                 <div class="file"><span class="icon"><i class="fas fa-file"></i></span><span class="file-name">holamundo.txt</span><div class="removeItem"></div></div>
                 <div class="folder" id="Usuario">
                     <label class="custom-checkbox">
-                            <input type="checkbox" />
+                            <input type="checkbox" checked/>
                             <i class="fas fa-folder unchecked"></i>
                             <i class="fas fa-folder-open checked"></i>
                             <span class="text">Usuario</span>
@@ -36,7 +37,7 @@
                     <div class="folder-content">
                         <div class="folder" id="Descargas">
                             <label class="custom-checkbox">
-                                    <input type="checkbox" />
+                                    <input type="checkbox" checked/>
                                     <i class="fas fa-folder unchecked"></i>
                                     <i class="fas fa-folder-open checked"></i>
                                     <span class="text">Descargas</span>
@@ -49,7 +50,7 @@
                         </div>
                         <div class="folder" id="Escritorio">
                             <label class="custom-checkbox">
-                                    <input type="checkbox" />
+                                    <input type="checkbox" checked/>
                                     <i class="fas fa-folder unchecked"></i>
                                     <i class="fas fa-folder-open checked"></i>
                                     <span class="text">Escritorio</span>
@@ -70,7 +71,7 @@
                             </label>
                             <div class="addItem"></div>
                             <div class="removeItem"></div>
-                            <div class="folder-content">
+                            <div class="folder-content" style="display: none;">
                                 <div class="image" id="foto1.png"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto1.png</span><div class="removeItem"></div></div>
                                 <div class="image" id="foto3.png"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto3.png</span><div class="removeItem"></div></div>
                                 <div class="image" id="carro.jpg"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">carro.jpg</span><div class="removeItem"></div></div>
@@ -94,6 +95,7 @@
 
 
 <!--    <label class="custom-checkbox">
+    <script>loadEverything()</script>
         <input type="checkbox" />
         <i class="fas fa-folder unchecked"></i>
         <i class="fas fa-folder-open checked"></i>
