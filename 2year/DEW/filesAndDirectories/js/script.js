@@ -57,6 +57,17 @@ for (let i = 0; i < lista.length; i++) {
      }
  }
 
+function loadEverything() {
+
+
+    
+}
+
+
+
+
+
+
 var items = document.querySelectorAll(".addItem");
 for (let i = 0; i < items.length; i++) {
     items[i].innerHTML = addItem;
@@ -65,24 +76,16 @@ items = document.querySelectorAll(".removeItem");
 for (let i = 0; i < items.length; i++) {
     items[i].innerHTML = removeItem;
 }
-/*items = document.querySelectorAll(".icon");
-for (let i; i < items.length; i++) {
-    items[i].innerHTML = fileIcon;
-}*/
-//const hideBox = document.querySelector('#hide');
-//hideBox.addEventListener('change', function(){
-//  if(hideBox.checked){
-//    list.style.display = "none";
-//  } else {
-//    list.style.display = "initial";
-//  }
-//});
-var myCheckBox = document.querySelectorAll(".custom-checkbox");
+var myCheckBox = document.querySelectorAll("div label input");
 console.log(myCheckBox);
 for (let i = 0; i < myCheckBox.length; i++) {
-    myCheckBox[i].addEventListener('checked', function(e) {
-        let myCheck = e.target.parentElement;
-        document.log(mycheck);
+    myCheckBox[i].addEventListener('change', function(e) {
+        if (myCheckBox[i].checked) {
+            e.target.parentElement.parentElement.childNodes[7].style.display = "block";
+        }
+        else {
+            e.target.parentElement.parentElement.childNodes[7].style.display = "none";
+        }
     })
 }
 //myCheckBox[i].parentElement.childNodes[7].style.display = 'none';
