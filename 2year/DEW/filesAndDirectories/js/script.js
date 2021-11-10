@@ -12,7 +12,7 @@ var folderCheckbox = '<div class="folder"><label class="custom-checkbox"><input 
 var noti = document.querySelector("#notification");
 
 var parent, thisChild, items, myCheckBox;
-var lista = document.querySelectorAll(".removeItem");
+var lista;
 //End ---------------------------
 
 //document.querySelector(".icon").innerHTML = openedFolder;
@@ -21,7 +21,8 @@ function addingFolder() {
     console.log("sad");
 }
 
-function addRemoveAction() {
+function addRemoveAction() {    //Adds the remove action for the trash icon so items can be deleted
+    lista = document.querySelectorAll(".removeItem");
     for (let i = 0; i < lista.length; i++) {
         lista[i].addEventListener("click", function(e) {
             parent = e.target.parentElement.parentElement.parentElement;
@@ -46,33 +47,121 @@ function addRemoveAction() {
 
 }
 
-function addAppendAction() {
-    items = document.querySelectorAll(".add-btn");
-    for (let i = 0; i < items.length; i++) {
-        items[i].addEventListener('click', function(e) {
-            console.log(e.target.parentElement.parentElement.children[0]);
-            e.target.parentElement.parentElement.children[0].style.width = "30%"
-            e.target.parentElement.innerHTML = '<input type="text"><input id="add-this-item" type="button" value="Add">';
-        })
+function checkType(arr) {   //Returns 0->Folder, 1->PDF, 2->IMG, 3->Other files
+    if (arr.length == 0) {
+        return 404;
+    }
+    let pos = arr.indexOf(".");
+    let cad = "";
+    if (pos != -1) {
+        for (let i = pos + 1; i < arr.length; i++) {
+            cad += arr[i];
+        }
+        cad = cad.toLocaleLowerCase();
+        if (cad == "pdf") {
+            return 1;
+        }
+        else if ((cad == "jgp") || (cad == "png")) {
+            return 2;
+        }
+        else {
+            return 3;
+        }
+    }
+    else {
+        return 0;
     }
 }
 
-function sendNotification(tipe, option) {
-     if (option) {
+function addAppendAction() {    //Adds actions so you can add items like folders or diferente types of files
+    items = document.querySelectorAll(".add-btn");
+    for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener('click', function(e) {
+            e.target.style.display = 'none';
+            console.log(e.target.parentElement.parentElement.children[0]);
+            let res = e.target.parentElement.parentElement.children[0];
+            res.style.width = "56.5%";
+            e.target.parentElement.innerHTML += '<div id="floating-add"></div><input type="text"><input id="add-this-item" type="button" value="Add"><input id="cancel-action" type="button" value="Cancel"></div>';
+            let btn = document.querySelector("#add-this-item");
+            let btn2 = document.querySelector("#cancel-action");
+            btn2.addEventListener('click', function() { //Reset add form to a icon
+                addIcons();
+                addAppendAction();
+            })
+            btn.addEventListener('click', function(e) {
+                let val = checkType(e.target.previousSibling.value)
+                template = document.createElement("div");
+                if (val == 404) {
+                    sendNotification("Name can't be empty", 2);
+                }
+                else if (val == 1) {
+                    template.classList.add("pdf");
+                    template.innerHTML = '<span class="icon"><i class="fas fa-file-pdf"></i></span><span class="file-name">' + e.target.previousSibling.value + '</span><div class="removeItem"></div>';
+                }
+                else if (val == 2) {
+                    template.classList.add("image");
+                    template.innerHTML = '<span class="icon"><i class="fas fa-image"></i></span><span class="file-name">' + e.target.previousSibling.value + '</span><div class="removeItem"></div>';
+                }
+                else if (val == 3) {
+                    template.classList.add("file");
+                    template.innerHTML = '<span class="icon"><i class="fas fa-file-alt"></i></span><span class="file-name">' + e.target.previousSibling.value + '</span><div class="removeItem"></div>';
+                }
+                else if (val == 0) {
+                    template.classList.add('folder');
+                    template.innerHTML = '<label class="custom-checkbox"><input type="checkbox" checked/><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i>';
+                    template.innerHTML += '<span class="text">' + e.target.previousSibling.value + '</span></label>';
+                    template.innerHTML += '<div class="addItem"></div><div class="removeItem"></div><div class="folder-content" style="display: block;"></div>'
+                }
+                e.target.parentElement.parentElement.children[3].appendChild(template);
+                addIcons();
+                addRemoveAction();
+                addAppendAction();
+            })
+            res.style.width = "85%";
+        })
+    }
+}
+/*
+<div class="folder">
+                            <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <i class="fas fa-folder unchecked"></i>
+                                    <i class="fas fa-folder-open checked"></i>
+                                    <span class="text">Imágenes</span>
+                            </label>
+                            <div class="addItem"></div>
+                            <div class="removeItem"></div>
+                            <div class="folder-content" style="display: none;">
+                                <div class="image"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto1.png</span><div class="removeItem"></div></div>
+                                <div class="image"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">foto3.png</span><div class="removeItem"></div></div>
+                                <div class="image"><span class="icon"><i class="fas fa-image"></i></span><span class="file-name">carro.jpg</span><div class="removeItem"></div></div>
+                            </div>
+                        </div>
+*/
+
+function sendNotification(tipe, option) {   //Sends a notification for a specific case
+     if (option == 1) {
 	    noti.innerText = "This " + tipe + " has been deleted!";
         noti.style.backgroundColor = "lightgreen";
         noti.style.display="block";
         setTimeout(function () {noti.style.display = "none";}, 1500)
      }
-     else {
+     else if (option == 0) {
         noti.innerText = "This " + tipe + " is not empty!";
         noti.style.backgroundColor = "lightcoral";
         noti.style.display = "block";
         setTimeout(function () {noti.style.display = "none";}, 1500)
      }
+     else if (option == 2) {
+         noti.innerText = tipe;
+         noti.style.backgroundColor = "lightcoral";
+         noti.style.display = "block";
+         setTimeout(function () {noti.style.display = "none";}, 1500)
+
+     }
  }
 
-function addIcons() {
+function addIcons() {   //Adds icons that are not loaded in html
     items = document.querySelectorAll(".addItem");
     for (let i = 0; i < items.length; i++) {
         items[i].innerHTML = addItem;
@@ -84,8 +173,7 @@ function addIcons() {
 
 }
 
-function loadEverything() {
-
+function addHideShowAction() {  //Adds show and hide function to the folders
     myCheckBox = document.querySelectorAll("div label input");
     //console.log(myCheckBox);
     for (let i = 0; i < myCheckBox.length; i++) {
@@ -98,10 +186,14 @@ function loadEverything() {
             }
         })
     }
+}
+
+function loadEverything() { //Loads essential stuff when the page is fully loaded
 
     addIcons();
     addRemoveAction();
     addAppendAction();
+    addHideShowAction();
     
 }
 
