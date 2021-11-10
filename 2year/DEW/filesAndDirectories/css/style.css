@@ -48,14 +48,14 @@ body {
     width: 100%;
 }
 
-.addItem, .removeItem {
+.addItem, .removeItem, .addItem input {
     display: inline-block;
 }
 
 
 .addItem {
     position: relative;
-    left: 0;
+    right: 0;
 }
 
 #info {
