@@ -61,7 +61,7 @@ function checkType(arr) {   //Returns 0->Folder, 1->PDF, 2->IMG, 3->Other files
         if (cad == "pdf") {
             return 1;
         }
-        else if ((cad == "jgp") || (cad == "png")) {
+        else if ((cad == "jpg") || (cad == "png")) {
             return 2;
         }
         else {
@@ -96,26 +96,36 @@ function addAppendAction() {    //Adds actions so you can add items like folders
                 }
                 else if (val == 1) {
                     template.classList.add("pdf");
-                    template.innerHTML = '<span class="icon"><i class="fas fa-file-pdf"></i></span><span class="file-name">' + e.target.previousSibling.value + '</span><div class="removeItem"></div>';
+                    template.innerHTML = `<span class="icon"><i class="fas fa-file-pdf"></i></span><span class="file-name"> ${e.target.previousSibling.value} </span><div class="removeItem"></div>`;
                 }
                 else if (val == 2) {
                     template.classList.add("image");
-                    template.innerHTML = '<span class="icon"><i class="fas fa-image"></i></span><span class="file-name">' + e.target.previousSibling.value + '</span><div class="removeItem"></div>';
+                    template.innerHTML = `<span class="icon"><i class="fas fa-image"></i></span><span class="file-name"> ${e.target.previousSibling.value} </span><div class="removeItem"></div>`;
                 }
                 else if (val == 3) {
                     template.classList.add("file");
-                    template.innerHTML = '<span class="icon"><i class="fas fa-file-alt"></i></span><span class="file-name">' + e.target.previousSibling.value + '</span><div class="removeItem"></div>';
+                    template.innerHTML = `<span class="icon"><i class="fas fa-file-alt"></i></span><span class="file-name"> ${e.target.previousSibling.value} </span><div class="removeItem"></div>`;
                 }
                 else if (val == 0) {
                     template.classList.add('folder');
-                    template.innerHTML = '<label class="custom-checkbox"><input type="checkbox" checked/><i class="fas fa-folder unchecked"></i><i class="fas fa-folder-open checked"></i>';
-                    template.innerHTML += '<span class="text">' + e.target.previousSibling.value + '</span></label>';
-                    template.innerHTML += '<div class="addItem"></div><div class="removeItem"></div><div class="folder-content" style="display: block;"></div>'
+                    template.innerHTML = `<label class="custom-checkbox">
+                                            <input type="checkbox" /> 
+                                            <i class="fas fa-folder unchecked"></i>
+                                            <i class="fas fa-folder-open checked"></i>
+                                            <span class="text">${e.target.previousSibling.value}</span>
+                                        </label>
+                                        <div class="addItem"></div>
+                                        <div class="removeItem"></div>
+                                        <div class="folder-content" style="display: none;">
+                                        </div>`;
                 }
+                console.log(e.target.parentElement.parentElement.children)
                 e.target.parentElement.parentElement.children[3].appendChild(template);
+                console.log(e.target.parentElement.parentElement.children)
                 addIcons();
                 addRemoveAction();
                 addAppendAction();
+                addHideShowAction();
             })
             res.style.width = "85%";
         })
