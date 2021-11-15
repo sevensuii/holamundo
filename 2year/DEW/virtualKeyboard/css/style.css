@@ -16,18 +16,21 @@ body {
 #writing-zone {
     width: 80%;
     margin: auto;
+    resize: none;
+    margin-bottom: .5%;
 }
 
 #keyboard {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-    grid-gap: .3em;
+    grid-gap: 1%;
     width: 80%;
     margin: 0 auto;
 }
 
 #return {
     grid-area: 2 / 14 / span 2 / 15;
+    height: 94%;
 }
 
 #r-shift {
@@ -65,7 +68,7 @@ body {
     display: flex;
 }*/
 
-.normal-keys {
+.keys {
     width: 100%;
     background-color: #30aebe;
     border: 2px solid black;
