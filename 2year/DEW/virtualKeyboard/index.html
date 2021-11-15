@@ -9,87 +9,157 @@
 </head>
 <body>
     <div id="container">
-        <textarea name="writing-zone" id="writing-zone" cols="80" rows="20"></textarea>
+        <textarea name="writing-zone" id="writing-zone" cols="80" rows="20" disabled></textarea>
         <div id="keyboard">
+            <div class="normal-keys" id="b-slash">º</div>
+            <div class="normal-keys" id="num1">1</div>
+            <div class="normal-keys" id="num2">2</div>
+            <div class="normal-keys" id="num3">3</div>
+            <div class="normal-keys" id="num4">4</div>
+            <div class="normal-keys" id="num5">5</div>
+            <div class="normal-keys" id="num6">6</div>
+            <div class="normal-keys" id="num7">7</div>
+            <div class="normal-keys" id="num8">8</div>
+            <div class="normal-keys" id="num9">9</div>
+            <div class="normal-keys" id="num0">0</div>
+            <div class="normal-keys" id="s-coma">'</div>
+            <div class="normal-keys" id="exc">¡</div>
+            <div class="normal-keys" id="backspace">←</div>
+            <!--ENDS FIRST ROW-->
+            <div class="normal-keys" id="tab">⇆</div>
+            <div class="normal-keys" id="q">q</div>
+            <div class="normal-keys" id="w">w</div>
+            <div class="normal-keys" id="e">e</div>
+            <div class="normal-keys" id="r">r</div>
+            <div class="normal-keys" id="t">t</div>
+            <div class="normal-keys" id="y">y</div>
+            <div class="normal-keys" id="u">u</div>
+            <div class="normal-keys" id="i">i</div>
+            <div class="normal-keys" id="o">o</div>
+            <div class="normal-keys" id="p">p</div>
+            <div class="normal-keys" id="l-coma">`</div>
+            <div class="normal-keys" id="plus">+</div>
+            <div class="normal-keys" id="return">↵</div>
+            <!--ENDS SECOND ROW-->
+            <div class="normal-keys" id="bloq-m">bloq <br> mayus</div>
+            <div class="normal-keys" id="a">a</div>
+            <div class="normal-keys" id="s">s</div>
+            <div class="normal-keys" id="d">d</div>
+            <div class="normal-keys" id="f">f</div>
+            <div class="normal-keys" id="g">g</div>
+            <div class="normal-keys" id="h">h</div>
+            <div class="normal-keys" id="j">j</div>
+            <div class="normal-keys" id="k">k</div>
+            <div class="normal-keys" id="l">l</div>
+            <div class="normal-keys" id="enie">ñ</div>
+            <div class="normal-keys" id="r-coma">´</div>
+            <div class="normal-keys" id="strange-c">ç</div>
+            <!--ENDS THIRD ROW-->
+            <div class="normal-keys" id="l-shift">⬆</div>
+            <div class="normal-keys" id="l-arr"><</div>
+            <div class="normal-keys" id="z">z</div>
+            <div class="normal-keys" id="x">x</div>
+            <div class="normal-keys" id="c">c</div>
+            <div class="normal-keys" id="v">v</div>
+            <div class="normal-keys" id="b">b</div>
+            <div class="normal-keys" id="n">n</div>
+            <div class="normal-keys" id="m">m</div>
+            <div class="normal-keys" id="coma">,</div>
+            <div class="normal-keys" id="dot">.</div>
+            <div class="normal-keys" id="guion">-</div>
+            <div class="normal-keys" id="r-shift">⬆</div>
+            <!--ENDS FOURTH ROW-->
+            <div class="normal-keys" id="r-control">CTRL</div>
+            <div class="normal-keys" id="command">⌘</div>
+            <div class="normal-keys" id="l-alt">alt</div>
+            <div class="normal-keys" id="space">&nbsp;</div>
+            <div class="normal-keys" id="r-alt">alt gr</div>
+            <div class="normal-keys" id="fn">fn</div>
+            <div class="normal-keys" id="print">⎙</div>
+            <div class="normal-keys" id="r-control">CTRL</div>
+        </div>
+</body>
+</html>
+
+
+<!-- 
+<div id="keyboard">
             <div id="row1">
-                <div id="row1-1">º</div>
-                <div id="row1-2">1</div>
-                <div id="row1-3">2</div>
-                <div id="row1-4">3</div>
-                <div id="row1-5">4</div>
-                <div id="row1-6">5</div>
-                <div id="row1-7">6</div>
-                <div id="row1-8">7</div>
-                <div id="row1-9">8</div>
-                <div id="row1-10"9></div>
-                <div id="row1-11"0></div>
-                <div id="row1-12">'</div>
-                <div id="row1-13">¡</div>
-                <div id="backspace">←</div>
+                <div id="row1-1" class="normal-key">º</div>
+                <div id="row1-2" class="normal-key">1</div>
+                <div id="row1-3" class="normal-key">2</div>
+                <div id="row1-4" class="normal-key">3</div>
+                <div id="row1-5" class="normal-key">4</div>
+                <div id="row1-6" class="normal-key">5</div>
+                <div id="row1-7" class="normal-key">6</div>
+                <div id="row1-8" class="normal-key">7</div>
+                <div id="row1-9" class="normal-key">8</div>
+                <div id="row1-10" class="normal-key">9</div>
+                <div id="row1-11" class="normal-key">0</div>
+                <div id="row1-12" class="normal-key">'</div>
+                <div id="row1-13" class="normal-key">¡</div>
+                <div id="backspace" class="normal-key">←</div>
             </div>
-            <div id="left">
                 <div id="keys">
                     <div id="keys2">
                         <div id="row2">
-                            <div id="tab">⇆</div>
-                            <div id="row2-1">q</div>
-                            <div id="row2-2">w</div>
-                            <div id="row2-3">e</div>
-                            <div id="row2-4">r</div>
-                            <div id="row2-5">t</div>
-                            <div id="row2-6">y</div>
-                            <div id="row2-7">u</div>
-                            <div id="row2-8">i</div>
-                            <div id="row2-9">o</div>
-                            <div id="row2-10">p</div>
-                            <div id="row2-11">`</div>
-                            <div id="row2-12">+</div>
+                            <div id="tab" class="normal-key">⇆</div>
+                            <div id="row2-1" class="normal-key">q</div>
+                            <div id="row2-2" class="normal-key">w</div>
+                            <div id="row2-3" class="normal-key">e</div>
+                            <div id="row2-4" class="normal-key">r</div>
+                            <div id="row2-5" class="normal-key">t</div>
+                            <div id="row2-6" class="normal-key">y</div>
+                            <div id="row2-7" class="normal-key">u</div>
+                            <div id="row2-8" class="normal-key">i</div>
+                            <div id="row2-9" class="normal-key">o</div>
+                            <div id="row2-10" class="normal-key">p</div>
+                            <div id="row2-11" class="normal-key">`</div>
+                            <div id="row2-12" class="normal-key">+</div>
                         </div>
                         <div id="row3">
-                            <div id="bloq-m">bloq mayus</div>
-                            <div id="row3-1">a</div>
-                            <div id="row3-2">s</div>
-                            <div id="row3-3">d</div>
-                            <div id="row3-4">f</div>
-                            <div id="row3-5">g</div>
-                            <div id="row3-6">h</div>
-                            <div id="row3-7">j</div>
-                            <div id="row3-8">k</div>
-                            <div id="row3-9">l</div>
-                            <div id="row3-10">ñ</div>
-                            <div id="row3-11">´</div>
-                            <div id="row3-12">ç</div>
+                            <div id="bloq-m" class="normal-key">bloq <br>mayus</div>
+                            <div id="row3-1" class="normal-key">a</div>
+                            <div id="row3-2" class="normal-key">s</div>
+                            <div id="row3-3" class="normal-key">d</div>
+                            <div id="row3-4" class="normal-key">f</div>
+                            <div id="row3-5" class="normal-key">g</div>
+                            <div id="row3-6" class="normal-key">h</div>
+                            <div id="row3-7" class="normal-key">j</div>
+                            <div id="row3-8" class="normal-key">k</div>
+                            <div id="row3-9" class="normal-key">l</div>
+                            <div id="row3-10" class="normal-key">ñ</div>
+                            <div id="row3-11" class="normal-key">´</div>
+                            <div id="row3-12" class="normal-key">ç</div>
                         </div>
                     </div>
-                    <div id="enter">↵</div>
+                    <div id="enter" class="normal-key">↵</div>
                 </div>
-            </div> 
             <div id="row4">
-                <div id="shift-l">̉̉⬆</div>
-                <div id="row4-1">><br><</div>
-                <div id="row4-2">z</div>
-                <div id="row4-3">x</div>
-                <div id="row4-4">c</div>
-                <div id="row4-5">v</div>
-                <div id="row4-6">b</div>
-                <div id="row4-7">n</div>
-                <div id="row4-8">m</div>
-                <div id="row4-9">,</div>
-                <div id="row4-10">.</div>
-                <div id="row4-11">-</div>
-                <div id="shift-r">⬆</div>
+                <div id="shift-l" class="normal-key">̉̉⬆</div>
+                <div id="row4-1" class="normal-key">><br><</div>
+                <div id="row4-2" class="normal-key">z</div>
+                <div id="row4-3" class="normal-key">x</div>
+                <div id="row4-4" class="normal-key">c</div>
+                <div id="row4-5" class="normal-key">v</div>
+                <div id="row4-6" class="normal-key">b</div>
+                <div id="row4-7" class="normal-key">n</div>
+                <div id="row4-8" class="normal-key">m</div>
+                <div id="row4-9" class="normal-key">,</div>
+                <div id="row4-10" class="normal-key">.</div>
+                <div id="row4-11" class="normal-key">-</div>
+                <div id="shift-r" class="normal-key">⬆</div>
             </div>
             <div id="row5">
-                <div id="control-l">control</div>
-                <div id="fn">fn</div>
-                <div id="windows">⌘</div>
-                <div id="alt-l">alt</div>
-                <div id="space">&nbsp;</div>
-                <div id="alt-gr">alt gr</div>
-                <div id="impr">⎙</div>
-                <div id="control-r">control</div>
+                <div id="control-l" class="normal-key">control</div>
+                <div id="fn" class="normal-key">fn</div>
+                <div id="windows" class="normal-key">⌘</div>
+                <div id="alt-l" class="normal-key">alt</div>
+                <div id="space" class="normal-key">&nbsp;</div>
+                <div id="alt-gr" class="normal-key">alt gr</div>
+                <div id="impr" class="normal-key">⎙</div>
+                <div id="control-r" class="normal-key">control</div>
             </div>
         </div>
     </div>
-</body>
-</html>
+-->

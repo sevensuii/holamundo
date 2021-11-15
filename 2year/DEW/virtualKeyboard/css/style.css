@@ -5,15 +5,45 @@ body {
     justify-content: center;
 }
 
+
 #container {
     width: 80%;
     background-color: #f1b9b9;
     display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 
-#row1, #row2, #row3, #row4, #row5 {
+#writing-zone {
+    width: 80%;
+    margin: auto;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-gap: .3em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#return {
+    grid-area: 2 / 14 / span 2 / 15;
+}
+
+#r-shift {
+    grid-column: 13 / span 2;
+}
+
+#space {
+    grid-column: 5 / span 6;
+}
+
+#l-alt {
+    grid-column: 3 / span 2;
+}
+
+
+/*#row1, #row2, #row3, #row4, #row5 {
     display: flex;
     flex-direction: row;
 }
@@ -21,9 +51,28 @@ body {
 #keys2 {
     display: flex;
     flex-direction: column;
+    width: ;
 }
 
 #keys {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#enter {
+    width: 4%;
+    display: flex;
+}*/
+
+.normal-keys {
+    width: 100%;
+    background-color: #30aebe;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 2em;
+}
+
+.normal-keys:hover {
+    background-color: #43818a;
 }
