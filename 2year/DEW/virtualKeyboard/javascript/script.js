@@ -14,6 +14,7 @@ let escKey = document.querySelector('#esc');
 let bloqMayusKey = document.querySelector('#bloq-m');
 let shiftKeys = document.querySelectorAll('.shift-keys');
 let clearKey = document.querySelector('#clear');
+let altGrKey = document.querySelector('#r-alt');
 //END GLOBAL VARIABLES
 
 var Keyboard = function(){
@@ -44,8 +45,17 @@ function changeKeys(val) {  //0 -> sets to normal || 1 -> set all uppercase
                 screenKeyboard[i].innerHTML = myKeyboard.normalKeys[i].toUpperCase();
             }
             screenKeyboard[37].innerHTML = '>';
+            break;
+        case 2:
+            for (let i = 0; i < 13; i++) {
+                screenKeyboard[i].innerHTML = myKeyboard.altGrFirstRow[i];
+            }
+            document.querySelector('#e').innerHTML = '€';
+
     }
     }
+
+//MOUSE EVENT LISTENERS
 
 //Simple event listeners
 tabKey.addEventListener('click', function() {
@@ -84,10 +94,15 @@ for (let i = 0; i < screenKeyboard.length; i++) {
             shiftKeyAct = false;
             return 0;
         }
-        if (shiftKeyAct) {
+        if (shiftKeyAct || altGrKeyAct) {
             shiftKeyAct = false;
+            altGrKeyAct = false;
             changeKeys(0);
         }
+        /*else if (altGrKeyAct) {
+            altGrKeyAct = false;
+            changeKeys(0);
+        }*/
     })
 }
 
@@ -111,3 +126,19 @@ bloqMayusKey.addEventListener('click', function() {
         changeKeys(1);
     }
 })
+
+altGrKey.addEventListener('click', function() {
+    altGrKeyAct = true;
+    changeKeys(2);
+})
+
+//END MOUSE EVENT LISTENERS
+
+//START KEYBOARD EVENT LISTENERS
+for (let i = 0; i < screenKeyboard.length; i++) {
+    screenKeyboard[i].addEventlistener('keydown', function(e) {
+        console.log(e.target);
+    })
+}
+
+//END KEYBOARD EVENT LISTENERS 
