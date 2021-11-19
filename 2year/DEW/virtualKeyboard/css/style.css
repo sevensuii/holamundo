@@ -7,10 +7,11 @@ body {
 
 
 #container {
-    width: 80%;
+    width: 82%;
     background-color: #f1b9b9;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 #writing-zone {
@@ -18,24 +19,38 @@ body {
     margin: auto;
     resize: none;
     margin-bottom: .5%;
+    overflow-wrap: break-word;
 }
 
 #keyboard {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-    grid-gap: 1%;
-    width: 80%;
-    margin: 0 auto;
+    grid-gap: .5%;
+    width: 100%;
+    padding-top: 5%;
 }
 
 #esc {
-    grid-column: 1 / span 14;
+    grid-column: 1 / span 12;
     width: 12%;
+}
+
+#clear {
+    grid-column: 13 / span 2;
+    text-align: center;
+    background-color: #d44e4e;
+    color: white;
+}
+#clear:hover {
+    background-color: #d12121;
+}
+#clear:active {
+    background-color: #640c0c;
 }
 
 #return {
     grid-area: 3 / 14 / span 2 / 15;
-    height: 95%;
+    height: 100%;
 }
 
 #r-shift {
@@ -78,17 +93,17 @@ body {
     background-color: #30aebe;
     border: 2px solid black;
     border-radius: 5px;
-    height: 2.1em;
+    height: 2.4em;
+    box-sizing:border-box;
+    overflow: visible;
+    text-overflow: ellipsis;
 }
-
 .keys:hover {
     background-color: #2acce6;
 }
-
 .keys:active {
     background-color: #16616d;
 }
-
 .keys:focus {
     background-color: #16616d;
 }
