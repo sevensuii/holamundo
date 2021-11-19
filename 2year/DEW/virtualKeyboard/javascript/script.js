@@ -5,16 +5,6 @@ var shiftKeyAct = false;
 var bloMaKeyAct = false;
 var altGrKeyAct = false;
 
-let screenKeyboard = document.querySelectorAll('.normal-keys');
-let tabKey = document.querySelector('#tab');
-let spaceKey = document.querySelector('#space');
-let backSpaceKey = document.querySelector('#backspace');
-let returnKey = document.querySelector('#return');
-let escKey = document.querySelector('#esc');
-let bloqMayusKey = document.querySelector('#bloq-m');
-let shiftKeys = document.querySelectorAll('.shift-keys');
-let clearKey = document.querySelector('#clear');
-let altGrKey = document.querySelector('#r-alt');
 //END GLOBAL VARIABLES
 
 var Keyboard = function(){
@@ -25,70 +15,94 @@ var Keyboard = function(){
     this.specialKeys = ['esc', '←','⇆', '↵', 'bloq <br> mayus', '⬆', '⬆', 'CTRL', '⌘', 'alt', ' ', 'alt gr', 'fn', '⎙', 'CTRL']
     this.altGrFirstRow = ['\\', '|', '@', '#', '~', '½', '¬', '{', '[', ']', '}', '(', ')'],
     this.shiftFirstRow = ['ª', '!', '"', '·', '$', '%', '&' ,'/', '(', ')', '=', '?', '¿']
+    this.screenKeyboard = document.querySelectorAll('.normal-keys');
+    this.tabKey = document.querySelector('#tab');
+    this.spaceKey = document.querySelector('#space');
+    this.backSpaceKey = document.querySelector('#backspace');
+    this.returnKey = document.querySelector('#return');
+    this.escKey = document.querySelector('#esc');
+    this.bloqMayusKey = document.querySelector('#bloq-m');
+    this.shiftKeys = document.querySelectorAll('.shift-keys');
+    this.clearKey = document.querySelector('#clear');
+    this.altGrKey = document.querySelector('#r-alt');
+    this.changeKeys = function(val) {  
+        switch (val) {
+            case 0: //Return to normal
+                shiftKeyAct = false;
+                bloMaKeyAct = false;
+                altGrKeyAct = false;
+                for (let i = 0; i < this.screenKeyboard.length; i++) {
+                    this.screenKeyboard[i].innerHTML = this.normalKeys[i];
+                }
+                break;
+            case 1: //Switches to shift mode
+                for (let i = 0; i < 13; i++) {
+                    this.screenKeyboard[i].innerHTML = this.shiftFirstRow[i];
+                }
+                for (let i = 13; i < this.screenKeyboard.length; i++) {
+                    this.screenKeyboard[i].innerHTML = this.normalKeys[i].toUpperCase();
+                }
+                this.screenKeyboard[37].innerHTML = '>';
+                this.screenKeyboard[23].innerHTML = '^';
+                this.screenKeyboard[24].innerHTML = '*';
+                this.screenKeyboard[35].innerHTML = '¨';
+                this.screenKeyboard[45].innerHTML = ';';
+                this.screenKeyboard[46].innerHTML = ':';
+                this.screenKeyboard[47].innerHTML = '_';
+                break;
+            case 2: //Switches to alt mode
+                for (let i = 0; i < 13; i++) {
+                    this.screenKeyboard[i].innerHTML = this.altGrFirstRow[i];
+                }
+                this.screenKeyboard[15].innerHTML = '€';
+                this.screenKeyboard[23].innerHTML = '[';
+                this.screenKeyboard[24].innerHTML = ']';
+                this.screenKeyboard[35].innerHTML = '{';
+                this.screenKeyboard[36].innerHTML = '}';
+                this.screenKeyboard[37].innerHTML = '|';
+                this.screenKeyboard[45].innerHTML = '─';
+                this.screenKeyboard[46].innerHTML = '·';
+                this.screenKeyboard[47].innerHTML = '/';
+        }
+        }
 }
 
 //Declaration of the keyboard object
 let myKeyboard = new Keyboard();
 
-function changeKeys(val) {  //0 -> sets to normal || 1 -> set all uppercase
-    switch (val) {
-        case 0:
-            for (let i = 0; i < screenKeyboard.length; i++) {
-                screenKeyboard[i].innerHTML = myKeyboard.normalKeys[i];
-            }
-            break;
-        case 1:
-            for (let i = 0; i < 13; i++) {
-                screenKeyboard[i].innerHTML = myKeyboard.shiftFirstRow[i];
-            }
-            for (let i = 13; i < screenKeyboard.length; i++) {
-                screenKeyboard[i].innerHTML = myKeyboard.normalKeys[i].toUpperCase();
-            }
-            screenKeyboard[37].innerHTML = '>';
-            break;
-        case 2:
-            for (let i = 0; i < 13; i++) {
-                screenKeyboard[i].innerHTML = myKeyboard.altGrFirstRow[i];
-            }
-            document.querySelector('#e').innerHTML = '€';
-
-    }
-    }
-
+//
 //MOUSE EVENT LISTENERS
+//
 
 //Simple event listeners
-tabKey.addEventListener('click', function() {
+myKeyboard.tabKey.addEventListener('click', function() {
     myWritingZone.innerHTML += '\t';
 })
 
-spaceKey.addEventListener('click', function() {
+myKeyboard.spaceKey.addEventListener('click', function() {
     myWritingZone.innerHTML += ' ';
 })
 
-backSpaceKey.addEventListener('click', function() {
+myKeyboard.backSpaceKey.addEventListener('click', function() {
     myWritingZone.innerHTML = myWritingZone.innerHTML.slice(0, -1);
 })
 
-returnKey.addEventListener('click', function() {
+myKeyboard.returnKey.addEventListener('click', function() {
     myWritingZone.innerHTML += '\n';
 })
 
-escKey.addEventListener('click', function() {
-    shiftKeyAct = false;
-    bloMaKeyAct = false;
-    altGrKeyAct = false;
-    changeKeys(0);
-    bloqMayusKey.style.backgroundColor = '#30aebe';
+myKeyboard.escKey.addEventListener('click', function() {
+    myKeyboard.changeKeys(0);
+    myKeyboard.bloqMayusKey.style.backgroundColor = '#30aebe';
 })
 
-clearKey.addEventListener('click', function() {
+myKeyboard.clearKey.addEventListener('click', function() {
     myWritingZone.innerHTML = '';
 })
 //End of simple event listeners
 
-for (let i = 0; i < screenKeyboard.length; i++) {
-    screenKeyboard[i].addEventListener('click', function(e) {
+for (let i = 0; i < myKeyboard.screenKeyboard.length; i++) {
+    myKeyboard.screenKeyboard[i].addEventListener('click', function(e) {
         myWritingZone.innerHTML += e.target.innerHTML;
         if (bloMaKeyAct) {
             shiftKeyAct = false;
@@ -97,7 +111,7 @@ for (let i = 0; i < screenKeyboard.length; i++) {
         if (shiftKeyAct || altGrKeyAct) {
             shiftKeyAct = false;
             altGrKeyAct = false;
-            changeKeys(0);
+            myKeyboard.changeKeys(0);
         }
         /*else if (altGrKeyAct) {
             altGrKeyAct = false;
@@ -107,38 +121,47 @@ for (let i = 0; i < screenKeyboard.length; i++) {
 }
 
 //Shift only allow to write 1 UpperCase character
-for (let i = 0; i < shiftKeys.length; i++) {
-    shiftKeys[i].addEventListener('click', function() {
+for (let i = 0; i < myKeyboard.shiftKeys.length; i++) {
+    myKeyboard.shiftKeys[i].addEventListener('click', function() {
         shiftKeyAct = true;
-        changeKeys(1);
+        myKeyboard.changeKeys(1);
     })
 }
 
-bloqMayusKey.addEventListener('click', function() {
+myKeyboard.bloqMayusKey.addEventListener('click', function() {
     if (bloMaKeyAct) {
         bloMaKeyAct = false;
-        bloqMayusKey.style.backgroundColor = '#30aebe';
-        changeKeys(0);
+        myKeyboard.bloqMayusKey.style.backgroundColor = '#30aebe';
+        myKeyboard.changeKeys(0);
     }
     else {
         bloMaKeyAct = true;
-        bloqMayusKey.style.backgroundColor = '#16616d';
-        changeKeys(1);
+        myKeyboard.bloqMayusKey.style.backgroundColor = '#16616d';
+        myKeyboard.changeKeys(1);
     }
 })
 
-altGrKey.addEventListener('click', function() {
+myKeyboard.altGrKey.addEventListener('click', function() {
     altGrKeyAct = true;
-    changeKeys(2);
+    myKeyboard.changeKeys(2);
 })
 
+//
 //END MOUSE EVENT LISTENERS
+//
 
 //START KEYBOARD EVENT LISTENERS
-for (let i = 0; i < screenKeyboard.length; i++) {
-    screenKeyboard[i].addEventlistener('keydown', function(e) {
-        console.log(e.target);
-    })
-}
+//for (let i = 0; i < screenKeyboard.length; i++) {
+//    screenKeyboard[i].addEventlistener('keydown', function(e) {
+//        console.log(e.target);
+//    })
+//}
+document.addEventListener('keydown', function(e) {
+    console.log(e.key);
+    if (myKeyboard.normalKeys.includes(e.key.toLowerCase())) {
+        myWritingZone.innerHTML += e.key;
+    }
+    //console.log(e.keyCode);
+})
 
 //END KEYBOARD EVENT LISTENERS 
