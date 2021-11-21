@@ -2,7 +2,6 @@
 //GLOBAL VARIABLES
 var myWritingZone = document.querySelector('#writing-zone');
 var shiftKeyAct = false;
-var physicalShiftKeyAct = false;
 var bloMaKeyAct = false;
 var altGrKeyAct = false;
 
@@ -20,7 +19,7 @@ var Keyboard = function(){
     this.tabKey = document.querySelector('#item9');
     this.spaceKey = document.querySelector('#item32');
     this.backSpaceKey = document.querySelector('#item8');
-    this.returnKey = document.querySelector('#item8');
+    this.returnKey = document.querySelector('#item13');
     this.escKey = document.querySelector('#item27');
     this.bloqMayusKey = document.querySelector('#item20');
     this.shiftKeys = document.querySelectorAll('.shift-keys');
@@ -109,34 +108,31 @@ myKeyboard.clearKey.addEventListener('click', function() {
 })
 
 //When shift is activated and you click outside the keys, shift gets disactivated
-document.addEventListener('click', function() {
-    if (shiftKeyAct || altGrKeyAct) {
-        myKeyboard.changeKeys(0);
-    }
-}, true)
+//document.addEventListener('click', function() {
+//    if (shiftKeyAct || altGrKeyAct) {
+//        myKeyboard.changeKeys(0);
+//    }
+//}, true)
 //End of simple event listeners
 
 //Writes clicked key inside textarea
 for (let i = 0; i < myKeyboard.screenKeyboard.length; i++) {
     myKeyboard.screenKeyboard[i].addEventListener('click', function(e) {
+        console.log(e.target.innerHTML)
         myWritingZone.innerHTML += e.target.innerHTML;
-        if (physicalShiftKeyAct == false) { //need work
             if (bloMaKeyAct) {
                 shiftKeyAct = false;
                 return 0;
             }
             if (shiftKeyAct || altGrKeyAct) {
-                shiftKeyAct = false;
-                altGrKeyAct = false;
                 myKeyboard.changeKeys(0);
             }
             
-        }
         /*else if (altGrKeyAct) {
             altGrKeyAct = false;
             changeKeys(0);
         }*/
-    })
+    }, true)
 }
 
 //Shift only allow to write 1 UpperCase character
@@ -188,7 +184,6 @@ document.addEventListener('keydown', function(e) {
             break;
     
         case 16:    // Any physical shift key
-            physicalShiftKeyAct = true;
             myKeyboard.changeKeys(1);
             myKeyboard.shiftKeys[0].style.backgroundColor = '#16616d';
             myKeyboard.shiftKeys[1].style.backgroundColor = '#16616d';
@@ -228,6 +223,9 @@ document.addEventListener('keydown', function(e) {
         case 225:    // Alt gr key
             myKeyboard.changeKeys(2);
             break;
+
+        case 18:    // Alt key
+            break;
             
         default:    // Writes inside
         if (e.key != 'Dead') {
@@ -250,7 +248,6 @@ document.addEventListener('keyup', function(e) {
 
     switch (e.keyCode) {
         case 16:
-            physicalShiftKeyAct = false;
             myKeyboard.changeKeys(0);
             myKeyboard.shiftKeys[0].style.backgroundColor = '#30aebe';
             myKeyboard.shiftKeys[1].style.backgroundColor = '#30aebe';
