@@ -21,6 +21,7 @@ var Keyboard = function(){
     this.backSpaceKey = document.querySelector('#item8');
     this.returnKey = document.querySelector('#item13');
     this.escKey = document.querySelector('#item27');
+    this.controlKeys = document.querySelectorAll('.item17');
     this.bloqMayusKey = document.querySelector('#item20');
     this.shiftKeys = document.querySelectorAll('.shift-keys');
     this.clearKey = document.querySelector('#clear');
@@ -34,6 +35,8 @@ var Keyboard = function(){
                 for (let i = 0; i < this.screenKeyboard.length; i++) {
                     this.screenKeyboard[i].innerHTML = this.normalKeys[i];
                 }
+                myKeyboard.shiftKeys[0].style.backgroundColor = '#30aebe';
+                myKeyboard.shiftKeys[1].style.backgroundColor = '#30aebe';
                 break;
             case 1: //Switches to shift mode
                 for (let i = 0; i < 13; i++) {
@@ -224,6 +227,14 @@ document.addEventListener('keydown', function(e) {
             myKeyboard.changeKeys(2);
             break;
 
+        case 17: // Control key
+            myKeyboard.controlKeys[0].style.backgroundColor = '#16616d';
+            myKeyboard.controlKeys[1].style.backgroundColor = '#16616d';
+            break;
+
+        case 91:    // Meta key
+            break;
+
         case 18:    // Alt key
             break;
             
@@ -255,6 +266,11 @@ document.addEventListener('keyup', function(e) {
 
         case 225:    // Alt gr key
             myKeyboard.changeKeys(0);
+            break;
+
+        case 17:
+            myKeyboard.controlKeys[0].style.backgroundColor = '#30aebe';
+            myKeyboard.controlKeys[1].style.backgroundColor = '#30aebe';
             break;
     }
 
