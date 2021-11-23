@@ -130,11 +130,6 @@ for (let i = 0; i < myKeyboard.screenKeyboard.length; i++) {
             if (shiftKeyAct || altGrKeyAct) {
                 myKeyboard.changeKeys(0);
             }
-            
-        /*else if (altGrKeyAct) {
-            altGrKeyAct = false;
-            changeKeys(0);
-        }*/
     }, true)
 }
 
@@ -168,18 +163,12 @@ myKeyboard.altGrKey.addEventListener('click', function() {
 //
 //END MOUSE EVENT LISTENERS
 //
-
+//
 //START KEYBOARD EVENT LISTENERS
-//for (let i = 0; i < screenKeyboard.length; i++) {
-//    screenKeyboard[i].addEventlistener('keydown', function(e) {
-//        console.log(e.target);
-//    })
-//}
+//
+
 document.addEventListener('keydown', function(e) {
     console.log(e.key);
-    //if (myKeyboard.normalKeys.includes(e.key.toLowerCase())) {
-    //    myWritingZone.innerHTML += e.key;
-    //}
     switch (e.keyCode) {
         case 9: // Tab key
             e.preventDefault();
@@ -187,13 +176,14 @@ document.addEventListener('keydown', function(e) {
             break;
     
         case 16:    // Any physical shift key
+            shiftKeyAct = true;
             myKeyboard.changeKeys(1);
             myKeyboard.shiftKeys[0].style.backgroundColor = '#16616d';
             myKeyboard.shiftKeys[1].style.backgroundColor = '#16616d';
 
             break;        
 
-        case 20:    // Caps Lock key
+        case 20:    // Caps Lock key or shift key
             if (bloMaKeyAct) {
                 bloMaKeyAct = false;
                 myKeyboard.bloqMayusKey.style.backgroundColor = '#30aebe';
@@ -240,7 +230,7 @@ document.addEventListener('keydown', function(e) {
             
         default:    // Writes inside
         if (e.key != 'Dead') {
-            if (bloMaKeyAct) {
+            if (bloMaKeyAct || shiftKeyAct) {
                 myWritingZone.innerHTML += e.key.toUpperCase();
             }
             else {
@@ -259,6 +249,7 @@ document.addEventListener('keyup', function(e) {
 
     switch (e.keyCode) {
         case 16:
+            shiftKeyAct = false;
             myKeyboard.changeKeys(0);
             myKeyboard.shiftKeys[0].style.backgroundColor = '#30aebe';
             myKeyboard.shiftKeys[1].style.backgroundColor = '#30aebe';

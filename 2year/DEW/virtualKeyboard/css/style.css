@@ -68,29 +68,6 @@ body {
     grid-column: 3 / span 2;
 }
 
-
-/*#row1, #row2, #row3, #row4, #row5 {
-    display: flex;
-    flex-direction: row;
-}
-
-#keys2 {
-    display: flex;
-    flex-direction: column;
-    width: ;
-}
-
-#keys {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-#enter {
-    width: 4%;
-    display: flex;
-}*/
-
 .keys {
     width: 100%;
     background-color: #30aebe;
