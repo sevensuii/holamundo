@@ -5,39 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cc/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Validation</title>
 </head>
 <body>
+    <div id="container">
     <h1>Regex Validation</h1>
-    <div id="show-error"></div>
-    <form action="#" id="myForm">
-        <label for="name">Name</label><br>
-        <input type="text" name="name" id="name" maxlength="30" placeholder="Name"><br>
-        <label for="sname">Surname</label><br>
-        <input type="text" name="sname" id="sname" maxlength="30" placeholder="Surname"><br>
-        <label for="dni">DNI or NIE</label><br>
-        <input type="text" name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9"><br>
-        <label for="bdate">Birth date</label><br>
-        <input type="date" name="bdate" id="bdate"><br>
-        <label for="pcode">Postal code</label><br>
-        <input type="text" name="pcode" id="pcode" placeholder="01001-49080"><br>
-        <label for="email">E-mail address</label><br>
-        <input type="text" name="email" id="email" placeholder="example@domain.com">
-        <div>
-            <input type="text" name="pre" id="pre" placeholder="+34" readonly>
-            <input type="text" name="number" id="numer">
-        </div>
-        <label for="iban">Iban</label><br>
-        <input type="text" name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX"><br>
-        <label for="ccard">Credit Card</label><br>
-        <input type="text" name="ccard" id="ccard" placeholder=""><br>
-        <label for="passwd">Password</label><br>
-        <input type="password" name="passwd" id="passwd"><br>
-        <label for="passwd1">Repeat password</label><br>
-        <input type="password" name="passwd1" id="passwd1"><br>
-        <button type="submit">Send</button>
-        <button>Retrieve</button>
-    </form>
+        <div id="show-error">some error</div>
+        <form action="#" id="myForm">
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id="name" maxlength="30" placeholder="Name"><br>
+            <label for="sname">Surname</label><br>
+            <input type="text" name="sname" id="sname" maxlength="30" placeholder="Surname"><br>
+            <label for="dni">DNI or NIE</label><br>
+            <input type="text" name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9"><br>
+            <label for="bdate">Birth date</label><br>
+            <input type="text" name="bdate" id="bdate" placeholder="dd/mm/aaaa"><br>
+            <label for="pcode">Postal code</label><br>
+            <input type="text" name="pcode" id="pcode" placeholder="01001-49080"><br>
+            <label for="email">E-mail address</label><br>
+            <input type="text" name="email" id="email" placeholder="example@domain.com"><br>
+            <label for="number">Phone number</label>
+            <div>
+                <input type="text" name="pre" id="pre" placeholder="+34" readonly>
+                <input type="text" name="number" id="number" maxlength="9">
+            </div>
+            <label for="iban">Iban</label><br>
+            <input type="text" name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX"><br>
+            <label for="ccard">Credit Card</label><br>
+            <input type="text" name="ccard" id="ccard" placeholder=""><br>
+            <label for="passwd">Password</label><br>
+            <input type="password" name="passwd" id="passwd"><br>
+            <label for="passwd1">Repeat password</label><br>
+            <input type="password" name="passwd1" id="passwd1"><br>
+            <div id="buttons">
+                <button type="submit">Send</button>
+                <button>Retrieve</button>
+            </div>
+        </form>
+
+    </div>
 </body>
 </html>
