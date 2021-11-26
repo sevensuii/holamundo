@@ -13,61 +13,68 @@
     <div id="container" class='m-auto w-10/12 bg-indigo-300 p-4 pl-10'>
         <h1>Regex Validation</h1>
         <div id="show-error" style="display: none;">some error</div>
-        <form action="#" id="myForm" class='grid grid-cols-2 gap-x-0'>
+        <form action="#" id="myForm" class='grid grid-cols-2 gap-x-0 justify-items-center'>
             <div>
-                <label for="name" class='mt-3 inline-block'>Name</label><br>
+                <label for="name" class='mt-3 inline-block'>Name(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="name" id="name" maxlength="30" placeholder="Name"><br>
             </div>
             <div>
-                <label for="sname" class='mt-3 inline-block'>Surname</label><br>
+                <label for="sname" class='mt-3 inline-block'>Surname(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="sname" id="sname" maxlength="30" placeholder="Surname"><br>
             </div>
             <div>
-                <label for="dni" class='mt-3 inline-block'>DNI or NIE</label><br>
+                <label for="dni" class='mt-3 inline-block'>DNI or NIE(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9"><br>
             </div>
             <div>
-                <label for="bdate" class='mt-3 inline-block'>Birth date</label><br>
+                <label for="bdate" class='mt-3 inline-block'>Birth date(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="bdate" id="bdate" placeholder="dd/mm/aaaa"><br>
             </div>
             <div>
-                <label for="pcode" class='mt-3 inline-block'>Postal code</label><br>
+                <label for="pcode" class='mt-3 inline-block'>Postal code()</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="pcode" id="pcode" placeholder="01001-49080"><br>
             </div>
             <div>
-                <label for="email" class='mt-3 inline-block'>E-mail address</label><br>
+                <label for="email" class='mt-3 inline-block'>E-mail address(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="email" id="email" placeholder="example@domain.com"><br>
             </div>
             <div>
-                <label for="number" class='mt-3 inline-block'>Phone number</label>
+                <label for="number" class='mt-3 inline-block'>Phone number(*)</label>
                 <div class='flex'>
                     <input type="text" class='rounded-md p-1 w-9' name="pre" id="pre" placeholder="+34" readonly>
                     <input type="text" class='rounded-md p-1 w-44' name="number" id="number" maxlength="9">
                 </div>
             </div>
             <div>
-                <label for="iban" class='mt-3 inline-block'>Iban</label><br>
+                <label for="iban" class='mt-3 inline-block'>Iban(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX"><br>
             </div>
             <div>
-                <label for="passwd" class='mt-3 inline-block'>Password</label><br>
+                <label for="passwd" class='mt-3 inline-block'>Password(*)</label><br>
                 <input type="password" class='rounded-md p-1 w-52' name="passwd" id="passwd"><br>
             </div>
             <div>
-                <label for="passwd1" class='mt-3 inline-block'>Repeat password</label><br>
+                <label for="passwd1" class='mt-3 inline-block'>Repeat password(*)</label><br>
                 <input type="password" class='rounded-md p-1 w-52' name="passwd1" id="passwd1"><br>
             </div>
             <div>
-                <label for="ccard" class='mt-3 inline-block'>Credit Card</label><br>
+                <label for="ccard" class='mt-3 inline-block'>Credit Card(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="ccard" id="ccard" placeholder=""><br>
             </div>
             <div id="buttons" class='mt-5 flex row-start-7 col-span-2 justify-center'>
-                <button type="submit" class='border-2 p-1 mr-3 rounded-lg border-black bg-green-300 hover:bg-green-500'>Send</button>
-                <button class='border-2 p-1 ml-3 rounded-lg border-black bg-yellow-500 hover:bg-yellow-600'>Retrieve</button>
+                <button id='send' type="submit" class='border-2 p-1 mr-3 rounded-lg border-black bg-green-300 hover:bg-green-500'>Send</button>
+                <button id='retrieve' class='border-2 p-1 ml-3 rounded-lg border-black bg-yellow-500 hover:bg-yellow-600'>Retrieve</button>
             </div>
         </form>
 
     </div>
+
+
+
+
+
+
+  
 </body>
 </html>
 
