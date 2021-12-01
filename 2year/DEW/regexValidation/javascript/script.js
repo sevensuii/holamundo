@@ -10,9 +10,11 @@ sendButton.addEventListener('click', function(e) {
 function validate(field, regex){
 
     if(regex.test(field.value)){
-        field.state = 'valid';
+        field.classList.remove('invalid');
+        field.classList.add('valid');
     } else {
-        field.state = 'invalid';
+        field.classList.remove('valid');
+        field.classList.add('invalid');
     }
 
 }
@@ -32,6 +34,7 @@ const passwd = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm;
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
+        console.log(e.target);
         if (e.target.name == 'name') {
             validate(e.target, fName);
         }
@@ -60,22 +63,32 @@ inputs.forEach((input) => {
             validate(e.target, passwd);
         }
         if (e.target.name == 'passwd1') {
-            validate(e.target, passwd);
+            let pas1 = document.querySelector('#passwd');
+            let pas2 = document.querySelector('#passwd1');
+
+            if (pas1.value != pas2.value) {
+                pas2.classList.remove('valid')
+                pas2.classList.add('invalid')
+            }
+            else {
+                pas2.classList.remove('invalid')
+                pas2.classList.add('valid')
+            }
         }
         
     })
 })
 
-for (let i = 0; i < inputs.length; i++) {
+/* for (let i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('change', function(e) {
         if (e.target.state == 'valid') {
-            e.target.nextSibling.style.display = 'none';
+            e.target.nextElementSibling.nextElementSibling.style.display = 'none';
         }
-        else {
-            e.target.nextSibling.style.display = 'block';
+        else if (e.target.state == 'invalid'){
+            e.target.nextElementSibling.nextElementSibling.style.display = 'block';
         }
     })
-}
+} */
 
 
 
