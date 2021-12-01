@@ -15,51 +15,59 @@
         <form action="#" id="myForm" class='grid grid-cols-2 gap-x-0 justify-items-center'>
             <div>
                 <label for="name" class='mt-3 inline-block'>Name(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="name" id="name" maxlength="30" placeholder="Name"><br>
+                <input type="text" class='rounded-md p-1 w-52' name="name" id="name" maxlength="30" placeholder="Name">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Must start with Uppercase</p>
             </div>
             <div>
                 <label for="sname" class='mt-3 inline-block'>Surname(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="sname" id="sname" maxlength="30" placeholder="Surname"><br>
-                <p>Wrong surname</p>
+                <input type="text" class='rounded-md p-1 w-52' name="sname" id="sname" maxlength="30" placeholder="Surname">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Wrong surname</p>
             </div>
             <div>
                 <label for="dni" class='mt-3 inline-block'>DNI or NIE(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9"><br>
+                <input type="text" class='rounded-md p-1 w-52' name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Wrong format</p>
             </div>
             <div>
                 <label for="bdate" class='mt-3 inline-block'>Birth date(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="bdate" id="bdate" placeholder="dd/mm/aaaa"><br>
+                <input type="text" class='rounded-md p-1 w-52' name="bdate" id="bdate" placeholder="dd/mm/aaaa">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Date must be day/month/year</p>
             </div>
             <div>
                 <label for="pcode" class='mt-3 inline-block'>Postal code()</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="pcode" id="pcode" placeholder="01001-49080"><br>
+                <input type="text" class='rounded-md p-1 w-52' name="pcode" id="pcode" placeholder="01001-49080">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Postal Code not in range</p>
             </div>
             <div>
                 <label for="email" class='mt-3 inline-block'>E-mail address(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="email" id="email" placeholder="example@domain.com"><br>
+                <input type="text" class='rounded-md p-1 w-52' name="email" id="email" placeholder="example@domain.com">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Does not have @ or incorrect domain</p>
             </div>
             <div>
-                <label for="number" class='mt-3 inline-block'>Phone number(*)</label>
-                <div class='flex'>
-                    <input type="text" class='rounded-md p-1 w-9' name="pre" id="pre" placeholder="+34" readonly>
-                    <input type="text" class='rounded-md p-1 w-44' name="number" id="number" maxlength="9">
-                </div>
+                <label for="number" class='mt-3 inline-block'>Phone number(*)</label><br>
+                <input type="text" class='rounded-md p-1 w-9 mr-0' name="pre" id="pre" placeholder="+34" readonly>
+                <input type="text" class='rounded-md p-1 w-44 ml-0' name="number" id="number" maxlength="9">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Does not start with spanish prefix</p>
             </div>
             <div>
                 <label for="iban" class='mt-3 inline-block'>Iban(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX"><br>
+                <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Wrong format</p>
             </div>
             <div>
                 <label for="passwd" class='mt-3 inline-block'>Password(*)</label><br>
-                <input type="password" class='rounded-md p-1 w-52' name="passwd" id="passwd"><br>
+                <input type="password" class='rounded-md p-1 w-52' name="passwd" id="passwd">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Must be al least 8 char long and contain Uppercase letters, numbers and special characters</p>
             </div>
             <div>
                 <label for="passwd1" class='mt-3 inline-block'>Repeat password(*)</label><br>
-                <input type="password" class='rounded-md p-1 w-52' name="passwd1" id="passwd1"><br>
+                <input type="password" class='rounded-md p-1 w-52' name="passwd1" id="passwd1">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Password does not match</p>
             </div>
             <div>
                 <label for="ccard" class='mt-3 inline-block'>Credit Card(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="ccard" id="ccard" placeholder=""><br>
+                <input type="text" class='rounded-md p-1 w-52' name="ccard" id="ccard" placeholder="">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Must contain 16 numbers</p>
             </div>
             <div id="buttons" class='mt-5 flex row-start-7 col-span-2 justify-center'>
                 <button id='send' type="submit" class='border-2 p-1 mr-3 rounded-lg border-black bg-green-300 hover:bg-green-500'>Send</button>
