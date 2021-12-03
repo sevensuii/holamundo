@@ -51,13 +51,13 @@
             </div>
             <div>
                 <label for="iban" class='mt-3 inline-block'>Iban(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX">
+                <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX" maxlength="19">
                 <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Wrong format</p>
             </div>
             <div>
                 <label for="passwd" class='mt-3 inline-block'>Password(*)</label><br>
-                <input type="password" class='rounded-md p-1 w-52' name="passwd" id="passwd">
-                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Must be al least 8 char long and contain Uppercase letters, numbers and special characters</p>
+                <input type="password" class='rounded-md p-1 w-52' name="passwd" id="passwd" maxlength="16">
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Must be 8-16 char long and contain Uppercase letters, numbers and special characters</p>
             </div>
             <div>
                 <label for="passwd1" class='mt-3 inline-block'>Repeat password(*)</label><br>
