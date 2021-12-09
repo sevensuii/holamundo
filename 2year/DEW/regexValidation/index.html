@@ -12,6 +12,7 @@
 <body>
     <div id="container" class='m-auto w-10/12 bg-indigo-300 p-4 pl-10'>
         <h1>Regex Validation</h1>
+        <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2' id='aaa' style='opacity: 0;'>All fields must be valid!!</p>
         <form action="#" id="myForm" class='grid grid-cols-2 gap-x-0 justify-items-center'>
             <div>
                 <label for="name" class='mt-3 inline-block'>Name(*)</label><br>
@@ -21,7 +22,7 @@
             <div>
                 <label for="sname" class='mt-3 inline-block'>Surname(*)</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="sname" id="sname" maxlength="30" placeholder="Surname">
-                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Wrong surname</p>
+                <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2'>Not valid surname</p>
             </div>
             <div>
                 <label for="dni" class='mt-3 inline-block'>DNI or NIE(*)</label><br>
@@ -51,7 +52,7 @@
             </div>
             <div>
                 <label for="iban" class='mt-3 inline-block'>Iban(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX" maxlength="19">
+                <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX" maxlength="20">
                 <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Wrong format</p>
             </div>
             <div>
@@ -66,7 +67,7 @@
             </div>
             <div>
                 <label for="ccard" class='mt-3 inline-block'>Credit Card(*)</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="ccard" id="ccard" placeholder="">
+                <input type="text" class='rounded-md p-1 w-52' name="ccard" id="ccard" placeholder="XXXX XXXX XXXX XXXX">
                 <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2 w-52'>Must contain 16 numbers</p>
             </div>
             <div id="buttons" class='mt-5 flex row-start-7 col-span-2 justify-center'>
@@ -75,6 +76,9 @@
             </div>
         </form>
 
+    </div>
+    <div id="noti">
+        Data sent :)
     </div>
 
     <script src="javascript/script.js"></script>
