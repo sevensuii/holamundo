@@ -3,13 +3,60 @@ const sendButton = document.querySelector('#send');
 const retrieveButton = document.querySelector('#retrieve');
 const inputs =  document.querySelectorAll('input');
 const checkIban = document.querySelector('#iban');
-let itemsValidated = [false, false, false, false, false, false, false, false, false, false, false];
+const aaa = document.querySelector('#aaa');
+const noti = document.querySelector('#noti');
 let contador = 0;
 
+// Declaration of an object to manage the form
+var userData = function () {
+    this.name = '';
+    this.surName = '';
+    this.dni = '';
+    this.bDate = '';
+    this.pCode = '';
+    this.email = '';
+    this.phone = '';
+    this.iban = '';
+    this.pass = '';
+    this.cCard = '';
+}
+
+// Creating object
+var itsMe = new userData();
+
+// When send button is clicked
 sendButton.addEventListener('click', function(e) {
     e.preventDefault();
+    let isOkey = document.querySelectorAll('.invalid');
+    let isOkey2 = document.querySelectorAll('.valid');
+    if (isOkey.length == 0 && isOkey2.length == 10) {
+        aaa.style.opacity = 0;
+        localStorage.someone = JSON.stringify(itsMe);
+        noti.style.opacity = 1;
+        setTimeout(function () {noti.style.opacity = 0;}, 1500)
+    }
+    else {
+        aaa.style.opacity = 1;
+    }
 })
 
+// Retrieves data and shows it in the form
+retrieveButton.addEventListener('click', function(e) {
+    itsMe = JSON.parse(localStorage.someone);
+    inputs[0].value = itsMe.name;
+    inputs[1].value = itsMe.surName;
+    inputs[2].value = itsMe.dni;
+    inputs[3].value = itsMe.bDate;
+    inputs[4].value = itsMe.pCode;
+    inputs[5].value = itsMe.email;
+    inputs[7].value = itsMe.phone;
+    inputs[8].value = itsMe.iban;
+    inputs[9].value = itsMe.pass;
+    inputs[10].value = itsMe.pass;
+    inputs[11].value = itsMe.cCard;
+})
+
+// Checks if the fields are good
 function validate(field, regex){
 
     if(regex.test(field.value)){
@@ -22,59 +69,68 @@ function validate(field, regex){
 
 }
 
-/* const dni = /^[x]\d{8}[a-z]$/i; */
-/* const dni = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i; */
+// 
+// Start REGEX VALIDATIONS
+// 
 const dni = /^[0-9XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
 const nie = /^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
-const fName = /^[A-Z]+[a-zA-Z]$/gm;
-const sName = /^(\w+ )+\w+$/gm;
+const fName = /^[A-Z]+[a-z]*$/;
+const sName = /|^(\w+ )+\w+$/i;
 const valDate = new RegExp("^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$");
-/* const eMail = /^(?=.{1,81}$)[\w\.-]+@[\w\.-]+\.\w{2,4}$/gm; */
 const eMail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 const bDay = /^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$/gm;
-const pCode = /^(?:0[1-9][1-4]\d|5[0-2])\d{2}$/gm;
+// const pCode = /^(?:0[1-9][1-4]\d|5[0-2])\d{2}$/gm;
+const pCode = /^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/;
 const tlfn = /^[679]{1}[0-9]{8}$/gm;
 const iban = /([a-zA-Z]{2})\s\t(\d{2})\s\t(\d{4})\s\t(\d{4})\s\t(\d{2})\s\t(\d{10})/gm;
-const card = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/gm;
+// const card = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/gm;
+const card = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/;
 /* const passwd = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm; */
 const passwd = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-
-
+// 
+// End REGEX VALIDATIONS
+// 
+// 
+// When key is released and input is focused
+// 
 inputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
         console.log(e.target);
-        if (e.target.name == 'name') {
+        if (e.target.name == 'name') {      /* WORKS */
             validate(e.target, fName);
+            itsMe.name = e.target.value;
         }
-        if (e.target.name == 'sname') {
+        if (e.target.name == 'sname') {     /* WORKS */
             validate(e.target, sName);
+            itsMe.surName = e.target.value;
         }
         if (e.target.name == 'dni') {       /* WORKS */
-                validate(e.target, dni);
+            validate(e.target, dni);
+            itsMe.dni = e.target.value;
         }
         if (e.target.name == 'bdate') {     /* WORKS */
             validate(e.target, bDay);
+            itsMe.bDate = e.target.value;
         }
-        if (e.target.name == 'pcode') {
+        if (e.target.name == 'pcode') {     /* WORKS */
             validate(e.target, pCode);
+            itsMe.pCode = e.target.value;
         }
         if (e.target.name == 'email') {     /* WORKS */
             validate(e.target, eMail);
+            itsMe.email = e.target.value;
         }
         if (e.target.name == 'number') {    /* WORKS */
             validate(e.target, tlfn);
+            itsMe.phone = e.target.value;
         }
-        if (e.target.name == 'iban') {
-            validate(e.target, iban);
-            console.log(e.target.value.length);
-            contador++;
-            if (contador == 4 && e.target.value.length < 19) {
-                e.target.value += '\t';
-                contador = 0;
-            }
+        if (e.target.name == 'iban') {      /* AFK */
+            // validate(e.target, iban);
+            itsMe.iban = e.target.value;
         }
         if (e.target.name == 'passwd') {    /* WORKS */
             validate(e.target, passwd);
+            itsMe.pass = e.target.value;
         }
         if (e.target.name == 'passwd1') {   /* WORKS */
             let pas1 = document.querySelector('#passwd');
@@ -89,90 +145,10 @@ inputs.forEach((input) => {
                 pas2.classList.add('valid')
             }
         }
+        if (e.target.name == 'ccard') {  /* WORKS */
+            validate(e.target, card);
+            itsMe.cCard = e.target.value;
+        }
         
     })
 })
-
-/* checkIban.addEventListener('change', function() {
-    console.log(checkIban.value.length);
-    if (checkIban.value.length % 4 == 0) {
-        checkIban.value += ' ';
-    }
-}) */
-
-/* for (let i = 0; i < inputs.length; i++) {
-    inputs[i].addEventListener('change', function(e) {
-        if (e.target.state == 'valid') {
-            e.target.nextElementSibling.nextElementSibling.style.display = 'none';
-        }
-        else if (e.target.state == 'invalid'){
-            e.target.nextElementSibling.nextElementSibling.style.display = 'block';
-        }
-    })
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-inputs.forEach((input) => {
-    input.addEventListener('keyup', (e) => {
-            // console.log(patterns[e.target.attributes.name.value]);
-            //validate(e.target, patterns[e.target.attributes.name.value]);
-      if (e.target.name =="DNI") {validate(e.target, dni)};
-      if (e.target.name =="Name") {validate(e.target, name1)};
-      if (e.target.name =="Surname") {validate(e.target, Surname)};
-      if (e.target.name =="Birth") {validate(e.target, Birth)};
-      if (e.target.name =="Email") {validate(e.target, mail)};
-      if (e.target.name =="code") {validate(e.target, code)};
-      if (e.target.name =="Telephone") {validate(e.target, Telephone)};
-      if (e.target.name =="IBAN") {validate(e.target, IBAN)};
-      if (e.target.name =="Card") {validate(e.target, Card)};
-      if (e.target.name =="Password") {validate(e.target, Password)};
-
-      if (e.target.name =="rPassword"){
-            clave1 = document.formulario.Password.value
-            clave2 = document.formulario.rPassword.value
-            if (clave1 == clave2){
-               validate(e.target, Password)}
-            else{
-                validate(e.target, Password)
-                }
-        }
-
-    });
-});
-// validation function
-function validate(field, regex){
-
-    if(regex.test(field.value)){
-        field.className = 'valid';
-    } else {
-        field.className = 'invalid';
-    }
-
-}
-
-const dni=/^[x]\d{8}[a-z]$/i
-const name1=/^[A-Z]+[a-zA-Z]$/gm
-// const Surname=/^[A-Z]+[a-zA-Z]+ +[A-Z]+[a-zA-Z]$/gm
-const mail=/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+/gm
-const Birth= /^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$/gm
-const code= /^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/gm
-const Telephone=/^[679]{1}[0-9]{8}$/gm
-// (+34|0034|34)?[ -](6|7)[ -]([0-9][ -]){8}
-const IBAN=/([a-zA-Z]{2})\s\t(\d{2})\s\t(\d{4})\s\t(\d{4})\s\t(\d{2})\s\t(\d{10})/gm
-//ES3912341234250123456789
-const Card=/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/gm
-const Password=/^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm
-const inputs = document.querySelectorAll('input');*/
