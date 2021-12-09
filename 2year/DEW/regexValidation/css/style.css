@@ -46,3 +46,18 @@ input.invalid + p{
     height: auto;
     margin-bottom: 20px;
 }
+
+.valid {
+    border-color: #adff2f;
+}
+
+#noti {
+    background-color: #7aeb7a;
+    padding: 1em;
+    border-radius: 1em;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
