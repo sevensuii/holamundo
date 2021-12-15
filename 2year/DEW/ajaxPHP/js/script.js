@@ -69,3 +69,12 @@ btn.addEventListener("click", function() {
   }
 ]
 */
+
+let fillForm = document.querySelector('#fill');
+fillForm.addEventListener('click', function() {
+    let fillData = ['Pepe', 'Lopez Perez', '12345678X', '22/09/2000', '35500', 'pepe@gmail.com', '928666666', '666999666', '4539955085883327', 'ES7921000813610123456789', 'Pepe1234567890']
+    let inputs = document.querySelectorAll('input');
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i] = fillData[i];
+    }
+})
