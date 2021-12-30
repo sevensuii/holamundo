@@ -1,6 +1,8 @@
 // /////////////////////////////
 // Declaration of global variables
 ////////////////////////////////
+document.write('hola')
+console.log('hola')
 
 var fillForm = document.querySelector('#fill');		// Autofills data to the form
 var inputs = document.querySelectorAll('input');	// Takes all inputs
@@ -30,7 +32,7 @@ let defaultObj = {
 // End declaration of global variables
 ////////////////////////////////
 
-function showData(someObject) {
+function showData(someObject) {		// Shows the data in the inputs when it's colected
 	inputs[0].value	= someObject.name; 
 	inputs[1].value	= someObject.surname;
 	inputs[2].value	= someObject.dni;
@@ -44,20 +46,7 @@ function showData(someObject) {
 	inputs[10].value = someObject.password;
 }
 
-fillForm.addEventListener('click', function(e) {
-	e.preventDefault();
-    // let fillData = ['Pepito', 'Lopez Perez', '12345678X', '22/09/2000', '35500', 'pepe@gmail.com', '928666666', '666999666', 'ES7921000813610123456789', '4539955085883327', 'Pepe1234567890']
-// 
-    // for (let i = 0; i < inputs.length; i++) {
-	// 	console.log(`${inputs[i].name} |||| ${fillData[i]}`);
-    //     inputs[i].value = fillData[i];
-    // }
-	showData(defaultObj);
-})
-
-sendBut.addEventListener('click', function(e) {
-	e.preventDefault();
-
+function returnFormAsObject() {
 	let obj = {
 		name : inputs[0].value,
 		surname : inputs[1].value,
@@ -71,6 +60,39 @@ sendBut.addEventListener('click', function(e) {
 		ccard: inputs[9].value,
 		password : inputs[10].value
 	}
+
+	return obj;
+}
+
+fillForm.addEventListener('click', function(e) {		// Fills the form with data so u don't have to fill it manually
+	e.preventDefault();
+    // let fillData = ['Pepito', 'Lopez Perez', '12345678X', '22/09/2000', '35500', 'pepe@gmail.com', '928666666', '666999666', 'ES7921000813610123456789', '4539955085883327', 'Pepe1234567890']
+// 
+    // for (let i = 0; i < inputs.length; i++) {
+	// 	console.log(`${inputs[i].name} |||| ${fillData[i]}`);
+    //     inputs[i].value = fillData[i];
+    // }
+	showData(defaultObj);
+})
+
+sendBut.addEventListener('click', function(e) {		// Sends form data to a simple PHP file
+	e.preventDefault();
+
+	// let obj = {
+	// 	name : inputs[0].value,
+	// 	surname : inputs[1].value,
+	// 	dni : inputs[2].value,
+	// 	date: inputs[3].value,
+	// 	pcode: inputs[4].value,
+	// 	email : inputs[5].value,
+	// 	hphone : inputs[6].value,
+	// 	number : inputs[7].value,
+	// 	iban : inputs[8].value,
+	// 	ccard: inputs[9].value,
+	// 	password : inputs[10].value
+	// }
+
+	let obj = returnFormAsObject();
 
 	dbParam = JSON.stringify(obj);
 	xmlhttp = new XMLHttpRequest();
@@ -91,6 +113,7 @@ sendBut.addEventListener('click', function(e) {
 
 
 retrieveBut.addEventListener("click", function(e) {
+	console.log('hoa')
 	e.preventDefault();
 
 	var xmlhttp = new XMLHttpRequest();
@@ -104,7 +127,8 @@ retrieveBut.addEventListener("click", function(e) {
 		noti.innerHTML = myObj.name+ " was received correctly";
 		noti.style.opacity = 1;
 		setTimeout(function() {noti.style.opacity = 0}, 1500);
-		showData(myObj);
+		// showData(myObj);
+		console.log(myObj);
 	}
 	};
 	xmlhttp.open("GET", "http://localhost/normal.php", true);
@@ -117,7 +141,12 @@ postDbBut.addEventListener('click', function(e) {
 
 	console.log ('Asking server with POST method...');
 	// var params = "user="+u+"&message="+m;
-	let params = "name"+inputs[0].value+"&surname"+inputs[1].value+"&dni"+inputs[2].value+"&date"+inputs[3].value+"&pcode"+inputs[4].value+"&email"+inputs[5].value+"&hphone"+inputs[6].value+"&number"+inputs[7].value+"&iban"+inputs[8].value+"&ccard"+inputs[9].value+"&password"+inputs[10].value;
+	// let params = "name"+name+"&surname"+surname+"&dni"+inputs[2].value+"&date"+inputs[3].value+"&pcode"+inputs[4].value+"&email"+inputs[5].value+"&hphone"+inputs[6].value+"&number"+inputs[7].value+"&iban"+inputs[8].value+"&ccard"+inputs[9].value+"&password"+inputs[10].value;
+
+	let obj = returnFormAsObject();
+
+	let params = JSON.stringify(obj);
+	console.log(obj);
 
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST','http://localhost/workdb.php', true);

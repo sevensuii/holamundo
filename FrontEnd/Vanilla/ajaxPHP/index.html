@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-7">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <!-- <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css">
   <title>AJAx</title>
 </head>
 <body>
-  <div id="container" class='m-auto w-10/12 bg-indigo-300 p-4 pl-10'>
-        <h1>Regex Validation</h1>
-        <p class='bg-red-100 text-red-800 mt-2 text-sm rounded-md pl-2' id='aaa' style='opacity: 0;'>All fields must be valid!!</p>
-        <form action="#" id="myForm" class='grid grid-cols-2 gap-x-0 justify-items-center' method="post">
+  <div id="container" class='m-auto w-9/12 bg-indigo-300 p-4 pl-10'>
+        <h2>Regex Validation</h2>
+        <p class='bg-red-99 text-red-800 mt-2 text-sm rounded-md pl-2' id='aaa' style='opacity: 0;'>All fields must be valid!!</p>
+        <form action="#" id="myForm" class='grid grid-cols-1 gap-x-0 justify-items-center' method="post">
             <div>
-                <label for="name" class='mt-3 inline-block'>Name</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="name" id="name" maxlength="30" placeholder="Name">
+                <label for="name" class='mt-2 inline-block'>Name</label><br>
+                <input type="text" class='rounded-md p0 w-52' name="name" id="name" maxlength="30" placeholder="Name">
             </div>
             <div>
-                <label for="sname" class='mt-3 inline-block'>Surname</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="surname" id="surname" maxlength="30" placeholder="Surname">
+                <label for="sname" class='mt-2 inline-block'>Surname</label><br>
+                <input type="text" class='rounded-md p0 w-52' name="surname" id="surname" maxlength="30" placeholder="Surname">
             </div>
             <div>
-                <label for="dni" class='mt-3 inline-block'>DNI or NIE</label><br>
-                <input type="text" class='rounded-md p-1 w-52' name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9">
+                <label for="dni" class='mt-2 inline-block'>DNI or NIE</label><br>
+                <input type="text" class='rounded-md p0 w-52' name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9">
             </div>
             <div>
-                <label for="date" class='mt-3 inline-block'>Birth date</label><br>
+                <label for="date" class='mt-2 inline-block'>Birth date</label><br>
                 <input type="text" class='rounded-md p-1 w-52' name="date" id="date" placeholder="dd/mm/aaaa" maxlength='10'>
             </div>
             <div>

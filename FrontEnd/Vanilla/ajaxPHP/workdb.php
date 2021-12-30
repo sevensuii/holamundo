@@ -13,7 +13,9 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO usuarios (name, surname, dni, date, pcode, email, hphone, number, iban, ccard, password) VALUES('" . $_REQUEST['name'] ."','" . $_POST['surname'] ."','".$_GET['dni'] ."','".$_POST['date'] ."','".$_POST['pcode'] ."','".$_POST['email'] ."','".$_POST['hphone'] ."','".$_POST['number'] ."','".$_POST['iban'] ."','".$_POST['ccard'] ."','".$_POST['password'] ."')";
+$persona = json_decode(stripslashes(file_get_contents('php://input')));
+
+$sql = "INSERT INTO usuarios (name, surname, dni, date, pcode, email, hphone, number, iban, ccard, password) VALUES('" . $persona->name ."','" . $persona->surname ."','".$persona->dni ."','".$persona->date ."','".$persona->pcode ."','".$persona->email ."','".$persona->hphone ."','".$persona->number ."','".$persona->iban ."','".$persona->ccard ."','".$persona->password ."')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
