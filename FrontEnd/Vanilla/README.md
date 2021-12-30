@@ -12,6 +12,8 @@ Frameworks used in some of them
   
 
   
-![](https://github.com/sevensuii/holamundo/blob/main/FrontEnd/Vanilla/vgif2.gif)
 
-<img src="drawing.jpg" alt="drawing" center/>
+
+<p align="center">
+  ![](https://github.com/sevensuii/holamundo/blob/main/FrontEnd/Vanilla/vgif2.gif)
+</p>
