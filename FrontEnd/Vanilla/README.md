@@ -1,5 +1,3 @@
-# Vanilla-README
-
 All is made with HTML5, CSS3 and Vanilla Javascript
 ---------------------------------------------------
 
