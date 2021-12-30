@@ -15,5 +15,5 @@ Frameworks used in some of them
 
 
 <p align="center">
-  ![](https://github.com/sevensuii/holamundo/blob/main/FrontEnd/Vanilla/vgif2.gif)
+  <img src="https://github.com/sevensuii/holamundo/blob/main/FrontEnd/Vanilla/vgif2.gif" alt="Some dude dancing"/>
 </p>
