@@ -13,4 +13,4 @@ Frameworks used in some of them
 
   
 
-![](https://t20474194.p.clickup-attachments.com/t20474194/2f19f929-253c-4c96-b200-b444d790c000/WdI1MNI.gif)
+![](https://github.com/sevensuii/holamundo/blob/main/FrontEnd/Vanilla/vgif1.gif)![](https://github.com/sevensuii/holamundo/blob/main/FrontEnd/Vanilla/vgif2.gif)
