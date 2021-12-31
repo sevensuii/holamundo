@@ -1,0 +1,13 @@
+/* Initial commit */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+#noti {
+    background-color: #7aeb7a;
+    padding: 1em;
+    border-radius: 1em;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
