@@ -1,6 +1,7 @@
 <?php
   
 header('Access-Control-Allow-Origin: *');
+header('Access-Controll-Allow-Methods: GET, POST, OPTIONS');
 $servername = "localhost";
 $username = "root";
 $password = "";

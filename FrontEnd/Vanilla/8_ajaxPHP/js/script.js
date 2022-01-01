@@ -1,7 +1,6 @@
 // /////////////////////////////
 // Declaration of global variables
 ////////////////////////////////
-document.write('hola')
 console.log('hola')
 
 var fillForm = document.querySelector('#fill');		// Autofills data to the form
