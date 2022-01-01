@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.cont {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items:flex-start;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.film {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 23em;
+    margin: 3em 1em;
+    padding: 1em;
+    border-radius: 1.5em;
+    border: 0.11em solid black;
+}
+
+.film img {
+    border-radius: 1.5em;
+    height: 35em;
+    /* width: 80%; */
+}
+
+.take-btn {
+    margin: 2em;
+    background-color: rgb(109, 204, 114);
+    padding: .5em;
+    border: 0.2em solid black;
+    border-radius: 1.5em;
+    text-decoration: none;
+    color: white;
+}
+
+.take-btn:hover{
+    background-color: rgb(73, 138, 76);
+}
+
+.film h3 {
+    margin-top: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+}
+
+#back {
+    width: 3em;
+    margin-left: 2em;
+    margin-right: 25rem;
+}
+
+table {
+    width: 80%;
+    border: .2em solid black;
+    border-top: 1em solid black;
+    border-radius: .5em;
+    padding-top: 3em;
+}
+
+.spacer img, .spacer p {
+    margin-left: 8em;
+}
+
+table td {
+    text-align: center;
+}
+
+table td img {
+    width: 5em;
+    transform: scaleY(-1);
+}
+
+#price, #yourSeats {
+    display: inline-block;
+}
+
+#result1, #result2 {
+    display: inline-block;
+    width: 20em;
+    margin-right: 1em;
+}
+
+#result1 {
+    width: 2em;
+}
+
+#price {
+    margin-left: 23em;
+}
+
+#buy, #reset {
+    font-size: 1.1em;
+    border-radius: .3em;
+    border: .1em solid black;
+}
+
+#buy {
+    background-color: lightgreen;
+    margin-right: .1em;
+}
+#buy:hover {
+    background-color: rgb(23, 172, 48);
+}
+
+#reset {
+    background-color: lightcoral;
+}
+#reset:hover {
+    background-color: rgb(175, 39, 39);
+}
+
+.content {
+    display: inline-block;
+    width: 20%;
+}
+
+h4 {
+    margin: 0;
+}
+
+#taken-err {
+    background-color: rgb(231, 33, 33);
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    color: white;
+    position: absolute;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    top: 1rem;
+    right: 1rem;
+    display: none;
+    /* transform: translate(-50%, -50%); */
+}
