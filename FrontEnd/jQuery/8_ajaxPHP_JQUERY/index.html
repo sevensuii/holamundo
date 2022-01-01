@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-7">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <!-- <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>AJAx</title>
+</head>
+<body>
+  <div id="container" class='m-auto w-9/12 bg-indigo-300 p-4 pl-10'>
+        <h2>Regex Validation</h2>
+        <p class='bg-red-99 text-red-800 mt-2 text-sm rounded-md pl-2' id='aaa' style='opacity: 0;'>All fields must be valid!!</p>
+        <form action="#" id="myForm" class='grid grid-cols-1 gap-x-0 justify-items-center' method="post">
+            <div>
+                <label for="name" class='mt-2 inline-block'>Name</label><br>
+                <input type="text" class='rounded-md p0 w-52' name="name" id="name" maxlength="30" placeholder="Name">
+            </div>
+            <div>
+                <label for="sname" class='mt-2 inline-block'>Surname</label><br>
+                <input type="text" class='rounded-md p0 w-52' name="surname" id="surname" maxlength="30" placeholder="Surname">
+            </div>
+            <div>
+                <label for="dni" class='mt-2 inline-block'>DNI or NIE</label><br>
+                <input type="text" class='rounded-md p0 w-52' name="dni" id="dni" placeholder="XXXXXXXXX" maxlength="9">
+            </div>
+            <div>
+                <label for="date" class='mt-2 inline-block'>Birth date</label><br>
+                <input type="text" class='rounded-md p-1 w-52' name="date" id="date" placeholder="dd/mm/aaaa" maxlength='10'>
+            </div>
+            <div>
+                <label for="pcode" class='mt-3 inline-block'>Postal code</label><br>
+                <input type="text" class='rounded-md p-1 w-52' name="pcode" id="pcode" placeholder="01001-49080">
+            </div>
+            <div>
+                <label for="email" class='mt-3 inline-block'>E-mail address</label><br>
+                <input type="text" class='rounded-md p-1 w-52' name="email" id="email" placeholder="example@domain.com">
+            </div>
+            <div>
+                <label for="hphone" class='mt-3 inline-block'>House phone</label><br>
+                <input type="text" class='rounded-md p-1 w-52' name="hphone" id="hphone" maxlength="16">
+            </div>
+            <div>
+                <label for="number" class='mt-3 inline-block'>Mobile phone</label><br>
+                <input type="text" class='rounded-md p-1 w-52 ml-0' name="number" id="number" maxlength="9">
+            </div>
+            <div>
+                <label for="iban" class='mt-3 inline-block'>Iban</label><br>
+                <input type="text" class='rounded-md p-1 w-52' name="iban" id="iban" placeholder="ESXX XXXX XXXX XXXX" maxlength="20">
+            </div>
+            <div>
+                <label for="ccard" class='mt-3 inline-block'>Credit Card</label><br>
+                <input type="text" class='rounded-md p-1 w-52' name="ccard" id="ccard" placeholder="XXXX XXXX XXXX XXXX" maxlength="16">
+            </div>
+            <div class='col-span-2'>
+                <label for="password" class='mt-3 inline-block'>Password</label><br>
+                <input type="text" class='rounded-md p-1 w-52' name="password" id="password"  maxlength="16">
+            </div>
+            <div id="buttons" class='mt-5 flex row-start-7 col-span-2 justify-center'>
+                <button id='send' class='border-2 p-1 mr-3 rounded-lg border-black bg-green-300 hover:bg-green-500'>SEND</button>
+                <button id='retrieve' class='border-2 p-1 ml-3 mr-3 rounded-lg border-black bg-yellow-500 hover:bg-yellow-600'>RETRIEVE</button>
+                <button id='fill' class='border-2 p-1 ml-3 rounded-lg border-black bg-pink-400 hover:bg-pink-600'>FILL FORM</button>
+            </div>
+            <div id="buttons" class='mt-5 flex row-start-9 col-span-2 justify-center'>
+                <button id='post-db'  class='border-2 p-1 mr-3 rounded-lg border-black bg-blue-300 hover:bg-blue-500'>POST-DB</button>
+                <button id='get-db' class='border-2 p-1 ml-3 mr-3 rounded-lg border-black bg-red-200 hover:bg-red-400'>GET-DB</button>
+            </div>
+        </form>
+        
+    </div>
+    <div id="noti">
+        Data sent :)
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
