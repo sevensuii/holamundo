@@ -121,9 +121,9 @@ h4 {
     margin: 0;
 }
 
-#taken-err {
+.noti {
     background-color: rgb(231, 33, 33);
-    height: 5rem;
+    /* height: 5rem; */
     line-height: 5rem;
     text-align: center;
     color: white;
@@ -135,4 +135,9 @@ h4 {
     right: 1rem;
     display: none;
     /* transform: translate(-50%, -50%); */
+}
+
+#bought-succ {
+    background-color: lightgreen;
+    color: black;
 }
