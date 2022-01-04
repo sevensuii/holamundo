@@ -12,9 +12,141 @@
     <title>Directories</title>
 </head>
 <body>
-    <h1>My filesystem</h1>
     <div id="container">
+        <!-- Shows the window name and 3 options -->
+        <div id="top-bar">
+            <div class='show-flex'>
+                <div class='top-icons'><img src="https://img.icons8.com/fluency/48/000000/folder-invoices--v2.png"/></div>
+                <div class='top-name'>File explorer</div>
+            </div>
+            <div class='show-flex'>
+                <div class='top-icons' id='minimize'><i class="far fa-window-minimize"></i></div>
+                <div class='top-icons' id='maximize'><i class="far fa-square"></i></div>
+                <div class='top-icons' id='close'><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+        <!-- End showing window top actions -->
+        <!-- Start listing folders, starting with the root -->
         <div class="folder">
+            <div class="folder-name">
+                <div>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" checked/>
+                        <i class="fas fa-folder unchecked"></i>
+                        <i class="fas fa-folder-open checked"></i>
+                        <span class="folder-real-name">/</span>
+                    </label>
+                </div>
+                <div>
+                    <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
+                </div>
+            </div>
+            <div class="folder-content">
+                <div class="file">
+                    <div class="icon"><i class="fas fa-file"></i><span class="file-name">holamundo.txt</span></div>
+                    <div class="remove-item"><i class="fas fa-trash"></i></div>
+                </div>
+                    <div class="folder">
+                        <div class="folder-name">
+                            <div>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" checked/>
+                                    <i class="fas fa-folder unchecked"></i>
+                                    <i class="fas fa-folder-open checked"></i>
+                                    <span class="folder-real-name">Usuario</span>
+                                </label>
+                            </div>
+                            <div>
+                                <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
+                                <div class="remove-item"><i class="fas fa-trash"></i></div>
+                            </div>
+                        </div>
+                        <div class="folder-content">
+                            <div class="folder">
+                                <div class="folder-name">
+                                    <div>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" checked/>
+                                            <i class="fas fa-folder unchecked"></i>
+                                            <i class="fas fa-folder-open checked"></i>
+                                            <span class="folder-real-name">Descargas</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="file">
+                                        <div class="icon"><i class="fas fa-file-pdf"></i><span class="file-name">guia.pdf</span></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                            <div class="folder">
+                                <div class="folder-name">
+                                    <div>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" checked/>
+                                            <i class="fas fa-folder unchecked"></i>
+                                            <i class="fas fa-folder-open checked"></i>
+                                            <span class="folder-real-name">Escritorio</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="file">
+                                        <div class="icon"><i class="fas fa-file-alt"></i><span class="file-name">juego.py</span></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+                                    <div class="file">
+                                        <div class="icon"><i class="fas fa-file-alt"></i><span class="file-name">puzzle.js</span></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                            <div class="folder">
+                                <div class="folder-name">
+                                    <div>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" checked/>
+                                            <i class="fas fa-folder unchecked"></i>
+                                            <i class="fas fa-folder-open checked"></i>
+                                            <span class="folder-real-name">Imágenes</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+                                </div>
+                                <div class="folder-content">
+                                    <div class="file">
+                                        <div class="icon"><i class="fas fa-image"></i><span class="file-name">roblu.jpg</span></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+                                    <div class="file">
+                                        <div class="icon"><i class="fas fa-image"></i><span class="file-name">mustang.png</span></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+                                    <div class="file">
+                                        <div class="icon"><i class="fas fa-image"></i><span class="file-name">onepeace.png</span></div>
+                                        <div class="remove-item"><i class="fas fa-trash"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+        </div>
+        <!-- <div class="folder">
             <label class="custom-checkbox">
                     <input type="checkbox" checked/>
                     <i class="fas fa-folder unchecked"></i>
@@ -80,15 +212,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-    <div id="info">
+    <!-- <div id="info">
         <ul>Small guide
             <li>All files that ends with <strong>.png</strong> or <strong>.jpg</strong> will be considered as images.</li>
             <li>Folder will be the one with no dots in his name.</li>
         </ul>
     </div>
-    <div id="notification">Se ha eliminado la carpeta Escritorio</div>
+    <div id="notification">Se ha eliminado la carpeta Escritorio</div> -->
     <script src="js/script.js"></script>
     <script>loadEverything()</script>
 </body>
