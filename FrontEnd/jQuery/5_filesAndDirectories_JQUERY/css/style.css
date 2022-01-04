@@ -5,29 +5,27 @@
 }
 
 body {
-    background-color: lightgrey;
+    background-color: #332828;
 }
 
 #container {
-    background-color: grey;
+    background-color: rgb(224, 214, 214);
     height: 100%;
     width: 70%;
-    margin: auto;
+    margin: 4rem auto;
     font-size: 2em;
+    border: .2rem solid #575353;
+    border-radius: .5rem;
 }
 
-.folder-content {
-    margin-left: 7%;
-}
-
-.custom-checkbox, .file-name {
-    width: 85%;
-    display: inline-block;
-    margin-left: 1%;
+/* Styles for the checkbox */
+.custom-checkbox {
+    display: flex;
+    /* margin-left: 1%; */
 }
 
 .custom-checkbox input[type="checkbox"], .custom-checkbox .checked { /*Hides the checkbutton*/
-  display: none;
+    display: none;
 }
 
 .custom-checkbox input[type="checkbox"]:checked~.checked {
@@ -37,37 +35,51 @@ body {
 .custom-checkbox input[type="checkbox"]:checked~.unchecked {
     display: none;
 }
+/* End styles of the checkbox */
 
-.folder .text {
-    /*width: 70%;*/
+/* Start styles for folders */
+
+.folder-content {
+    padding-left: 2.7rem;
+}
+
+.folder-name {
+    display: flex;
+    justify-content: space-between;
+    padding: .4rem;
+}
+
+.file {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+    padding: .4rem;
+}
+
+.file-name, .folder-real-name {
+    padding-left: .5rem;
+}
+
+.add-item, .remove-item {
     display: inline-block;
-    margin-right: auto;
 }
 
-.folder {
-    width: 100%;
+i {
+    width: 2rem;
 }
+/* End styles for folders */
 
-.addItem, .removeItem, .addItem input {
-    display: inline-block;
-}
-
-
-.addItem {
-    position: relative;
-    right: 0;
-}
-
-#info {
-    position: absolute;
+/* #info {
+    position: float;
     left: 0;
     bottom: 0;
     background-color: rgb(155, 199, 115);
     border: .2em solid rgb(0, 132, 255);
     border-top-right-radius: 20px;
     font-size: 1.4em;
-    padding: .5em .5em .5em 1.2em;
-}
+    padding: .5rem .5rem .5rem 1.2rem;
+    width: 50%;
+} */
 
 #notification {
     background-color: lightgreen;
@@ -75,7 +87,55 @@ body {
     font-size: 1.4em;
     padding: .4em;
     border-radius: 10px;
-    position: absolute;
+    position:absolute;
     left: 35%;
     top: 0;
 }
+
+/* Styles for the top bar */
+#top-bar {
+    display: flex;
+    justify-content: space-between;
+    /* border: .3rem solid #575353; */
+    border-bottom: none;
+    background-color: #202020;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    /* padding: .5rem; */
+}
+
+.top-icons {
+    width: 3rem;
+    height: 3.3rem;
+    line-height: 3rem;
+    padding: .3rem;
+    text-align: center;
+    border-radius: 5px;
+}
+.top-name {
+    height: 3.3rem;
+    line-height: 3.7rem;
+    padding-left: .6rem;
+}
+
+.show-flex {
+    display: flex;
+}
+
+#maximize:hover {
+    border-radius: 0;
+}
+
+#minimize:hover {
+    border-radius: 5px 0 0 0;
+}
+
+#minimize:hover, #maximize:hover {
+    background-color: #9b9696;
+}
+
+#close:hover {
+    background-color: #ea3321;
+    border-radius: 0 5px 0 0;
+}
+/* End styles for the top bar */
