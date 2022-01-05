@@ -21,7 +21,6 @@ body {
 /* Styles for the checkbox */
 .custom-checkbox {
     display: flex;
-    /* margin-left: 1%; */
 }
 
 .custom-checkbox input[type="checkbox"], .custom-checkbox .checked { /*Hides the checkbutton*/
@@ -67,30 +66,71 @@ body {
 i {
     width: 2rem;
 }
+
+.icons-box {
+    display: flex;
+}
+
+.adding-form {
+    display: flex;
+    align-items: center;
+}
+
+.adding-form input, .adding-form button {
+    border-radius: 8px;
+    padding: .1rem;
+}
+
+.adding-form input {
+    width: 7rem;
+}
+
+.add-new-item {
+    background-color: #66f066;
+}
+.add-new-item:hover {
+    background-color: #2ba12b;
+}
+
+.cancel-new-item {
+    background-color: #d8685d;
+}
+.cancel-new-item:hover {
+    background-color: #a5433a;
+}
 /* End styles for folders */
 
-/* #info {
-    position: float;
-    left: 0;
-    bottom: 0;
-    background-color: rgb(155, 199, 115);
-    border: .2em solid rgb(0, 132, 255);
-    border-top-right-radius: 20px;
-    font-size: 1.4em;
-    padding: .5rem .5rem .5rem 1.2rem;
-    width: 50%;
-} */
-
-#notification {
-    background-color: lightgreen;
-    display: none;
-    font-size: 1.4em;
-    padding: .4em;
-    border-radius: 10px;
-    position:absolute;
-    left: 35%;
+/* Notification styles */
+#folder-not-empty, #file-deleted, #folder-deleted {
+    background-color: red;
+    font-size: 1.5rem;
+    width: 20rem;
+    text-align: center;
+    padding: 1rem;
+    color: #fff;
+    border-radius: 1.3rem;
+    margin: 1rem;
     top: 0;
+    right: 0;
+    position: absolute;
+    display: none;
 }
+
+#folder-created, #file-created {
+    background-color: rgb(47, 226, 107);
+    font-size: 1.5rem;
+    width: 20rem;
+    text-align: center;
+    padding: 1rem;
+    color: rgb(2, 1, 1);
+    border-radius: 1.3rem;
+    margin: 1rem;
+    top: 0;
+    right: 0;
+    position: absolute;
+    display: none;
+}
+/* End notification styles */
 
 /* Styles for the top bar */
 #top-bar {
