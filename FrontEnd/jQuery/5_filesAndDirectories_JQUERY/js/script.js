@@ -127,7 +127,7 @@ $(document).ready(function() {
 
     $(document).on('change', '.custom-checkbox input' ,function() {
         console.log($(this).prop('checked'))
-        console.log($(this).closest('.folder').find('.folder-content').fadeToggle());
+        console.log($(this).closest('.folder').find('.folder-content').slideToggle());
     })
 })
 
