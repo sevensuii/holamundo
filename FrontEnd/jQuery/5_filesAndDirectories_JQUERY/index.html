@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/2538c8c34c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
     <title>Directories</title>
 </head>
@@ -37,7 +38,7 @@
                         <span class="folder-real-name">/</span>
                     </label>
                 </div>
-                <div>
+                <div class="icons-box">
                     <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
                 </div>
             </div>
@@ -56,7 +57,7 @@
                                     <span class="folder-real-name">Usuario</span>
                                 </label>
                             </div>
-                            <div>
+                            <div class="icons-box">
                                 <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
                                 <div class="remove-item"><i class="fas fa-trash"></i></div>
                             </div>
@@ -72,7 +73,7 @@
                                             <span class="folder-real-name">Descargas</span>
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="icons-box">
                                         <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
                                         <div class="remove-item"><i class="fas fa-trash"></i></div>
                                     </div>
@@ -95,7 +96,7 @@
                                             <span class="folder-real-name">Escritorio</span>
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="icons-box">
                                         <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
                                         <div class="remove-item"><i class="fas fa-trash"></i></div>
                                     </div>
@@ -116,20 +117,20 @@
                                 <div class="folder-name">
                                     <div>
                                         <label class="custom-checkbox">
-                                            <input type="checkbox" checked/>
+                                            <input type="checkbox" unchecked/>
                                             <i class="fas fa-folder unchecked"></i>
                                             <i class="fas fa-folder-open checked"></i>
                                             <span class="folder-real-name">Imágenes</span>
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="icons-box">
                                         <div class="add-item"><i class="fas fa-plus-circle add-btn"></i></div>
                                         <div class="remove-item"><i class="fas fa-trash"></i></div>
                                     </div>
                                 </div>
-                                <div class="folder-content">
+                                <div class="folder-content" style="display:none">
                                     <div class="file">
-                                        <div class="icon"><i class="fas fa-image"></i><span class="file-name">roblu.jpg</span></div>
+                                        <div class="icon"><i class="fas fa-image"></i><span class="file-name">arcane.jpg</span></div>
                                         <div class="remove-item"><i class="fas fa-trash"></i></div>
                                     </div>
                                     <div class="file">
@@ -214,6 +215,22 @@
             </div>
         </div> -->
     </div>
+</div>
+<div id="folder-not-empty">
+    This folder still have something inside, please delete it first
+</div>
+<div id="file-created">
+    File created successfully
+</div>
+<div id="file-deleted">
+    File deleted successfully
+</div>
+<div id="folder-created">
+    Folder created successfully
+</div>
+<div id="folder-deleted">
+    Folder deleted successfully
+</div>
     <!-- <div id="info">
         <ul>Small guide
             <li>All files that ends with <strong>.png</strong> or <strong>.jpg</strong> will be considered as images.</li>
@@ -221,8 +238,7 @@
         </ul>
     </div>
     <div id="notification">Se ha eliminado la carpeta Escritorio</div> -->
-    <script src="js/script.js"></script>
-    <script>loadEverything()</script>
+    <!-- <script src="js/script.js"></script> -->
 </body>
 </html>
 
