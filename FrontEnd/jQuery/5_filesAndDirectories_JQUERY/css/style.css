@@ -98,6 +98,13 @@ i {
 .cancel-new-item:hover {
     background-color: #a5433a;
 }
+
+.fa-trash:hover {
+    color: #e02a2a;
+}
+.fa-plus-circle:hover {
+    color: #0f4aca;
+}
 /* End styles for folders */
 
 /* Notification styles */
