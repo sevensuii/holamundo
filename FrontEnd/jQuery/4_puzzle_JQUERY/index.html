@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/script.js"></script>
     <title>Puzzle 2D</title>
 </head>
@@ -12,29 +13,45 @@
     <div id="mainCont">
         <div id="mainHeader">Solve this puzzle</div>
         <div id="puzzle">
+            <!-- <div class="row1">
+                <div class="piece" id='im1'>1</div>
+                <div class="piece" id='im2'>2</div>
+                <div class="piece" id='im3'>3</div>
+            </div>
+            <div class="row2">
+                <div class="piece" id='im4'>4</div>
+                <div class="piece" id='im5'>5</div>
+                <div class="piece" id='im6'>6</div>
+            </div>
+            <div class="row3">
+                <div class="piece" id='im7'>7</div>
+                <div class="piece" id='im8'>8</div>
+                <div class="piece" id='white'></div>
+            </div> -->
+
             <table id="playZone">
-                <tr>
-                    <td onclick=move(0,0)><img src='img/1.jpg' alt='pic1'></td>
-                    <td onclick=move(0,1)><img src='img/2.jpg' alt='pic2'></td>
-                    <td onclick=move(0,2)><img src='img/3.jpg' alt='pic3'></td>
+                <tr class='row1'>
+                    <td id='im1' class='0-0'>1</td>
+                    <td id='im2' class='0-1'>2</td>
+                    <td id='im3' class='0-2'>3</td>
                 </tr>
-                <tr>
-                    <td onclick=move(1,0)><img src='img/4.jpg' alt='pic4' ></td>
-                    <td onclick=move(1,1)><img src='img/5.jpg' alt='pic5'></td>
-                    <td onclick=move(1,2)><img src='img/6.jpg' alt='pic6'></td>
+                <tr class='row2'>
+                    <td id='im4' class='1-0'>4</td>
+                    <td id='im5' class='1-1'>5</td>
+                    <td id='im6' class='1-2'>6</td>
                 </tr>
-                <tr>
-                    <td onclick=move(2,0)><img src='img/7.jpg' alt='pic7'></td>
-                    <td onclick=move(2,1)><img src='img/8.jpg' alt='pic8'></td>
-                    <td class='whiteZone' onclick=move(2,2)><img src="img/white.jpg" alt="White img"></td>
+                <tr class='row3'>
+                    <td id='im7' class='2-0'>7</td>
+                    <td id='im8' class='2-1'>8</td>
+                    <td id='im9' class='2-2'>9</td>
                 </tr>
             </table>
         </div>
         <div id="results">
             <div id="timer">00:00:00</div>
-            <div id='username'><input placeholder='Enter username'></div>
+            <div id='username'><input placeholder='Enter username' id='username-name'></div>
             <div id="moves">Moves: 0</div>
-            <div id='imButton'><button onclick="timerStart()">Start</button></div>
+            <div id='imButton'><button>Start</button></div>
             <table id="leaderboard">
                 <tr>
                     <th>Position</th>
@@ -79,6 +96,8 @@
         <div id="yourResults"></div>
         <button>OK!</button>
     </div>
-    <script>loadEverything()</script>
+    <div id="username-empty">
+        Username can't be empty
+    </div>
 </body>
 </html>
