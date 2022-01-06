@@ -19,11 +19,26 @@ body {
 }
 
 #puzzle {
-    grid-row: 2;    
-    grid-column: 1;
+    border: 3px solid black;
+    padding: 1rem;
+    align-items: center;
+    margin: auto;
+    /* display: grid;
+    grid-template-columns: auto auto auto; */
 }
 
+/* .row1, .row2, .row3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    color: #fff;
+}
 
+.row1, .row2, .row3 div {
+    border: 1px solid white;
+    margin: 1rem;
+    background-position: right;
+} */
 
 #timer {
     font-family: 'Nunito', sans-serif;
@@ -82,17 +97,22 @@ button:hover {
 }
 
 #playZone td {
-    width: 13em;
-    height: 13em;
+    width: 200px;
+    height: 200px;
     padding: 0;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 2rem;
+    vertical-align: top;
+    
 }
 
-#playZone td img {
+/* #playZone td img {
     width: 100%;
     height: 100%;
     transition: all 1s linear;
     transition-timing-function: ease;
-}
+} */
 
 #notification {
     display: none;
@@ -142,4 +162,75 @@ button:hover {
 
 .didntWin td {
     background-color: rgb(125, 186, 240);
+}
+
+#username-empty {
+    background-color: rgb(243, 74, 74);
+    font-size: 1.3rem;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 1em;
+    display: none;
+    margin: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#im1 {
+    background-image: url('../img/1.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im2 {
+    background-image: url('../img/2.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im3 {
+    background-image: url('../img/3.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im4 {
+    background-image: url('../img/4.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im5 {
+    background-image: url('../img/5.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im6 {
+    background-image: url('../img/6.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im7 {
+    background-image: url('../img/7.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im8 {
+    background-image: url('../img/8.jpg');
+    width: 200px;
+    height: 200px;
+}
+
+#im9 {
+    background-image: url('../img/white.jpg');
+}
+
+.whiteZone {
+    background-color: white;
+    width: 200px;
+    height: 200px;
 }
