@@ -234,3 +234,16 @@ button:hover {
     width: 200px;
     height: 200px;
 }
+
+#emergency-stop {
+    padding: 1rem;
+    padding-bottom: 3rem;
+    margin-top: -1rem;
+    background-color: rgb(199, 62, 62);
+    color: white;
+    width: 12rem;
+    text-align: center;
+}
+#emergency-stop:hover {
+    background-color: red;
+}
