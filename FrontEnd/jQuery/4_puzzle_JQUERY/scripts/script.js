@@ -30,11 +30,11 @@ var ogCorrectOrder = '';
 var myTime;     // refresh interval for the timer
 var moves = 0;  //counts the number of moves that have taken you to solve the puzzle
 
-var top5Records = []; // -> [username   ] || Used to store best 5 times
-//                          [minutes    ]
-//                          [seconds    ]
-//                          [miliseconds]
-//                          [moves      ]
+var top5Records = []; // -> [0:username   ] || Used to store best 5 times
+//                          [1:minutes    ]
+//                          [2:seconds    ]
+//                          [3:miliseconds]
+//                          [4:moves      ]
 localStorage.records; //Stores best 5 times in local memory
 if (localStorage.records != undefined){
     top5Records = JSON.parse(localStorage.records);
@@ -42,7 +42,7 @@ if (localStorage.records != undefined){
 
 function sortStorePrint() {
     if ($('#username-name').prop('value') != '') {
-        let row = [$('#username-name').prop('value'), timerTime.getMinutes(), timerTime.getSeconds(), timerTime.getMilliseconds(), moves];  //Pushes the result from the last game to the array
+        let row = [$('#username-name').prop('value'), m, s, ms, moves];  //Pushes the result from the last game to the array
         top5Records.push(row);
     
         let auxTime1, auxTime2, auxVal;
@@ -63,11 +63,11 @@ function sortStorePrint() {
             top5Records.pop();
         }
         localStorage.records = JSON.stringify(top5Records);
-        let cont = 0;
-        for (let i = 1; i < top5Records.length; i++) {
-            $(`#leaderboard tr:nth-child(${i})`).html(`<td>${cont}</td><td>${top5Records[i][0]}</td><td>${top5Records[i][1]}</td><td>${top5Records[i][2]}:${top5Records[i][3]}:${top5Records[i][4]}</td>`);
-            cont++;
-        }
+    }
+    // let cont = 0;
+    for (let i = 0; i < top5Records.length; i++) {
+        $(`#leaderboard tr:nth-child(${i+2})`).html(`<td>${i+1}</td><td>${top5Records[i][0]}</td><td>${top5Records[i][1]}:${top5Records[i][2]}:${top5Records[i][3]}</td><td>${top5Records[i][4]}</td>`);
+        // cont++;
     }
 }
 
@@ -79,38 +79,42 @@ function randomPosition(arr){  //Random shuffle of the images
             num = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
         } while ((takenPositions.indexOf(num) != -1) && (arr[j].innerHTML.search("white") == -1));
         takenPositions.push(num);
-        arr[j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
+        // arr[j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
+        arr[j].style.backgroundImage = `url('img/${num}.jpg')`;
+        arr[j].innerText = num;
     }
 }
 
-function finished() {
-// function finished(){ //When you finish the puzzle, the name can be edited again, time and moves are set to 0, and a notification with
-//     clearInterval(myTime);                                                                                    //your results is shown
-//     let someButton = document.querySelector('#imButton');
-//     someButton.innerHTML = '<button onclick="timerStart()">Start</button>';
-//     let userDiv = document.querySelector('#username');
-//     let usernameV = document.querySelector('#username input');
-//     userDiv.innerHTML = '<input value=' + usernameV.value + '>';
-//     timerTime.setMilliseconds(ms);
-//     timerTime.setSeconds(s);
-//     timerTime.setMinutes(m);
-//     document.querySelector('#yourResults').innerHTML = "You solved the puzzle in " + m + " minutes, " + s + " seconds, " + ms + " miliseconds and " + moves +" moves!";
-//     document.querySelector('#notification').style.display = "block";
-//     document.querySelector('#notification button').onclick = function(){ document.querySelector('#notification').style.display = "none";}
-//     ms = 0;
-//     s = 0;
-//     m = 0;
-//     checkAndSaveLeaderboard(usernameV.value);
-// }
+function finished(option) {
     clearInterval(myTime);
+    $('#playZone td').unbind();
+    // $('#imButton').click(start());
+    $('#username-name').removeAttr('readonly');
+    if (option) {
+        $('#yourResults').html(`You solved the puzzle in ${m} min, ${s} seconds, ${ms} miliseconds and ${moves} moves!`);
+        $('#notification').fadeIn();
+        $('#notification button').click(function(){$('#notification').fadeOut()})
+        sortStorePrint();
+    }
+    ms = 0; s = 0; m = 0;
 }
 
 function checkPositions() {     // Checks if the current content in td's the same a the initial state
     let check = $('#playZone td').text();
     if (check == ogCorrectOrder) {
-        finished();
+        console.log("Order is correct");
+        finished(1);
     }
 }
+
+// function solve(arr) {        // Not working
+//     console.log(arr)
+//     for (let i = 0; i < 9; i++) {
+//         arr[i].innerText = i;
+//         arr[i].css('background-image', `url('img/${i}.jpg')`);
+//         // arr[i].css('background-image', `url(img/${i}.jpg')`);
+//     }
+// }
 
 function move(arr) {        // Swaps the images if the conditions are correct
     let pos = arr.split('-');
@@ -180,6 +184,17 @@ function move(arr) {        // Swaps the images if the conditions are correct
     $('#moves').html(`Moves: ${moves}`);    // Updates total moves
 }
 
+function start() {
+            // randomPosition($('#playZone td'));
+            $('#imButton button').unbind('click');
+            $('#username-name').attr('readonly', true);
+            timer();
+            myTime = setInterval(timer, 20);
+            $('#playZone td').click(function() {
+                move($(this).attr('class'));
+            })
+
+}
 
 $(document).ready(function() {
     // let pieces = document.querySelectorAll('#playZone td');
@@ -197,11 +212,15 @@ $(document).ready(function() {
             setTimeout(function() {$('#username-empty').fadeOut();}, 2000);
         }
         else {
-            randomPosition($('#playZone td'));
+            // randomPosition($('#playZone td'));
+            // $('#imButton button').unbind('click');
             $('#username-name').attr('readonly', true);
-            // timer();
-            // myTime = setInterval(timer, 20);
-
+            timer();
+            myTime = setInterval(timer, 20);
+            $('#playZone td').click(function() {
+                move($(this).attr('class'));
+            })
+            // start();
         }
 // et userDiv = document.querySelector('#username');
 //     let usernameV = document.querySelector('#username input');
@@ -215,9 +234,10 @@ $(document).ready(function() {
 //     myTime = setInterval(timer, 20);
     })
 
-    $('#playZone td').click(function() {
-        move($(this).attr('class'));
+    $('#emergency-stop').click(function() {
+        finished(0);
     })
+
 
 
 
@@ -268,71 +288,3 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-// function timerStart(){ //When start is pressed, it calls this function
-//     let userDiv = document.querySelector('#username');
-//     let usernameV = document.querySelector('#username input');
-//     userDiv.innerHTML = '<input readonly value=' + usernameV.value + '>';
-//     let someButton = document.querySelector('#imButton');
-//     someButton.innerHTML = '<button>Start</button>';
-//     moves = 0;
-//     document.querySelector('#moves').innerHTML = "Moves: " + moves;
-//     //randomPosition();
-//     timer();
-//     myTime = setInterval(timer, 20);
-// }
-
-// function finished(){ //When you finish the puzzle, the name can be edited again, time and moves are set to 0, and a notification with
-//     clearInterval(myTime);                                                                                    //your results is shown
-//     let someButton = document.querySelector('#imButton');
-//     someButton.innerHTML = '<button onclick="timerStart()">Start</button>';
-//     let userDiv = document.querySelector('#username');
-//     let usernameV = document.querySelector('#username input');
-//     userDiv.innerHTML = '<input value=' + usernameV.value + '>';
-//     timerTime.setMilliseconds(ms);
-//     timerTime.setSeconds(s);
-//     timerTime.setMinutes(m);
-//     document.querySelector('#yourResults').innerHTML = "You solved the puzzle in " + m + " minutes, " + s + " seconds, " + ms + " miliseconds and " + moves +" moves!";
-//     document.querySelector('#notification').style.display = "block";
-//     document.querySelector('#notification button').onclick = function(){ document.querySelector('#notification').style.display = "none";}
-//     ms = 0;
-//     s = 0;
-//     m = 0;
-//     checkAndSaveLeaderboard(usernameV.value);
-// }
-
-
-
-// function checkPositions() { //Checks if all images are in theirs correct positions
-//     let pos = 1;
-//     for (let i = 0; i < 3; i++) {   
-//         for (let j = 0; j < 3; j++) {
-//             if (top5Recordsrix[i][j].innerHTML.search("pic" + pos) != -1)
-//             pos++;
-//         }
-//     }
-//     console.log("Elem in right pos: " + pos);
-//     if ((pos == 9) && (top5Recordsrix[2][2].innerHTML.search("white") != -1)) {
-//         finished();
-//     }
-// }
-
-// function randomPosition(){  //Random shuffle of the images
-//     let takenPositions = []; //Stores the images that are already in random mode
-//     let num;
-//     for(i = 0; i < 3; i++){
-//         for(j = 0; j < 3; j++){
-//             let pooo = i + "," + j;
-//             console.log("pooo: " + pooo);
-//             do {
-//                 num = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-//             } while ((takenPositions.indexOf(num) != -1) && (top5Recordsrix[i][j].innerHTML.search("white") == -1));
-//             takenPositions.push(num);
-//             top5Recordsrix[i][j].innerHTML = "<img src='img/" + num + ".jpg' alt='pic" + num + "'>";
-//         }
-//     }
-//     top5Recordsrix[2][2].innerHTML = "<img src='img/white.jpg' alt='White img'>";
-// }
