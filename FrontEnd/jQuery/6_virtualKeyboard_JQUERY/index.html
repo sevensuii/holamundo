@@ -5,81 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="javascript/script.js"></script>
     <title>Keyboard</title>
 </head>
 <body>
     <div id="container">
         <textarea name="writing-zone" id="writing-zone" cols="80" rows="20" disabled placeholder='Tell me something...'></textarea>
-        <div id="keyboard">
-            <div class="keys special-keys" id="item27">esc</div>
-            <div class="keys" id="clear">clear</div>
-            <div class="keys normal-keys" id="item220">º</div>
-            <div class="keys normal-keys" id="item49">1</div>
-            <div class="keys normal-keys" id="item50">2</div>
-            <div class="keys normal-keys" id="item51">3</div>
-            <div class="keys normal-keys" id="item52">4</div>
-            <div class="keys normal-keys" id="item53">5</div>
-            <div class="keys normal-keys" id="item54">6</div>
-            <div class="keys normal-keys" id="item55">7</div>
-            <div class="keys normal-keys" id="item56">8</div>
-            <div class="keys normal-keys" id="item57">9</div>
-            <div class="keys normal-keys" id="item48">0</div>
-            <div class="keys normal-keys" id="item219">'</div>
-            <div class="keys normal-keys" id="item221">¡</div>
-            <div class="keys special-keys" id="item8">←</div>
-            <!--ENDS FIRST ROW-->
-            <div class="keys special-keys" id="item9">⇆</div>
-            <div class="keys normal-keys" id="item81">q</div>
-            <div class="keys normal-keys" id="item87">w</div>
-            <div class="keys normal-keys" id="item69">e</div>
-            <div class="keys normal-keys" id="item82">r</div>
-            <div class="keys normal-keys" id="item84">t</div>
-            <div class="keys normal-keys" id="item89">y</div>
-            <div class="keys normal-keys" id="item85">u</div>
-            <div class="keys normal-keys" id="item73">i</div>
-            <div class="keys normal-keys" id="item79">o</div>
-            <div class="keys normal-keys" id="item80">p</div>
-            <div class="keys normal-keys" id="item219">`</div>
-            <div class="keys normal-keys" id="item187">+</div>
-            <div class="keys special-keys" id="item13">↵</div>
-            <!--ENDS SECOND ROW-->
-            <div class="keys special-keys" id="item20" tabindex="1">bloq <br> mayus</div>
-            <div class="keys normal-keys" id="item65">a</div>
-            <div class="keys normal-keys" id="item83">s</div>
-            <div class="keys normal-keys" id="item68">d</div>
-            <div class="keys normal-keys" id="item70">f</div>
-            <div class="keys normal-keys" id="item71">g</div>
-            <div class="keys normal-keys" id="item72">h</div>
-            <div class="keys normal-keys" id="item74">j</div>
-            <div class="keys normal-keys" id="item75">k</div>
-            <div class="keys normal-keys" id="item76">l</div>
-            <div class="keys normal-keys" id="item192">ñ</div>
-            <div class="keys normal-keys" id="item219">´</div>
-            <div class="keys normal-keys" id="item191">ç</div>
-            <!--ENDS THIRD ROW-->
-            <div class="keys special-keys shift-keys" id="item16" tabindex="1">⬆</div>
-            <div class="keys normal-keys" id="item220"><</div>
-            <div class="keys normal-keys" id="item90">z</div>
-            <div class="keys normal-keys" id="item88">x</div>
-            <div class="keys normal-keys" id="item67">c</div>
-            <div class="keys normal-keys" id="item86">v</div>
-            <div class="keys normal-keys" id="item66">b</div>
-            <div class="keys normal-keys" id="item78">n</div>
-            <div class="keys normal-keys" id="item77">m</div>
-            <div class="keys normal-keys" id="item188">,</div>
-            <div class="keys normal-keys" id="item190">.</div>
-            <div class="keys normal-keys" id="item189">-</div>
-            <div class="keys special-keys shift-keys" id="r-shift" tabindex="1">⬆</div>
-            <!--ENDS FOURTH ROW-->
-            <div class="keys special-keys item17" tabindex="1">CTRL</div>
-            <div class="keys special-keys" id="item91" tabindex="1">⌘</div>
-            <div class="keys special-keys" id="item18" tabindex="1">alt</div>
-            <div class="keys special-keys" id="item32">&nbsp;</div>
-            <div class="keys special-keys" id="item225" tabindex="1">alt <br> gr</div>
-            <div class="keys special-keys" tabindex="1">fn</div>
-            <div class="keys special-keys" id="item93" >⎙</div>
-            <div class="keys special-keys item17" tabindex="1">CTRL</div>
-        </div>
-        <script src="javascript/script.js"></script>
+		<!-- <div id="prop">BENQ</div> -->
+        <div id="stick"></div>
+        <div id="base"></div>
+        <!-- <div id="keyboard"> -->
+            <div class="keyboard-container">
+	<div class="keyboard">
+		<div class="key-row">
+			<div class="key key-s" data-key="27">Esc</div>
+			<div class="key key-break-1">&nbsp;</div>
+			<div class="key key-s" data-key="112">F1</div>
+			<div class="key key-s" data-key="113">F2</div>
+			<div class="key key-s" data-key="114">F3</div>
+			<div class="key key-s" data-key="115">F4</div>
+			<div class="key key-break-2">&nbsp;</div>
+			<div class="key key-s" data-key="116">F5</div>
+			<div class="key key-s" data-key="117">F6</div>
+			<div class="key key-s" data-key="118">F7</div>
+			<div class="key key-s" data-key="119">F8</div>
+			<div class="key key-break-2">&nbsp;</div>
+			<div class="key key-s" data-key="120">F9</div>
+			<div class="key key-s" data-key="121">F10</div>
+			<div class="key key-s" data-key="122">F11</div>
+			<div class="key key-s" data-key="123">F12</div>
+		</div>
+	
+		<div class="key-row">
+			<div class="key shift-keyss alt-keyss" data-key="220"><span class="top-key">º</span><span class="bottom-key">\</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="49"><span class="top-key">1</span><span class="bottom-key">|</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="50"><span class="top-key">2</span><span class="bottom-key">@</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="51"><span class="top-key">3</span><span class="bottom-key">#</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="52"><span class="top-key">4</span><span class="bottom-key">~</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="53"><span class="top-key">5</span><span class="bottom-key">%</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="54"><span class="top-key">6</span><span class="bottom-key">&</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="55"><span class="top-key">7</span><span class="bottom-key">/</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="56"><span class="top-key">8</span><span class="bottom-key">(</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="57"><span class="top-key">9</span><span class="bottom-key">)</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="48"><span class="top-key">0</span><span class="bottom-key">=</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="219"><span class="top-key">'</span><span class="bottom-key">?</span></div>
+			<div class="key shift-keyss alt-keyss" data-key="221"><span class="top-key">¡</span><span class="bottom-key">¿</span></div>
+			<div class="key key-backspace" data-key="8">Backspace</div>
+		</div>
+	
+		<div class="key-row">
+			<div class="key key-tab" data-key="9">Tab</div>
+			<div class="key key-normal" data-key="81"><span class="top-key">q</span></div>
+			<div class="key key-normal" data-key="87"><span class="top-key">w</span></div>
+			<div class="key key-normal" data-key="69"><span class="top-key">e</span></div>
+			<div class="key key-normal" data-key="82"><span class="top-key">r</span></div>
+			<div class="key key-normal" data-key="84"><span class="top-key">t</span></div>
+			<div class="key key-normal" data-key="89"><span class="top-key">y</span></div>
+			<div class="key key-normal" data-key="85"><span class="top-key">u</span></div>
+			<div class="key key-normal" data-key="73"><span class="top-key">i</span></div>
+			<div class="key key-normal" data-key="79"><span class="top-key">o</span></div>
+			<div class="key key-normal" data-key="80"><span class="top-key">p</span></div>
+			<div class="key shift-keyss" data-key="186"><span class="top-key">`</span><span class="bottom-key">[</span></div>
+			<div class="key shift-keyss" data-key="187"><span class="top-key">+</span><span class="bottom-key">]</span></div>
+		</div>
+		
+		<div class="key-row">
+			<div class="key key-capslock" data-key="20">CapsLock</div>
+			<div class="key key-normal" data-key="65"><span class="top-key">a</span></div>
+			<div class="key key-normal" data-key="83"><span class="top-key">s</span></div>
+			<div class="key key-normal" data-key="68"><span class="top-key">d</span></div>
+			<div class="key key-normal" data-key="70"><span class="top-key">f</span></div>
+			<div class="key key-normal" data-key="71"><span class="top-key">g</span></div>
+			<div class="key key-normal" data-key="72"><span class="top-key">h</span></div>
+			<div class="key key-normal" data-key="74"><span class="top-key">j</span></div>
+			<div class="key key-normal" data-key="75"><span class="top-key">k</span></div>
+			<div class="key key-normal" data-key="76"><span class="top-key">l</span></div>
+			<div class="key key-normal" data-key="192"><span class="top-key">ñ</span></div>
+			<div class="key shift-keyss" data-key="222"><span class="top-key">´</span><span class="bottom-key">{</span></div>
+			<div class="key shift-keyss" data-key="191"><span class="top-key">ç</span><span class="bottom-key">}</span></div>
+			<div class="key key-enter" data-key="13"><span>Enter</span></div>
+		</div>
+	
+		<div class="key-row">
+			<div class="key key-shift" data-key="16">Shift</div>
+			<div class="key shift-keyss" data-key="226"><span class="top-key"><</span><span class="bottom-key">></span></div>
+			<div class="key key-normal" data-key="90"><span class="top-key">z</span></div>
+			<div class="key key-normal" data-key="88"><span class="top-key">x</span></div>
+			<div class="key key-normal" data-key="67"><span class="top-key">c</span></div>
+			<div class="key key-normal" data-key="86"><span class="top-key">v</span></div>
+			<div class="key key-normal" data-key="66"><span class="top-key">b</span></div>
+			<div class="key key-normal" data-key="78"><span class="top-key">n</span></div>
+			<div class="key key-normal" data-key="77"><span class="top-key">m</span></div>
+			<div class="key shift-keyss" data-key="188"><span class="top-key">,</span><span class="bottom-key">;</span></div>
+			<div class="key shift-keyss" data-key="190"><span class="top-key">.</span><span class="bottom-key">:</span></div>
+			<div class="key shift-keyss" data-key="189"><span class="top-key">-</span><span class="bottom-key">_</span></div>
+			<div class="key key-arrow" data-key="38"><span class="span-arrow">&uarr;</span></div>
+			<div class="key key-break-3" data-key="38"><span class="span-arrow">&nbsp;</span></div>
+		</div>
+	
+		<div class="key-row">
+			<div class="key key-ctrl" data-key="17">Ctrl</div>
+			<div class="key key-win" data-key="91">Win</div>
+			<div class="key key-alt" data-key="18">Alt</div>
+			<div class="key key-space" data-key="32">Space</div>
+			<div class="key key-menu" data-key="93">Menu</div>
+			<div class="key key-arrow" data-key="37"><span class="span-arrow">&larr;</span></div>
+			<div class="key key-arrow" data-key="40"><span class="span-arrow">&darr;</span></div>
+			<div class="key key-arrow" data-key="39"><span class="span-arrow">&rarr;</span></div>
+		</div>
+
+	</div>
 </body>
 </html>
