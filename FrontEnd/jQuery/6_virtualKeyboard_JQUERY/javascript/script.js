@@ -98,9 +98,11 @@ $(document).ready(function() {
 
             case 32:
                 textAreaContent += ' ';
+                break;
 
             case 8:
                 textAreaContent = textAreaContent.slice(0, -1);
+                break;
 
             
             default:
