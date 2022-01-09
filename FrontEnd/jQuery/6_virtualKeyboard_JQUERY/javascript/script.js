@@ -98,6 +98,7 @@ $(document).ready(function() {
 
             case 32:
                 textAreaContent += ' ';
+                console.log('you clicked on space')
                 break;
 
             case 8:
@@ -183,6 +184,8 @@ selectorEvent.on("keydown", function (event) {
 
             case 32:
                 textAreaContent += ' ';
+                console.log('you pressed space');
+                break;
 
             default:
                 // textAreaContent += event.key;
