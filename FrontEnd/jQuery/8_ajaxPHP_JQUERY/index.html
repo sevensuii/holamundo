@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-7">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=2.0">
-  <!-- <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet"> -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <title>AJAx</title>
+    <meta charset="UTF-7">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <!-- <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>AJAx</title>
 </head>
-<body>
+<body class='bg-black'>
   <div id="container" class='m-auto w-9/12 bg-indigo-300 p-4 pl-10'>
-        <h2>Regex Validation</h2>
         <p class='bg-red-99 text-red-800 mt-2 text-sm rounded-md pl-2' id='aaa' style='opacity: 0;'>All fields must be valid!!</p>
-        <form action="#" id="myForm" class='grid grid-cols-1 gap-x-0 justify-items-center' method="post">
+        <form action="#" id="myForm" class='grid grid-cols-2 gap-x-0 justify-items-center justify-between' method="post">
             <div>
                 <label for="name" class='mt-2 inline-block'>Name</label><br>
                 <input type="text" class='rounded-md p0 w-52' name="name" id="name" maxlength="30" placeholder="Name">
@@ -59,7 +60,7 @@
                 <input type="text" class='rounded-md p-1 w-52' name="password" id="password"  maxlength="16">
             </div>
             <div id="buttons" class='mt-5 flex row-start-7 col-span-2 justify-center'>
-                <button id='send' class='border-2 p-1 mr-3 rounded-lg border-black bg-green-300 hover:bg-green-500'>SEND</button>
+                <button type="submit" id='send' name='submit' value='miForm' class='border-2 p-1 mr-3 rounded-lg border-black bg-green-300 hover:bg-green-500'>SEND</button>
                 <button id='retrieve' class='border-2 p-1 ml-3 mr-3 rounded-lg border-black bg-yellow-500 hover:bg-yellow-600'>RETRIEVE</button>
                 <button id='fill' class='border-2 p-1 ml-3 rounded-lg border-black bg-pink-400 hover:bg-pink-600'>FILL FORM</button>
             </div>
@@ -73,6 +74,5 @@
     <div id="noti">
         Data sent :)
     </div>
-    <script src="js/script.js"></script>
 </body>
 </html>
