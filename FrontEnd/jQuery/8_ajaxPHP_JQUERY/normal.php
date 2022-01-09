@@ -33,11 +33,12 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 
-if(isset($_POST["x"])){
+if(isset($_POST["data"])){
 
-        $obj = json_decode($_POST["x"], false);
-        $myJSON = json_encode($obj);
-        echo ($myJSON);
+        $obj = json_decode($_POST["miForm"], false);
+        $myJSON1 = json_encode($obj);
+        echo ($myJSON1);
+        echo "Your object was received";
 
   } else {
         $myObj = new stdClass;
@@ -54,6 +55,7 @@ if(isset($_POST["x"])){
         $myObj->password = "Pepe123456789*";
         $myJSON = json_encode($myObj);
         echo $myJSON;
+      // echo "aaaa";
 
   }
 ?>
