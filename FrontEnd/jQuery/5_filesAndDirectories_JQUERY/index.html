@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="js/script.js"></script> -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/2538c8c34c.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
     <title>Directories</title>
 </head>
@@ -17,7 +17,7 @@
         <!-- Shows the window name and 3 options -->
         <div id="top-bar">
             <div class='show-flex'>
-                <div class='top-icons'><img src="https://img.icons8.com/fluency/48/000000/folder-invoices--v2.png"/></div>
+                <div class='top-icons'><img src="https://img.icons8.com/fluency/48/000000/folder-invoices--v2.png" alt=''/></div>
                 <div class='top-name'>File explorer</div>
             </div>
             <div class='show-flex'>
@@ -35,7 +35,7 @@
                         <input type="checkbox" checked/>
                         <i class="fas fa-folder unchecked"></i>
                         <i class="fas fa-folder-open checked"></i>
-                        <span class="folder-real-name">/</span>
+                        <span class="folder-real-name" id='root-name'>/</span>
                     </label>
                 </div>
                 <div class="icons-box">
