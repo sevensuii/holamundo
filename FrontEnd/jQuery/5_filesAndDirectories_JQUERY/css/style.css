@@ -108,7 +108,7 @@ i {
 /* End styles for folders */
 
 /* Notification styles */
-#folder-not-empty, #file-deleted, #folder-deleted {
+#folder-not-empty {
     background-color: red;
     font-size: 1.5rem;
     width: 20rem;
@@ -123,7 +123,7 @@ i {
     display: none;
 }
 
-#folder-created, #file-created {
+#folder-created, #file-created, #file-deleted, #folder-deleted {
     background-color: rgb(47, 226, 107);
     font-size: 1.5rem;
     width: 20rem;
