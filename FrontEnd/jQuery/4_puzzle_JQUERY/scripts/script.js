@@ -212,7 +212,7 @@ $(document).ready(function() {
             setTimeout(function() {$('#username-empty').fadeOut();}, 2000);
         }
         else {
-            // randomPosition($('#playZone td'));
+            randomPosition($('#playZone td'));
             // $('#imButton button').unbind('click');
             $('#username-name').attr('readonly', true);
             timer();
