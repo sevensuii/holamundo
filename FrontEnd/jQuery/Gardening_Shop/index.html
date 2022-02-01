@@ -7,6 +7,13 @@
     <link rel="shortcut icon" href="img/myGarden.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/tailwind.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
+
     <title>myGarden</title>
 </head>
 <body class="bg-gray-500">
@@ -29,8 +36,25 @@
             <div id="cart" class="">a</div>
         </div>
     </header>
-    <div class="slider">
-       
+    <!-- Slider main container -->
+    <div class="swiper h-56">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
     </div>
     <footer>
         
