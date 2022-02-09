@@ -1,123 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/myGarden.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/tailwind.css">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/myGarden.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/tailwind.css" />
+
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <!-- Tailwind elements -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-    
+    <!-- End tailwind elements -->
+
     <script src="js/main.js"></script>
 
     <title>myGarden</title>
 </head>
+
 <body class="bg-gray-500">
     <header class="flex flex-row justify-between w-full pl-40 pr-40 pt-4 bg-green-300">
         <div class="flex items-center">
-            <img src="img/myGargen.png" alt="myGarden logo" class="w-24">
-            <div class="lobster text-3xl">myGarden</div>
-        </div>
-        <div id="routes" class="flex items-center justify-between">
-            <a href="index.html" id="home" class="px-2 roboto">Home</a>
-            <a href="#" id="products" class="px-2 roboto">Products</a>
-            <a href="#" id="contact" class="px-2 roboto">Contact us</a>
+            <a href="index.html" class="flex items-center">
+                <img src="img/myGargen.png" alt="myGarden logo" class="w-24" />
+                <div class="lobster text-3xl">myGarden</div>
+            </a>
+            <a href="index.html" id="home" class="px-2 roboto navigator-links">Home</a>
+            <a href="#" id="products" class="px-2 roboto navigator-links">Productos</a>
+            <a href="#" id="contact" class="px-2 roboto navigator-links">Contáctanos</a>
         </div>
         <div class="flex items-center">
             <div id="user">
                 <!--If the user is logged in it will display username and profile image if not login and register buttons-->
-                <button class="roboto mr-4 border-2 border-green-600 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-green-600 hover:text-green-200">Login</button>
-                <button class="roboto border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">Register</button>
+                <button
+                    class="roboto mr-4 border-2 border-green-600 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-green-600 hover:text-green-200">
+                    Login
+                </button>
+                <button
+                    class="roboto border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
+                    Register
+                </button>
             </div>
             <div id="cart" class="">a</div>
         </div>
     </header>
-    <!-- Slider main container -->
-    <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
-        <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+    <div id="main-container">
+        <!-- Slider main container -->
+        <div id="carouselExampleCaptions" class="carousel slide relative w-5/6 mx-auto" data-bs-ride="carousel">
+            <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner relative w-full overflow-hidden">
+                <div class="carousel-item active relative float-left w-full">
+                    <img src="img/slode1.png" class="block w-full" alt="..." />
+                    <div class="carousel-caption hidden md:block absolute text-center">
+                        <h5 class="text-xl">First slide label</h5>
+                        <p>
+                            Some representative placeholder content for the first slide.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item relative float-left w-full">
+                    <img src="img/slode2.png" class="block w-full" alt="..." />
+                    <div class="carousel-caption hidden md:block absolute text-center">
+                        <h5 class="text-xl">Second slide label</h5>
+                        <p>
+                            Some representative placeholder content for the second slide.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item relative float-left w-full">
+                    <img src="img/slode3.png" class="block w-full" alt="..." />
+                    <div class="carousel-caption hidden md:block absolute text-center">
+                        <h5 class="text-xl">Third slide label</h5>
+                        <p>
+                            Some representative placeholder content for the third slide.
+                        </p>
+                    </div>
+                </div>
+            </div>
             <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-            ></button>
+                class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+                type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
             <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-            ></button>
-            <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-            ></button>
+                class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+                type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="carousel-inner relative w-full overflow-hidden">
-            <div class="carousel-item active relative float-left w-full">
-                <img
-                    src="img/slide1.png"
-                    class="block w-full"
-                    alt="..."
-                />
-                <div class="carousel-caption hidden md:block absolute text-center">
-                    <h5 class="text-xl">First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+        <!-- Categorías destacadas -->
+        <div class="w-5/6 mx-auto text-xl mt-3" id="selected-category">
+            Categorías destacadas
+        </div>
+        <div class="w-5/6 bg-slate-900 mx-auto flex justify-between mt-4">
+            <div class="inline-block">
+                <div class="rounded-lg shadow-lg bg-white max-w-sm">
+                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                        <img class="rounded-t-lg w-full" src="img/cat-mobiliario.jpg" alt="" />
+                    </a>
+                    <div class="p-6">
+                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
+                            Mobiliario
+                        </h5>
+                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
+                            Compra algunas decoraciones para tu precioso jardín
+                        </p>
+                        <div class="flex justify-center">
+                            <button type="button"
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item relative float-left w-full">
-                <img
-                    src="img/slide2.png"
-                    class="block w-full"
-                    alt="..."
-                />
-                <div class="carousel-caption hidden md:block absolute text-center">
-                    <h5 class="text-xl">Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+            <div class="inline-block">
+                <div class="rounded-lg shadow-lg bg-white max-w-sm">
+                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                        <img class="rounded-t-lg w-full" src="img/cat-herramientas.jpg" alt="" />
+                    </a>
+                    <div class="p-6">
+                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
+                            Herramientas
+                        </h5>
+                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
+                            Echa un vistazo a nuestras herramientas de jardín
+                        </p>
+                        <div class="flex justify-center">
+                            <button type="button"
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item relative float-left w-full">
-                <img
-                    src="img/slide3.png"
-                    class="block w-full"
-                    alt="..."
-                />
-                <div class="carousel-caption hidden md:block absolute text-center">
-                    <h5 class="text-xl">Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+            <div class="inline-block">
+                <div class="rounded-lg shadow-lg bg-white max-w-sm">
+                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                        <img class="rounded-t-lg w-full" src="img/cat-piscina.jpg" alt="" />
+                    </a>
+                    <div class="p-6">
+                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
+                            Piscinas
+                        </h5>
+                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
+                            ¿No te apetece un bañito?
+                        </p>
+                        <div class="flex justify-center">
+                            <button type="button"
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <button
-            class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-        >
-            <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-            class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-        >
-            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <!-- Fin categorias destacadas -->
     </div>
-    <footer>
-        
+
+    <footer class="bg-slate-900">
+        this is gonna be a footer <br /><br /><br /><br /><br /><br />
     </footer>
 </body>
+
 </html>
