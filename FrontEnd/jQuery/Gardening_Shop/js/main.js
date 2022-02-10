@@ -16,9 +16,11 @@ let contactEng = '';
 
 
 $(document).ready(function () {
-    $(document).on('click', '.navigator-links', function() {
-    	if ($(this).hasClass('contact')) {
-			
-		}
-    })
+	$('.english').hide();
+    $('.switch label').click(function() {
+		$('.spanish').toggle();
+		$('.english').toggle();
+		console.log('Has cambiado de idioma');
+	})
+	console.log('aaaaa');
 });

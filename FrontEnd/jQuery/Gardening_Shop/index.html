@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="img/myGarden.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/switcher.css">
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -25,25 +26,44 @@
 </head>
 
 <body class="bg-gray-500">
-    <header class="flex flex-row justify-between w-full pl-40 pr-40 pt-4 bg-green-300">
+    <header class="flex flex-row items-center justify-between w-full pl-40 pr-40 pt-4 bg-green-300">
         <div class="flex items-center">
             <a href="index.html" class="flex items-center">
                 <img src="img/myGargen.png" alt="myGarden logo" class="w-24" />
                 <div class="lobster text-3xl">myGarden</div>
             </a>
-            <a href="index.html" id="home" class="px-2 roboto navigator-links">Home</a>
-            <a href="#" id="products" class="px-2 roboto navigator-links">Productos</a>
-            <a href="#" id="contact" class="px-2 roboto navigator-links">Contáctanos</a>
+            <a href="index.html" id="home" class="spanish px-2 roboto navigator-links">Home</a>
+            <a href="#" id="products" class="spanish px-2 roboto navigator-links">Productos</a>
+            <a href="#" id="contact" class="spanish px-2 roboto navigator-links">Contáctanos</a>
+            <a href="index.html" id="home" class="english  px-2 roboto navigator-links">Home</a>
+            <a href="#" id="products" class="english  px-2 roboto navigator-links">Products</a>
+            <a href="#" id="contact" class="english  px-2 roboto navigator-links">Contact us</a>
         </div>
+        <!-- Language switcher -->
+        <div class="switch">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">ES</span>
+            <span class="off">EN</span>
+        </div>
+        <!-- End language switcher -->
         <div class="flex items-center">
             <div id="user">
                 <!--If the user is logged in it will display username and profile image if not login and register buttons-->
                 <button
-                    class="roboto mr-4 border-2 border-green-600 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-green-600 hover:text-green-200">
+                    class="spanish roboto login mr-4 border-2 border-green-600 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-green-600 hover:text-green-200">
+                    Inicia sesión
+                </button>
+                <button
+                    class="english roboto  login mr-4 border-2 border-green-600 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-green-600 hover:text-green-200">
                     Login
                 </button>
                 <button
-                    class="roboto border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
+                    class="spanish roboto register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
+                    Registrate
+                </button>
+                <button
+                    class="english roboto  register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
                     Register
                 </button>
             </div>
@@ -61,10 +81,10 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner relative w-full overflow-hidden">
+            <div class="carousel-inner relative w-full overflow-">
                 <div class="carousel-item active relative float-left w-full">
                     <img src="img/slode1.png" class="block w-full" alt="..." />
-                    <div class="carousel-caption hidden md:block absolute text-center">
+                    <div class="carousel-caption  md:block absolute text-center">
                         <h5 class="text-xl">First slide label</h5>
                         <p>
                             Some representative placeholder content for the first slide.
@@ -73,7 +93,7 @@
                 </div>
                 <div class="carousel-item relative float-left w-full">
                     <img src="img/slode2.png" class="block w-full" alt="..." />
-                    <div class="carousel-caption hidden md:block absolute text-center">
+                    <div class="carousel-caption  md:block absolute text-center">
                         <h5 class="text-xl">Second slide label</h5>
                         <p>
                             Some representative placeholder content for the second slide.
@@ -82,7 +102,7 @@
                 </div>
                 <div class="carousel-item relative float-left w-full">
                     <img src="img/slode3.png" class="block w-full" alt="..." />
-                    <div class="carousel-caption hidden md:block absolute text-center">
+                    <div class="carousel-caption  md:block absolute text-center">
                         <h5 class="text-xl">Third slide label</h5>
                         <p>
                             Some representative placeholder content for the third slide.
@@ -93,21 +113,25 @@
             <button
                 class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
                 type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-="true"></span>
+                <span class="visually-">Previous</span>
             </button>
             <button
                 class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
                 type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-="true"></span>
+                <span class="visually-">Next</span>
             </button>
         </div>
         <!-- Categorías destacadas -->
-        <div class="w-5/6 mx-auto text-xl mt-3" id="selected-category">
-            Categorías destacadas
+        <div class="spanish w-5/6 mx-auto text-xl mt-3" id="selected-category">
+            Categorías populares
         </div>
-        <div class="w-5/6 bg-slate-900 mx-auto flex justify-between mt-4">
+        <div class="english  w-5/6 mx-auto text-xl mt-3" id="selected-category">
+            Popular
+        </div>
+        <!-- START spanish categories -->
+        <div class="spanish w-5/6 bg-slate-900 mx-auto flex justify-between mt-4">
             <div class="inline-block">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
@@ -166,6 +190,68 @@
                 </div>
             </div>
         </div>
+        <!-- END spanish categories -->
+        <!-- START english categories -->
+        <div class="english w-5/6 bg-slate-900 mx-auto flex justify-between mt-4">
+            <div class="inline-block">
+                <div class="rounded-lg shadow-lg bg-white max-w-sm">
+                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                        <img class="rounded-t-lg w-full" src="img/cat-mobiliario.jpg" alt="" />
+                    </a>
+                    <div class="p-6">
+                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
+                            Furniture
+                        </h5>
+                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
+                            Buy some furniture for your beatiful garden
+                        </p>
+                        <div class="flex justify-center">
+                            <button type="button"
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inline-block">
+                <div class="rounded-lg shadow-lg bg-white max-w-sm">
+                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                        <img class="rounded-t-lg w-full" src="img/cat-herramientas.jpg" alt="" />
+                    </a>
+                    <div class="p-6">
+                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
+                            Tools
+                        </h5>
+                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
+                            Take a look on our garden's tools
+                        </p>
+                        <div class="flex justify-center">
+                            <button type="button"
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inline-block">
+                <div class="rounded-lg shadow-lg bg-white max-w-sm">
+                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                        <img class="rounded-t-lg w-full" src="img/cat-piscina.jpg" alt="" />
+                    </a>
+                    <div class="p-6">
+                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
+                            Pools
+                        </h5>
+                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
+                            Don't you feel like a swim?
+                        </p>
+                        <div class="flex justify-center">
+                            <button type="button"
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END english categories -->
         <!-- Fin categorias destacadas -->
     </div>
 
