@@ -373,6 +373,7 @@ let FormTemplate = `<div class="spanish flex justify-around">
 
 $(document).ready(function () {
 	$('.english').hide();
+	$('#myBG').hide();
     $('.switch label').click(function() {
 		$('.spanish').toggle();
 		$('.english').toggle();
@@ -386,4 +387,19 @@ $(document).ready(function () {
         });
 	})
 	console.log('aaaaa');
+
+	$('#cart, #close-cart').click(function() {
+		if ($('#myBG').hasClass('animate__fadeInRightBig')) {
+			$('#myBG').removeClass('animate__fadeInRightBig');
+			$('#myBG').addClass('animate__fadeOutRightBig');
+			// $('#myBG').toggle();
+		}
+		else {
+			$('#myBG').show();
+			$('#myBG').removeClass('animate__fadeOutRightBig');
+			$('#myBG').addClass('animate__fadeInRightBig');
+			// $('#myBG').addClass('animate__animated');
+
+		}
+	})
 });
