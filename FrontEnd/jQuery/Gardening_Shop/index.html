@@ -14,15 +14,14 @@
 
     <!-- Icons -->
     <link href='https://css.gg/css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
     <!-- CSS animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- Tailwind elements -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <!-- End tailwind elements -->
@@ -40,34 +39,24 @@
                 <div class="lobster text-3xl">myGarden</div>
             </a>
             <ul class="flex flex-row">
-                <li id="home" class="spanish  px-2 roboto navigator-links cursor-pointer">Home</>
-                <li id="products" class="spanish px-2 roboto navigator-links cursor-pointer">Productos</>
-                <li id="contact" class="spanish px-2 roboto navigator-links cursor-pointer">Contáctanos</>
-                <li id="home1" class="english  px-2 roboto navigator-links cursor-pointer">Home</>
-                <li id="products1" class="english  px-2 roboto navigator-links cursor-pointer">Products</>
-                <li id="contact1" class="english  px-2 roboto navigator-links cursor-pointer">Contact us</>               
+                <li id="home" class="px-2 roboto navigator-links cursor-pointer">Home</>
+                <li id="products" class="px-2 roboto navigator-links cursor-pointer"><span class="spanish">Productos</span><span class="english">Products</span></>
+                <li id="contact" class="px-2 roboto navigator-links cursor-pointer"><span class="spanish">Contáctanos</span><span class="english">Contact us</span></>
             </ul>
         </div>
         <div class="flex items-center">
             <div id="user">
                 <!--If the user is logged in it will display username and profile image if not login and register buttons-->
                 <button
-                    class="spanish roboto login mr-4 border-2 border-green-600 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-green-600 hover:text-green-200">
-                    Inicia sesión
+                    class="roboto register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
+                    <span class="spanish">Inicia sesión</span><span class="english">Login</span>
                 </button>
                 <button
-                    class="english roboto  login mr-4 border-2 border-green-600 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-green-600 hover:text-green-200">
-                    Login
-                </button>
-                <button
-                    class="spanish roboto register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
-                    Registrate
-                </button>
-                <button
-                    class="english roboto  register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
-                    Register
+                    class="roboto  register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
+                    <span class="spanish">Regístrate</span><span class="english">Register</span>
                 </button>
             </div>
+            <!-- Shopping cart icon -->
             <div id="cart" class="flex flex-col ml-4">
                 <div class="flex">
                     <img src="img/shoping-cart.png" alt="Shopping cart"
@@ -75,6 +64,7 @@
                     <span id="shopping-cart-items" class="rounded-full bg-red-400 text-white h-6 px-1 text-center">450</span>
                 </div>
             </div>
+            <!-- End shopping cart icon -->
             <!-- Language switcher -->
             <div class="switch ml-4">
                 <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
@@ -87,67 +77,15 @@
         </div>
     </header>
     <div id="main-container">
-        <!-- Slider main container -->
-        <div id="carouselExampleCaptions" class="carousel slide relative w-5/6 mx-auto" data-bs-ride="carousel">
-            <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner relative w-full overflow-">
-                <div class="carousel-item active relative float-left w-full">
-                    <img src="img/slode1.png" class="block w-full" alt="..." />
-                    <div class="carousel-caption  md:block absolute text-center">
-                        <h5 class="text-xl">First slide label</h5>
-                        <p>
-                            Some representative placeholder content for the first slide.
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item relative float-left w-full">
-                    <img src="img/slode2.png" class="block w-full" alt="..." />
-                    <div class="carousel-caption  md:block absolute text-center">
-                        <h5 class="text-xl">Second slide label</h5>
-                        <p>
-                            Some representative placeholder content for the second slide.
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item relative float-left w-full">
-                    <img src="img/slode3.png" class="block w-full" alt="..." />
-                    <div class="carousel-caption  md:block absolute text-center">
-                        <h5 class="text-xl">Third slide label</h5>
-                        <p>
-                            Some representative placeholder content for the third slide.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <button
-                class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-                type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-="true"></span>
-                <span class="visually-">Previous</span>
-            </button>
-            <button
-            class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-            type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="visually-">Next</span>
-            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-="true"></span>
-            </button>
-        </div>
+        <!-- Slider  -->
+        
+        <!-- End slider -->
         <!-- Categorías destacadas -->
-        <div class="spanish w-4/6 mx-auto text-xl mt-3" id="selected-category">
-            Categorías populares
+        <div class="w-4/6 mx-auto text-xl mt-3" id="selected-category">
+            <span class="spanish">Categorías populares</span><span class="english">Popular categories</span>
         </div>
-        <div class="english  w-4/6 mx-auto text-xl mt-3" id="selected-category">
-            Popular categories
-        </div>
-        <!-- START spanish categories -->
-        <div class="spanish w-4/6  mx-auto flex justify-around mt-4">
+        <!-- START categories -->
+        <div class="w-4/6  mx-auto flex justify-around mt-4">
             <div class="inline-block">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
@@ -155,14 +93,20 @@
                     </a>
                     <div class="p-6">
                         <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
-                            Mobiliario
+                            <span class="spanish">Mobiliario</span><span class="english">Furniture</span>
                         </h5>
                         <p class="text-gray-700 text-base mb-8 h-8 w-64">
-                            Compra algunas decoraciones para tu precioso jardín
+                            <span class="spanish">Compra algunas decoraciones para tu precioso jardín</span>
+                            <span class="english">Buy some furniture for your beatiful garden</span>
                         </p>
                         <div class="flex justify-center">
                             <button type="button"
-                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded 
+                                    shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 
+                                    active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                <span class="spanish">Ir</span>
+                                <span class="english">Go</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -174,14 +118,21 @@
                     </a>
                     <div class="p-6">
                         <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
-                            Herramientas
+                            <span class="spanish">Herramientas</span>
+                            <span class="english">Tools</span>
                         </h5>
                         <p class="text-gray-700 text-base mb-8 h-8 w-64">
-                            Echa un vistazo a nuestras herramientas de jardín
+                            <span class="spanish">Echa un vistazo a nuestras herramientas de jardín</span>
+                            <span class="english">Take a look on our garden's tools</span>
                         </p>
                         <div class="flex justify-center">
                             <button type="button"
-                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase 
+                                    rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none 
+                                        focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                <span class="spanish">Ir</span>
+                                <span class="english">Go</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -193,81 +144,27 @@
                     </a>
                     <div class="p-6">
                         <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
-                            Piscinas
+                            <span class="spanish">Piscinas</span>
+                            <span class="english">Pools</span>
                         </h5>
                         <p class="text-gray-700 text-base mb-8 h-8 w-64">
-                            ¿No te apetece un bañito?
+                            <span class="spanish">¿No te apetece un bañito?</span>
+                            <span class="english">Don't you feel for a swim?</span>
                         </p>
                         <div class="flex justify-center">
                             <button type="button"
-                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase 
+                                    rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg 
+                                    focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                <span class="spanish">Ir</span>
+                                <span class="english">Go</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- END spanish categories -->
-        <!-- START english categories -->
-        <div class="english w-4/6 mx-auto flex justify-around mt-4">
-            <div class="inline-block">
-                <div class="rounded-lg shadow-lg bg-white max-w-sm">
-                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                        <img class="rounded-t-lg w-full" src="img/cat-mobiliario.jpg" alt="" />
-                    </a>
-                    <div class="p-6">
-                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
-                            Furniture
-                        </h5>
-                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
-                            Buy some furniture for your beatiful garden
-                        </p>
-                        <div class="flex justify-center">
-                            <button type="button"
-                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="inline-block">
-                <div class="rounded-lg shadow-lg bg-white max-w-sm">
-                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                        <img class="rounded-t-lg w-full" src="img/cat-herramientas.jpg" alt="" />
-                    </a>
-                    <div class="p-6">
-                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
-                            Tools
-                        </h5>
-                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
-                            Take a look on our garden's tools
-                        </p>
-                        <div class="flex justify-center">
-                            <button type="button"
-                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="inline-block">
-                <div class="rounded-lg shadow-lg bg-white max-w-sm">
-                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                        <img class="rounded-t-lg w-full" src="img/cat-piscina.jpg" alt="" />
-                    </a>
-                    <div class="p-6">
-                        <h5 class="text-gray-900 text-xl font-medium mb-2 text-center">
-                            Pools
-                        </h5>
-                        <p class="text-gray-700 text-base mb-8 h-8 w-64">
-                            Don't you feel for a swim?
-                        </p>
-                        <div class="flex justify-center">
-                            <button type="button"
-                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END english categories -->
         <!-- Fin categorias destacadas -->
     </div>
 
@@ -278,11 +175,10 @@
     <!-- Here goes the full size with details shopping cart -->
     <div id="myBG" class="cart-outer fixed right-0 top-0 flex w-full items-center h-full z-40 animate__animated ">
         <div id="aaa" class="cart-outer w-2/3"></div>
-        <div id="full-shopping-cart"
-            class="scp1 bg-white w-1/3 p-9 h-5/6 rounded-2xl mr-1 z-50">
+        <div id="full-shopping-cart" class="scp1 bg-white w-1/3 p-9 h-5/6 rounded-2xl mr-1 z-50">
             <div class="flex justify-between border-b-green-400 border-solid border-b-2">
                 <div></div>
-                <div class="text-4xl">Cart</div>
+                <div class="text-4xl"><span class="spanish">Carrito</span><span class="english">Cart</span></div>
                 <div id="close-cart" class="text-5xl cursor-pointer"><i class="fa-solid fa-rectangle-xmark"></i></div>
             </div>
         </div>
@@ -290,7 +186,7 @@
     </div>
     <!-- END Shopping cart -->
 
-    <div class="spanish flex justify-around">
+    <div class="flex justify-around">
         <div class="w-1/5"></div>
         <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md w-1/5">
             <form>
@@ -354,9 +250,14 @@
               </div>
               <div class="form-group form-check text-center mb-6">
                 <input type="checkbox"
-                  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+                  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 
+                    checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain 
+                    mr-2 cursor-pointer"
                   id="exampleCheck87" checked>
-                <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">Quiero una copia de este mensaje</label>
+                <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">
+                    <span class="spanish">Quiero una copia de este mensaje</span>
+                    <span class="english">Send me a copy of this message</span>
+                </label>
               </div>
               <button type="submit" class="
                 w-full
@@ -448,7 +349,7 @@
                 <input type="checkbox"
                   class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
                   id="exampleCheck87" checked>
-                <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">Send me a copy of this message</label>
+                <label class="form-check-label inline-block text-gray-800" for="exampleCheck87"></label>
               </div>
               <button type="submit" class="
                 w-full
