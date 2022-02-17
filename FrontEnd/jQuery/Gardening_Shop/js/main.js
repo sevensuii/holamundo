@@ -388,7 +388,7 @@ $(document).ready(function () {
 	})
 	console.log('aaaaa');
 
-	$('#cart, #close-cart').click(function() {
+	$('#cart, #close-cart, .cart-outer').click(function() {
 		if ($('#myBG').hasClass('animate__fadeInRightBig')) {
 			$('#myBG').removeClass('animate__fadeInRightBig');
 			$('#myBG').addClass('animate__fadeOutRightBig');
