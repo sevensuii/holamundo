@@ -21,3 +21,18 @@
     background-color: #1d1e25be;
     /* backdrop-filter: blur(50px); */
 }
+
+.slider-show-details {
+    display: none;
+}
+.slider-show-details-par:hover .slider-show-details {
+    display: block;
+}
+
+.slider-show-details-par {
+    @apply h-80 w-1/2 bg-contain bg-center flex flex-col justify-between items-center bg-no-repeat;
+}
+
+.not-active {
+    display: none !important;
+}
