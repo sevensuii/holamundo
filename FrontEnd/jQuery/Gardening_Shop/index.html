@@ -57,21 +57,21 @@
                 </button>
             </div>
             <!-- Shopping cart icon -->
-            <div id="cart" class="flex flex-col ml-4">
-                <div class="flex">
-                    <img src="img/shoping-cart.png" alt="Shopping cart"
-                        class="h-10">
-                    <span id="shopping-cart-items" class="rounded-full bg-red-400 text-white h-6 px-1 text-center">450</span>
+                <div id="cart" class="flex flex-col ml-4">
+                    <div class="flex">
+                        <img src="img/shoping-cart.png" alt="Shopping cart"
+                            class="h-10">
+                        <span id="shopping-cart-items" class="rounded-full bg-red-400 text-white h-6 px-1 text-center">450</span>
+                    </div>
                 </div>
-            </div>
             <!-- End shopping cart icon -->
             <!-- Language switcher -->
-            <div class="switch ml-4">
-                <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
-                <label for="language-toggle"></label>
-                <span class="on">ES</span>
-                <span class="off">EN</span>
-            </div>
+                <div class="switch ml-4">
+                    <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+                    <label for="language-toggle"></label>
+                    <span class="on">ES</span>
+                    <span class="off">EN</span>
+                </div>
             <!-- End language switcher -->
             
         </div>
@@ -86,14 +86,28 @@
                 <div class="slide w-7/12 bg-white flex justify-between px-8">
                     <div class="flex items-center text-5xl"><i class="fa-solid fa-angle-left cursor-pointer"></i></div>
                     <!-- <img src="img/slider-azada1.jpg" class="h-80" alt="Imagen de una azada"> -->
-                    <div class="h-80 w-1/2 text-center bg-contain flex flex-col justify-between items-center" style="background-image: url('img/slider-azada1.jpg');">
+                    <!-- Slide 1 -->
+                    <div class="active slider-show-details-par animate__animated animate__fadeInRight" style="background-image: url('img/slider-azada1.jpg');" data-number="1">
                         <div>esto va vacio</div>
-                        <div>
-                            <button>Ver detalles</button><br>
-                            <button>Añadir a la cesta</button>
+                        <div class="slider-show-details ">
+                            <button class="w-40 bg-yellow-400 rounded-md border-yellow-900 border-2 hover:bg-yellow-500">Ver detalles</button><br>
+                            <button class="w-40 bg-green-400 rounded-md border-green-900 border-2 hover:bg-green-500 mt-2">Añadir a la cesta</button>
                         </div>
-                        <div>
-                            <span class="font-bold">Azadilla Multi-star</span>
+                        <div class="slider-show-details mb-8">
+                            <span class="font-bold">Azadilla Multi-star</span><br>
+                            <span class="font-bold">Precio: </span><span>16.40€</span>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="not-active slider-show-details-par animate__animated" style="background-image: url('img/slider-bomba1.jpg');" data-number="2">
+                        <div>esto va vacio</div>
+                        <div class="slider-show-details ">
+                            <button class="w-40 bg-yellow-400 rounded-md border-yellow-900 border-2 hover:bg-yellow-500">Ver detalles</button><br>
+                            <button class="w-40 bg-green-400 rounded-md border-green-900 border-2 hover:bg-green-500 mt-2">Añadir a la cesta</button>
+                        </div>
+                        <div class="slider-show-details mb-8">
+                            <span class="font-bold">Azadilla Multi-star</span><br>
+                            <span class="font-bold">Precio: </span><span>16.40€</span>
                         </div>
                     </div>
                     <div class="flex items-center text-5xl"><i class="fa-solid fa-angle-right cursor-pointer"></i></div>
