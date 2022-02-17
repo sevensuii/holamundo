@@ -36,3 +36,6 @@
 .not-active {
     display: none !important;
 }
+ .inside-info {
+     @apply mb-8 p-2 bg-white rounded-md border-2 border-black
+ }

@@ -505,10 +505,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.5rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -519,6 +515,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .mr-1 {
@@ -535,6 +535,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mr-2 {
   margin-right: 0.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .block {
@@ -581,6 +585,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -623,6 +631,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-2\/5 {
   width: 40%;
+}
+
+.w-8\/12 {
+  width: 66.666667%;
 }
 
 .max-w-sm {
@@ -1016,6 +1028,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .not-active {
   display: none !important;
+}
+
+.inside-info {
+  margin-bottom: 2rem;
+  border-radius: 0.375rem;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding: 0.5rem;
 }
 
 .checked\:border-blue-600:checked {
