@@ -47,11 +47,11 @@
         <div class="flex items-center">
             <div id="user">
                 <!--If the user is logged in it will display username and profile image if not login and register buttons-->
-                <button
+                <button id="login-btn"
                     class="roboto register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
                     <span class="spanish">Inicia sesión</span><span class="english">Login</span>
                 </button>
-                <button
+                <button id="register-btn"
                     class="roboto  register border-2 border-gray-800 rounded-lg px-3 py-2 text-black cursor-pointer hover:bg-gray-800 hover:text-gray-200">
                     <span class="spanish">Regístrate</span><span class="english">Register</span>
                 </button>
@@ -295,7 +295,7 @@
         TODO Nuevos estilos para los items que hayan dentro de la cesta
         ! No tocar las animaciones hasta terminar la cesta y hacer commit
      -->
-        <div id="myBG" class="fixed right-0 top-0 flex w-full items-center h-full z-40 animate__animated ">
+        <div id="myBG" class="myBG fixed right-0 top-0 flex w-full items-center h-full z-40 animate__animated ">
             <div id="aaa" class="cart-outer w-2/3"></div>
             <div id="full-shopping-cart" class="scp1 bg-white w-1/3 p-9 h-5/6 rounded-2xl mr-1 z-50">
                 <div class="flex justify-between border-b-green-400 border-solid border-b-2">
@@ -497,6 +497,114 @@
               <img src="img/form-green-flowers.gif" alt="Watering flowers">
           </div>
         </div>
+
+        <!-- Login form -->
+            <div id="login" class="myBG top-0 w-full h-full fixed animate__animated animate__fadeInDownBig">
+                <div class="text-5xl cursor-pointer absolute right-6 top-6"><i id="close-login" class="fa-solid fa-rectangle-xmark"></i></div>
+                <section class="h-full gradient-form md:h-screen">
+                    <div class="container py-12 px-6 h-full">
+                      <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+                        <div class="xl:w-10/12">
+                          <div class="block bg-white shadow-lg rounded-lg">
+                            <div class="lg:flex lg:flex-wrap g-0">
+                              <div class="lg:w-6/12 px-4 md:px-0">
+                                <div class="md:p-12 md:mx-6">
+                                  <div class="text-center">
+                                    <img
+                                      class="mx-auto w-48"
+                                      src="img/myGargen.png"
+                                      alt="logo"
+                                    />
+                                    <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">
+                                        <span class="spanish">Somos el equipo myGarden</span>
+                                        <span class="english">We are myGarden Team</span>
+                                    </h4>
+                                  </div>
+                                  <form>
+                                    <p class="mb-4">
+                                        <span class="spanish">Inicia sesión en tu cuenta</span>
+                                        <span class="english">Login to your account</span>
+                                    </p>
+                                    <div class="mb-4">
+                                      <input
+                                        type="text"
+                                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                        id="exampleFormControlInput1"
+                                        placeholder="Username"
+                                      />
+                                    </div>
+                                    <div class="mb-4">
+                                      <input
+                                        type="password"
+                                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                        id="exampleFormControlInput1"
+                                        placeholder="Password"
+                                      />
+                                    </div>
+                                    <div class="text-center pt-1 mb-12 pb-1">
+                                      <button
+                                        class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                                        type="button"
+                                        data-mdb-ripple="true"
+                                        data-mdb-ripple-color="light"
+                                        style="
+                                          background: linear-gradient(to right,#4ac05a,#1d8835,#1b9e77,#20b9a5
+                                          );
+                                        "
+                                      >
+                                        <span class="english">Log in</span>
+                                        <span class="spanish">Inicia sesión</span>
+                                      </button>
+                                      <a class="text-gray-500" href="#!">
+                                          <span class="english">Forgot password?</span>
+                                          <span class="spanish">¿Has olvidado tu contraseña?</span>
+                                      </a>
+                                    </div>
+                                    <div class="flex items-center justify-between pb-6">
+                                      <p class="mb-0 mr-2">
+                                          <span class="english">Don't have an account?</span>
+                                          <span class="spanish">¿No tienes una cuenta?</span>
+                                      </p>
+                                      <button
+                                        type="button"
+                                        class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                        data-mdb-ripple="true"
+                                        data-mdb-ripple-color="light"
+                                      >
+                                        <span class="spanish">Regístarte</span>
+                                        <span class="english">Register</span>
+                                      </button>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                              <div
+                                class="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
+                                style="
+                                  background: linear-gradient(to right, #5bf770,#35c454,#23ca98,#00f5d4);
+                                "
+                              >
+                                <div class="text-white px-4 py-6 md:p-12 md:mx-6">
+                                  <h4 class="text-xl font-semibold mb-6">
+                                      <span class="english">We are more than just a company</span>
+                                      <span class="spanish">Somos más que una compañía</span>
+                                  </h4>
+                                  <p class="text-sm">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+            </div>
+        <!-- End login form -->
     
     
 </body>

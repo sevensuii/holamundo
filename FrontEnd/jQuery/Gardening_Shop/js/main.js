@@ -85,6 +85,7 @@ function slideToLeft() {
 $(document).ready(function () {
 	$('.english').hide();
 	$('#myBG').hide();
+	$('#login').hide();
 	var timer = new IntervalTimer(function () {
         slideToRight();
     }, 3000);
@@ -102,6 +103,17 @@ $(document).ready(function () {
 	})
 	console.log('aaaaa');
 
+	$(document).on('click', '#login-btn', function() {
+		$('#login').removeClass('animate__fadeInDownBig animate__fadeOutDownBig');
+		$('#login').addClass('animate__fadeInDownBig');
+		$('#login').show();
+	})
+	$(document).on('click', '#close-login', function() {
+		$('#login').removeClass('animate__fadeInDownBig animate__fadeOutDownBig');
+		$('#login').addClass('animate__fadeOutDownBig');
+		
+	})
+	
 	$('#cart, #close-cart, .cart-outer').click(function() {
 		if ($('#myBG').hasClass('animate__fadeInRightBig')) {
 			$('#myBG').removeClass('animate__fadeInRightBig');
@@ -113,13 +125,16 @@ $(document).ready(function () {
 			$('#myBG').removeClass('animate__fadeOutRightBig');
 			$('#myBG').addClass('animate__fadeInRightBig');
 			// $('#myBG').addClass('animate__animated');
-
+			
 		}
 	})
 	$(document).keydown(function(e){
 		if (e.keyCode === 27) {
 			$('#myBG').removeClass('animate__fadeInRightBig');
-			$('#myBG').addClass('animate__fadeOutRightBig');			
+			$('#myBG').addClass('animate__fadeOutRightBig');
+						
+			$('#login').removeClass('animate__fadeInDownBig animate__fadeOutDownBig');
+			$('#login').addClass('animate__fadeOutDownBig');
 		}
 	})
 
