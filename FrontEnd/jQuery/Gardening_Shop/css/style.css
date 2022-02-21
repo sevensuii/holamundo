@@ -17,7 +17,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
-#myBG {
+.myBG {
     background-color: #1d1e25be;
     /* backdrop-filter: blur(50px); */
 }
