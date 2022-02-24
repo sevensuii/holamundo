@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.lobster {
+    font-family: 'Lobster', cursive;
+}
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.myBG {
+    background-color: #1d1e25be;
+    /* backdrop-filter: blur(50px); */
+}
+
+.slider-show-details {
+    display: none;
+}
+.slider-show-details-par:hover .slider-show-details {
+    display: block;
+}
+
+.slider-show-details-par {
+    @apply h-80 w-1/2 bg-contain bg-center flex flex-col justify-between items-center bg-no-repeat;
+}
+
+.not-active {
+    display: none !important;
+}
+ .inside-info {
+     @apply mb-8 p-2 bg-white rounded-md border-2 border-black
+ }
