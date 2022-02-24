@@ -3,55 +3,6 @@ let sliderNumber = 1;
 
 let app, myDetails;
 
-// <-- Templates -->
-let contactTemplate = `<div class="flex justify-around">
-<div class="w-1/5"></div>
-<div class="block p-6 rounded-lg shadow-lg bg-white max-w-md w-1/5">
-	<form>
-	  <div class="form-group mb-6">
-		<input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding
-		  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
-		  focus:border-blue-600 focus:outline-none" id="exampleInput7"
-		  placeholder="Nombre">
-	  </div>
-	  <div class="form-group mb-6">
-		<input v-model='email' @keyup.enter="greeting = 'HELL4O'" type="email" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding
-		  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 
-		  focus:outline-none" id="exampleInput8" placeholder="Correo electronico">
-	  </div>
-	  <div class="form-group mb-6">
-		<textarea
-		class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
-		  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-		id="exampleFormControlTextarea13" rows="3" placeholder="Cuentanos algo..."
-	  ></textarea>
-	  </div>
-	  <div class="form-group form-check text-center mb-6">
-		<input type="checkbox"
-		  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 
-			checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain 
-			mr-2 cursor-pointer"
-		  id="exampleCheck87" checked>
-		<label class="form-check-label inline-block text-gray-800" for="exampleCheck87">
-			<span class="spanish">Quiero una copia de este mensaje</span>
-			<span class="english">Send me a copy of this message</span>
-		</label>
-	  </div>
-	  <button type="submit" class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded		shadow-md
-		hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800
-		active:shadow-lg transition	duration-150 ease-in-out">Enviar</button>
-	</form>
-  </div>
-  <div class="w-2/5">
-	<img src="img/form-green-flowers.gif" alt="Watering flowers">
-</div>
-</div>`;
-
-let homeTemplate = ``;
-
-
-
-// <-- End Templates -->
 
 function IntervalTimer(callback, interval) {
 	var timerId, startTime, remaining = 0;
@@ -246,32 +197,6 @@ $(document).ready(function () {
 
 				app.mount('#secondary-cont');
 
-				// let myProd = `<div class="text-4xl h-16 text-center bg-blue-50 mb-12">
-				// 	<span class="spanish">Todos los productos</span>
-				// 	<span class="english">All products</span>
-				// </div><div class="flex flex-wrap w-11/12 mx-auto">`;
-				// response.forEach(producto => myProd += `
-				// <div class="flex justify-center mr-6 mb-6">
-				// 	<div class="flex flex-col align-center justify-between w-96 rounded-lg bg-white shadow-lg">
-				// 	  <img class=" w-full h-96 object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src="${producto.imagen}" alt="" />
-				// 	  <div class="p-6 flex flex-col justify-start">
-				// 		<h5 class="text-gray-900 text-xl font-medium mb-2">${producto.nombre}</h5>
-				// 		<p class="text-gray-700 text-base mb-4">
-				// 		  ${producto.descripcion}
-				// 		</p>
-				// 		<p class="text-gray-600 text-xl"><span class='spanish'>Precio</span><span class='english'>Price</span>: ${producto.precio}€</p>
-				// 		<p class="text-gray-600 text-md"><span class='spanish'>Disponibles</span><span class='english'>Available</span>: ${producto.cantidad}</p>
-				// 		<button type="button" class="mt-6 inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"><span class='spanish'>Añadir al carrito</span><span class='english'>Add to cart</span></button>
-				// 	  </div>
-				// 	</div>
-				//   </div>`)
-
-				// myProd += `</div>`  
-			
-				// $('#secondary-cont').html(myProd);
-				// $('#secondary-cont').show();
-				// $('#main-container').hide();
-
 				if( $('#home').hasClass('oculto-en') ) {
 					$('.english').hide();
 				}
@@ -284,10 +209,6 @@ $(document).ready(function () {
 		});
 	})
 	$('#home').click(function() {
-		// $('#main-container').html(homeTemplate);
-		// $('#main-container').show();
-		// $('#secondary-cont').hide();
-
 
 		if( $('#home').hasClass('oculto-en') ) {
 			$('.english').hide();
@@ -339,31 +260,6 @@ $(document).ready(function () {
 				})
 
 				app.mount('#secondary-cont');
-				// let myProd = `<div class="text-4xl h-16 text-center bg-blue-50 mb-12">
-				// 	<span class="spanish">Todos los productos</span>
-				// 	<span class="english">All products</span>
-				// </div><div class="flex flex-wrap w-11/12 mx-auto">`;
-				// response.forEach(producto => myProd += `
-				// <div class="flex justify-center mr-6 mb-6">
-				// 	<div class="flex flex-col align-center justify-between w-96 rounded-lg bg-white shadow-lg">
-				// 	  <img class=" w-full h-96 object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src="${producto.imagen}" alt="" />
-				// 	  <div class="p-6 flex flex-col justify-start">
-				// 		<h5 class="text-gray-900 text-xl font-medium mb-2">${producto.nombre}</h5>
-				// 		<p class="text-gray-700 text-base mb-4">
-				// 		  ${producto.descripcion}
-				// 		</p>
-				// 		<p class="text-gray-600 text-xl"><span class='spanish'>Precio</span><span class='english'>Price</span>: ${producto.precio}€</p>
-				// 		<p class="text-gray-600 text-md"><span class='spanish'>Disponibles</span><span class='english'>Available</span>: ${producto.cantidad}</p>
-				// 		<button type="button" class="mt-6 inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"><span class='spanish'>Añadir al carrito</span><span class='english'>Add to cart</span></button>
-				// 	  </div>
-				// 	</div>
-				//   </div>`)
-
-				// myProd += `</div>`  
-			
-				// $('#secondary-cont').html(myProd);
-				// $('#secondary-cont').show();
-				// $('#main-container').hide();
 
 				if( $('#home').hasClass('oculto-en') ) {
 					$('.english').hide();
@@ -418,31 +314,6 @@ $(document).ready(function () {
 				})
 
 				app.mount('#secondary-cont');
-				// let myProd = `<div class="text-4xl h-16 text-center bg-blue-50 mb-12">
-				// 	<span class="spanish">Todos los productos</span>
-				// 	<span class="english">All products</span>
-				// </div><div class="flex flex-wrap w-11/12 mx-auto">`;
-				// response.forEach(producto => myProd += `
-				// <div class="flex justify-center mr-6 mb-6">
-				// 	<div class="flex flex-col align-center justify-between w-96 rounded-lg bg-white shadow-lg">
-				// 	  <img class=" w-full h-96 object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src="${producto.imagen}" alt="" />
-				// 	  <div class="p-6 flex flex-col justify-start">
-				// 		<h5 class="text-gray-900 text-xl font-medium mb-2">${producto.nombre}</h5>
-				// 		<p class="text-gray-700 text-base mb-4">
-				// 		  ${producto.descripcion}
-				// 		</p>
-				// 		<p class="text-gray-600 text-xl"><span class='spanish'>Precio</span><span class='english'>Price</span>: ${producto.precio}€</p>
-				// 		<p class="text-gray-600 text-md"><span class='spanish'>Disponibles</span><span class='english'>Available</span>: ${producto.cantidad}</p>
-				// 		<button type="button" class="mt-6 inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"><span class='spanish'>Añadir al carrito</span><span class='english'>Add to cart</span></button>
-				// 	  </div>
-				// 	</div>
-				//   </div>`)
-
-				// myProd += `</div>`  
-			
-				// $('#secondary-cont').html(myProd);
-				// $('#secondary-cont').show();
-				// $('#main-container').hide();
 
 				if( $('#home').hasClass('oculto-en') ) {
 					$('.english').hide();
@@ -498,31 +369,6 @@ $(document).ready(function () {
 
 				app.mount('#secondary-cont');
 
-				// let myProd = `<div class="text-4xl h-16 text-center bg-blue-50 mb-12">
-				// 	<span class="spanish">Todos los productos</span>
-				// 	<span class="english">All products</span>
-				// </div><div class="flex flex-wrap w-11/12 mx-auto">`;
-				// response.forEach(producto => myProd += `
-				// <div class="flex justify-center mr-6 mb-6">
-				// 	<div class="flex flex-col align-center justify-between w-96 rounded-lg bg-white shadow-lg">
-				// 	  <img class=" w-full h-96 object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src="${producto.imagen}" alt="" />
-				// 	  <div class="p-6 flex flex-col justify-start">
-				// 		<h5 class="text-gray-900 text-xl font-medium mb-2">${producto.nombre}</h5>
-				// 		<p class="text-gray-700 text-base mb-4">
-				// 		  ${producto.descripcion}
-				// 		</p>
-				// 		<p class="text-gray-600 text-xl"><span class='spanish'>Precio</span><span class='english'>Price</span>: ${producto.precio}€</p>
-				// 		<p class="text-gray-600 text-md"><span class='spanish'>Disponibles</span><span class='english'>Available</span>: ${producto.cantidad}</p>
-				// 		<button type="button" class="mt-6 inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"><span class='spanish'>Añadir al carrito</span><span class='english'>Add to cart</span></button>
-				// 	  </div>
-				// 	</div>
-				//   </div>`)
-
-				// myProd += `</div>`  
-			
-				// $('#secondary-cont').html(myProd);
-				// $('#secondary-cont').show();
-				// $('#main-container').hide();
 
 				if( $('#home').hasClass('oculto-en') ) {
 					$('.english').hide();
